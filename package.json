@@ -1,0 +1,38 @@
+{
+  "name": "bootstrap-for-contact-form-7",
+  "pluginName": "Bootstrap for Contact Form 7",
+  "version": "1.0.0",
+  "description": "This plugin modifies the output of the popular Contact Form 7 plugin to be styled in compliance with themes using the Bootstrap CSS framework.",
+  "keywords": [
+    "wordpress", "plugin", "contact form 7", "wpcf7", "bootstrap", "bootstrap 3", "bootstrap framework", "addon", "contact form 7 addon", "contact form", "cf7bs", "css"
+  ],
+  "author": {
+    "name": "Felix Arntz",
+    "email": "felix-arntz@leaves-and-love.net",
+    "url": "http://leaves-and-love.net"
+  },
+  "homepage": "http://wordpress.org/plugins/bootstrap-for-contact-form-7/",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/felixarntz/bootstrap-for-contact-form-7.git"
+  },
+  "bugs": {
+    "url" : "https://github.com/felixarntz/bootstrap-for-contact-form-7/issues"
+  },
+  "license": {
+    "type": "GPL-2.0",
+    "name": "GNU General Public License v2",
+    "url": "http://www.gnu.org/licenses/gpl-2.0.html"
+  },
+  "engines": {
+    "node": ">= 0.10.0"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.5",
+    "grunt-contrib-clean": "~0.5.0",
+    "grunt-contrib-jshint": "~0.10.0",
+    "grunt-contrib-uglify": "~0.5.0",
+    "grunt-banner": "~0.2.3",
+    "grunt-text-replace": "~0.3.12"
+  }
+}
