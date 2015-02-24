@@ -1,7 +1,7 @@
 <?php
 /**
  * @package CF7BS
- * @version 1.0.0
+ * @version 1.1.0
  * @author Felix Arntz <felix-arntz@leaves-and-love.net>
  */
 
@@ -52,6 +52,12 @@ function cf7bs_select_shortcode_handler( $tag )
 
   $values = $tag->values;
   $labels = $tag->labels;
+
+  if( $data = (array) $tag->get_data_option() )
+  {
+    $values = array_merge( $values, array_values( $data ) );
+    $labels = array_merge( $labels, array_values( $data ) );
+  }
 
   $empty_select = empty( $values );
 

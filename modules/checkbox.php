@@ -1,7 +1,7 @@
 <?php
 /**
  * @package CF7BS
- * @version 1.0.0
+ * @version 1.1.0
  * @author Felix Arntz <felix-arntz@leaves-and-love.net>
  */
 
@@ -57,6 +57,23 @@ function cf7bs_checkbox_shortcode_handler( $tag )
   if( $tag->is_required() )
   {
     $mode = 'required';
+  }
+
+  $values = (array) $tag->values;
+  $labels = (array) $tag->labels;
+
+  if( $data = (array) $tag->get_data_option() )
+  {
+    if( $free_text )
+    {
+      $values = array_merge( array_slice( $values, 0, -1 ), array_values( $data ), array_slice( $values, -1 ) );
+      $labels = array_merge( array_slice( $labels, 0, -1 ), array_values( $data ), array_slice( $labels, -1 ) );
+    }
+    else
+    {
+      $values = array_merge( $values, array_values( $data ) );
+      $labels = array_merge( $labels, array_values( $data ) );
+    }
   }
 
   $defaults = array();

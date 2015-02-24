@@ -7,9 +7,9 @@ Author:            Felix Arntz
 Donate link:       http://leaves-and-love.net/wordpress-plugins/
 Contributors:      flixos90
 Requires at least: 3.6 
-Tested up to:      4.1
-Stable tag:        1.0.0
-Version:           1.0.0
+Tested up to:      4.1.1
+Stable tag:        1.1.0
+Version:           1.1.0
 License:           GPL v2 
 License URI:       http://www.gnu.org/licenses/gpl-2.0.html
 Tags:              contact form 7, wpcf7, bootstrap, bootstrap 3, bootstrap framework, addon, css framework, contact form 7 addon, contact form, cf7bs, css
@@ -26,9 +26,9 @@ Bootstrap for Contact Form 7 modifies all the output of the popular [Contact For
 
 Bootstrap for Contact Form 7 does not provide additional options itself, so you can continue using Contact Form 7 (almost) the same way you did before.
 
-The plugin will not break your form's appearance, however it is recommended to adjust the contact form shortcodes to achieve perfect results: The most important thing you need to know is that form field labels are now integrated in the field shortcodes, so you don't need to wrap them into paragraphs when editing the form shortcode. If you want to use a label for a specific field, you should instead make the shortcode enclosing (by default, all Contact Form 7 shortcodes are self-closing) and put the label in between.
+The plugin will not break your form's appearance, however it is recommended to adjust the contact form shortcodes to achieve perfect results: The most important thing you need to know is that form field labels are now integrated in the field shortcodes, so you don't need to wrap them into paragraphs when editing the form shortcode. If you want to use a label for a specific field, you should instead make the shortcode enclosing (by default, all Contact Form 7 shortcodes are self-closing) and put the label in between. Make sure that, if your field should be required, you add the asterisk to the closing tag as well.
 
-Generally, you should not be using HTML tags any longer to wrap the field shortcodes. The new shortcodes are automatically printed out with wrapping div elements, so an additional wrapper is neither necessary nor recommended. Of course you can still use HTML code to separate parts of your form, for example using the fieldset tag.
+Generally, you should not be using HTML tags any longer to wrap the field shortcodes. The new shortcodes are automatically printed out with wrapping div elements, so an additional wrapper is neither necessary nor recommended. As of version 1.1 of this plugin, the submit button is also automatically positioned according to the form layout. You can specify its alignment using a new 'align' attribute, for example `align:right`. Of course you can still use HTML code to separate parts of your form, for example using the fieldset tag.
 
 An additional feature of this plugin is the possibility to predefine field values for your forms using GET parameters which allows you to bring an improved user experience to your visitors by creating custom links. Simply use the field name as the parameter key and the desired value as value. This works with checkboxes, date fields, number fields, select fields, text fields and text areas. To create such a URL, you need to use the plugin function `cf7bs_add_get_parameter()` where you provide parameters similarly to the WordPress Core function [add_query_arg](https://codex.wordpress.org/Function_Reference/add_query_arg).
 
@@ -88,6 +88,11 @@ If you're a developer and you have some ideas to improve the plugin or to solve 
 3. A warning alert as displayed by Bootstrap for Contact Form 7
 
 == Changelog ==
+
+= 1.1.0 =
+* Added: new attribute 'align' can be added to the submit button
+* Enhanced: submit button now positioned properly according to form layout
+* Fixed: select and radio/checkbox options now use the main plugin's `get_data_option` method
 
 = 1.0.0 =
 * First stable version
