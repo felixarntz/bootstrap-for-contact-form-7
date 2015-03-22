@@ -72,7 +72,13 @@ function cf7bs_get_form_property( $property, $form_id = 0 )
   if( $form_id == 0 )
   {
     $current_form = WPCF7_ContactForm::get_current();
-    $form_id = $current_form->id();
+    if ( $current_form !== null ) {
+      $form_id = $current_form->id();
+    }
+  }
+
+  if ( $form_id == 0 ) {
+    return false;
   }
   
   if( $current_form_id != $form_id )
