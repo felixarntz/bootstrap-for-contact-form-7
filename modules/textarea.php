@@ -39,11 +39,6 @@ function cf7bs_textarea_shortcode_handler( $tag )
   // cols is not used since Bootstrap input fields always scale 100%
   //$atts['cols'] = $tag->get_cols_option( '40' );
 
-  if( $tag->get_rows_option() )
-  {
-    $rows = $tag->get_rows_option();
-  }
-
   if( $tag->is_required() )
   {
     $mode = 'required';
@@ -85,7 +80,7 @@ function cf7bs_textarea_shortcode_handler( $tag )
     'maxlength'         => $tag->get_maxlength_option(),
     'tabindex'          => $tag->get_option( 'tabindex', 'int', true ),
     'wrapper_class'     => $tag->name,
-    'rows'              => $rows
+    'rows'              => $tag->get_rows_option() ?: 4
   ) );
 
   $html = $field->display( false );
