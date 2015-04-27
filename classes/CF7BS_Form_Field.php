@@ -537,6 +537,10 @@ class CF7BS_Form_Field extends CF7BS_Component
     }
     else
     {
+      if( is_array( $value ) )
+      {
+        $value = $value[0];
+      }
       $value = (string) $value;
     }
     return $value;

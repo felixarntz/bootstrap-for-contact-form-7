@@ -77,10 +77,25 @@ function cf7bs_checkbox_shortcode_handler( $tag )
   }
 
   $defaults = array();
+
+  $default_choice = $tag->get_default_option( null, 'multiple=1' );
+
+  foreach( $default_choice as $value )
+  {
+    $key = array_search( $value, $values, true );
+
+    if( false !== $key )
+    {
+      $defaults[] = (int) $key + 1;
+    }
+  }
+
   if( $matches = $tag->get_first_match_option( '/^default:([0-9_]+)$/' ) )
   {
-    $defaults = explode( '_', $matches[1] );
+    $defaults = array_merge( $defaults, explode( '_', $matches[1] ) );
   }
+
+  $defaults = array_unique( $defaults );
 
   $options = array();
   $checked = '';
