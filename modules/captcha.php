@@ -51,7 +51,7 @@ function cf7bs_captcha_shortcode_handler( $tag )
       'mode'              => $mode,
       'status'            => $status,
       'tabindex'          => false,
-      'wrapper_class'     => $tag_obj->name,
+      'wrapper_class'     => '',
     ) );
 
     $html = $field->display( false );
