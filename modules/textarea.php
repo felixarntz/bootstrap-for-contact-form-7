@@ -80,6 +80,7 @@ function cf7bs_textarea_shortcode_handler( $tag )
     'maxlength'         => $tag->get_maxlength_option(),
     'tabindex'          => $tag->get_option( 'tabindex', 'int', true ),
     'wrapper_class'     => $tag->name,
+    'rows'              => $tag->get_rows_option() ?: 4
   ) );
 
   $html = $field->display( false );
