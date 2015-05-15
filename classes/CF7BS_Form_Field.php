@@ -187,7 +187,7 @@ class CF7BS_Form_Field extends CF7BS_Component
               $curval = key( $options );
               $title = $options[ $curval ];
             }
-            $output .= '<div class="checkbox">';
+            $output .= '<div class="checkbox' . $wrapper_class . '">';
             $output .= '<label>';
             $output .= '<input' . $input_class . ( !empty( $id ) ? ' id="' . esc_attr( $id ) . '"' : '' ) . ' name="' . esc_attr( $name ) . '" type="checkbox" value="' . esc_attr( $curval ) . '"' . cf7bs_checked( $value, $curval, false ) . ( is_int( $tabindex ) ? ' tabindex="' . $tabindex . '"' : '' ) . $append . '>';
             $output .= esc_html( $title );
@@ -278,7 +278,7 @@ class CF7BS_Form_Field extends CF7BS_Component
               $curval = key( $options );
               $title = $options[ $curval ];
             }
-            $output .= '<div class="radio">';
+            $output .= '<div class="radio' . $wrapper_class . '">';
             $output .= '<label>';
             $output .= '<input' . $input_class . ( !empty( $id ) ? ' id="' . esc_attr( $id ) . '"' : '' ) . ' name="' . esc_attr( $name ) . '" type="radio" value="' . esc_attr( $curval ) . '"' . cf7bs_checked( $value, $curval, false ) . ( is_int( $tabindex ) ? ' tabindex="' . $tabindex . '"' : '' ) . $append . '>'; 
             $output .= esc_html( $title );
@@ -539,7 +539,12 @@ class CF7BS_Form_Field extends CF7BS_Component
     {
       if( is_array( $value ) )
       {
-        $value = $value[0];
+        if ( count( $value ) > 0 ) {
+          reset( $value );
+          $value = $value[ key( $value ) ];
+        } else {
+          $value = '';
+        }
       }
       $value = (string) $value;
     }

@@ -167,7 +167,7 @@ function cf7bs_checkbox_shortcode_handler( $tag )
   $field = new CF7BS_Form_Field( array(
     'name'              => $tag->name,
     'id'                => $tag->get_option( 'id', 'id', true ),
-    'class'             => $tag->get_class_option( $class ),
+    'class'             => '',
     'type'              => $tag->basetype,
     'value'             => $checked,
     'label'             => $tag->content,
@@ -181,7 +181,7 @@ function cf7bs_checkbox_shortcode_handler( $tag )
     'mode'              => $mode,
     'status'            => $status,
     'tabindex'          => $tag->get_option( 'tabindex', 'int', true ),
-    'wrapper_class'     => $tag->name,
+    'wrapper_class'     => $tag->get_class_option( $class . ' ' . $tag->name ),
   ) );
 
   $html = $field->display( false );
