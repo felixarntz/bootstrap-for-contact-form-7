@@ -1,7 +1,7 @@
 Bootstrap for Contact Form 7
 ============================
 
-This framework plugin makes adding options to the WordPress admin area very simple, yet flexible. It all works using a filter and an array.
+This plugin modifies the output of the popular Contact Form 7 plugin to be styled in compliance with themes using the Bootstrap CSS framework.
 
 You can download the latest version from the [WordPress plugin repository](http://wordpress.org/plugins/bootstrap-for-contact-form-7/).
 
