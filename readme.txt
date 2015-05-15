@@ -77,6 +77,10 @@ While the option to display radio and checkbox labels before the actual input fi
 
 Bootstrap for Contact Form 7 is an (inofficial) addon to Contact Form 7. You must have the plugin installed to see any changes. Furthermore you should only use this plugin if your theme is based on the CSS framework Bootstrap.
 
+= Where should I submit my support request? =
+
+I preferably take support requests as [issues on Github](https://github.com/felixarntz/bootstrap-for-contact-form-7/issues), so I would appreciate if you created an issue for your request there. However, if you don't have an account there and do not want to sign up, you can of course use the [wordpress.org support forums](https://wordpress.org/support/plugin/bootstrap-for-contact-form-7) as well.
+
 = How can I contribute to the plugin? =
 
 If you're a developer and you have some ideas to improve the plugin or to solve a bug, feel free to raise an issue or submit a pull request in the [Github repository for the plugin](https://github.com/felixarntz/bootstrap-for-contact-form-7).
