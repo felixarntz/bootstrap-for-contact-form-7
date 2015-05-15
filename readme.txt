@@ -93,6 +93,12 @@ If you're a developer and you have some ideas to improve the plugin or to solve 
 
 == Changelog ==
 
+= 1.1.1 =
+* Fixed: exclusive option for checkbox now working
+* Fixed: default option for radio/checkbox now working
+* Fixed: PHP notice for radio/checkbox with only one option
+* Fixed: Captcha not valid message now only shows up once as it is supposed to
+
 = 1.1.0 =
 * Added: new attribute 'align' can be added to the submit button
 * Enhanced: submit button now positioned properly according to form layout
