@@ -20,7 +20,8 @@ This plugin modifies the output of the popular Contact Form 7 plugin to be style
 
 Bootstrap for Contact Form 7 modifies all the output of the popular [Contact Form 7 plugin](https://wordpress.org/plugins/contact-form-7/) to be fully compatible with the current version 3 of the popular CSS framework [Bootstrap](http://getbootstrap.com/). What this means to you as a Bootstrap user: No additional CSS rules necessary - from now on, Contact Form 7 integrates seamlessly with the overall Bootstrap design. It is even possible to use different form layouts via an easy-to-use filter.
 
-**This plugin is actually an addon to another plugin, so it requires Contact Form 7 to work. Furthermore you have to be using it in conjunction with a Bootstrap-based WordPress theme, otherwise the forms might look weird.**
+> <strong>This plugin is an addon to Contact Form 7.</strong><br>
+> The plugin requires Contact Form 7 to be activated, otherwise it won't change anything. Furthermore you should be using it in conjunction with a Bootstrap-based WordPress theme, otherwise the forms might look weird (and there would be no point in using this addon anyway).
 
 = Usage =
 
