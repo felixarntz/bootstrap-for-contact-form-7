@@ -141,10 +141,13 @@ class CF7BS_Form_Field extends CF7BS_Component {
 							$curval = key( $options );
 							$title = $options[ $curval ];
 						}
+						if ( false === strpos( $title, 'wpcf7-free-text' ) ) {
+							$title = esc_html( $title );
+						}
 						$output .= '<div class="checkbox' . $wrapper_class . '">';
 						$output .= '<label>';
 						$output .= '<input' . $input_class . ( ! empty( $id ) ? ' id="' . esc_attr( $id ) . '"' : '' ) . ' name="' . esc_attr( $name ) . '" type="checkbox" value="' . esc_attr( $curval ) . '"' . cf7bs_checked( $value, $curval, false ) . ( is_int( $tabindex ) ? ' tabindex="' . $tabindex . '"' : '' ) . $append . '>';
-						$output .= esc_html( $title );
+						$output .= $title;
 						$output .= '</label>';
 						$output .= '</div>';
 					} else {
@@ -172,19 +175,25 @@ class CF7BS_Form_Field extends CF7BS_Component {
 						} elseif ( 'inline' == $group_layout && 'inline' != $form_layout ) {
 							$counter = 0;
 							foreach ( $options as $curval => $title ) {
+								if ( false === strpos( $title, 'wpcf7-free-text' ) ) {
+									$title = esc_html( $title );
+								}
 								$output .= '<label class="checkbox-inline">';
 								$output .= '<input' . $input_class . ( ! empty( $id ) ? ' id="' . esc_attr( $id . ( $counter + 1 ) ) . '"' : '' ) . ' name="' . esc_attr( $name . '[]' ) . '" type="checkbox" value="' . esc_attr( $curval ) . '"' . cf7bs_multiple_checked( $value, $curval, false ) . ( $tabindex >= 0 ? ' tabindex="' . ( $tabindex + $counter ) . '"' : '' ) . $append . '>';
-								$output .= esc_html( $title );
+								$output .= $title;
 								$output .= '</label>';
 								$counter++;
 							}
 						} else {
 							$counter = 0;
 							foreach ( $options as $curval => $title ) {
+								if ( false === strpos( $title, 'wpcf7-free-text' ) ) {
+									$title = esc_html( $title );
+								}
 								$output .= '<div class="checkbox">';
 								$output .= '<label>';
 								$output .= '<input' . $input_class . ( ! empty( $id ) ? ' id="' . esc_attr( $id . ( $counter + 1 ) ) . '"' : '' ) . ' name="' . esc_attr( $name . '[]' ) . '" type="checkbox" value="' . esc_attr( $curval ) . '"' . cf7bs_multiple_checked( $value, $curval, false ) . ( is_int( $tabindex ) ? ' tabindex="' . ( $tabindex + $counter ) . '"' : '' ) . $append . '>';
-								$output .= esc_html( $title );
+								$output .= $title;
 								$output .= '</label>';
 								$output .= '</div>';
 								$counter++;
@@ -216,10 +225,13 @@ class CF7BS_Form_Field extends CF7BS_Component {
 							$curval = key( $options );
 							$title = $options[ $curval ];
 						}
+						if ( false === strpos( $title, 'wpcf7-free-text' ) ) {
+							$title = esc_html( $title );
+						}
 						$output .= '<div class="radio' . $wrapper_class . '">';
 						$output .= '<label>';
 						$output .= '<input' . $input_class . ( ! empty( $id ) ? ' id="' . esc_attr( $id ) . '"' : '' ) . ' name="' . esc_attr( $name ) . '" type="radio" value="' . esc_attr( $curval ) . '"' . cf7bs_checked( $value, $curval, false ) . ( is_int( $tabindex ) ? ' tabindex="' . $tabindex . '"' : '' ) . $append . '>';
-						$output .= esc_html( $title );
+						$output .= $title;
 						$output .= '</label>';
 						$output .= '</div>';
 					} else {
@@ -247,19 +259,25 @@ class CF7BS_Form_Field extends CF7BS_Component {
 						} elseif( 'inline' == $group_layout && 'inline' != $form_layout ) {
 							$counter = 0;
 							foreach ( $options as $curval => $title ) {
+								if ( false === strpos( $title, 'wpcf7-free-text' ) ) {
+									$title = esc_html( $title );
+								}
 								$output .= '<label class="radio-inline">';
 								$output .= '<input' . $input_class . ( ! empty( $id ) ? ' id="' . esc_attr( $id . ( $counter + 1 ) ) . '"' : '' ) . ' name="' . esc_attr( $name ) . '" type="radio" value="' . esc_attr( $curval ) . '"' . cf7bs_checked( $value, $curval, false ) . ( $tabindex >= 0 ? ' tabindex="' . ( $tabindex + $counter ) . '"' : '' ) . $append . '>';
-								$output .= esc_html( $title );
+								$output .= $title;
 								$output .= '</label>';
 								$counter++;
 							}
 						} else {
 							$counter = 0;
 							foreach ( $options as $curval => $title ) {
+								if ( false === strpos( $title, 'wpcf7-free-text' ) ) {
+									$title = esc_html( $title );
+								}
 								$output .= '<div class="radio">';
 								$output .= '<label>';
 								$output .= '<input' . $input_class . ( ! empty( $id ) ? ' id="' . esc_attr( $id . ( $counter + 1 ) ) . '"' : '' ) . ' name="' . esc_attr( $name ) . '" type="radio" value="' . esc_attr( $curval ) . '"' . cf7bs_checked( $value, $curval, false ) . ( is_int( $tabindex ) ? ' tabindex="' . ( $tabindex + $counter ) . '"' : '' ) . $append . '>';
-								$output .= esc_html( $title );
+								$output .= $title;
 								$output .= '</label>';
 								$output .= '</div>';
 								$counter++;

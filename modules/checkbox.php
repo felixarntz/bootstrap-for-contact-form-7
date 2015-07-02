@@ -34,6 +34,8 @@ function cf7bs_checkbox_shortcode_handler( $tag ) {
 	}
 
 	$exclusive = $tag->has_option( 'exclusive' );
+	$free_text = $tag->has_option( 'free_text' );
+
 	$multiple = false;
 
 	if ( 'checkbox' == $tag->basetype ) {
@@ -102,8 +104,14 @@ function cf7bs_checkbox_shortcode_handler( $tag ) {
 	}
 	$posted = wpcf7_is_posted();
 
+	$count = 0;
+
 	foreach ( (array) $tag->values as $key => $value ) {
-		$options[ $value ] = isset( $labels[ $key ] ) ? $labels[ $key ] : $value;
+		if ( $free_text && $count == count( $tag->values ) - 1 ) {
+			$options[ $value ] = '<input type="text" name="' . sprintf( '_wpcf7_%1$s_free_text_%2$s', $tag->basetype, $tag->name ) . '" class="wpcf7-free-text">';
+		} else {
+			$options[ $value ] = isset( $labels[ $key ] ) ? $labels[ $key ] : $value;
+		}
 
 		if ( $posted && ! empty( $post ) ) {
 			if ( $multiple && in_array( esc_sql( $value ), (array) $post ) ) {
@@ -126,6 +134,7 @@ function cf7bs_checkbox_shortcode_handler( $tag ) {
 				$checked = $value;
 			}
 		}
+		$count++;
 	}
 
 	$field = new CF7BS_Form_Field( array(

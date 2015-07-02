@@ -40,9 +40,15 @@ class CF7BS_Button extends CF7BS_Component {
 			}
 
 			if ( 'checkbox' == $mode ) {
-				$output .= '<label class="' . esc_attr( $class ) . '"><input' . $id . $name . ' type="checkbox" value="' . esc_attr( $value ) . '"' . $append . '>' . esc_html( $title ) . '</label>';
+				if ( false === strpos( $title, 'wpcf7-free-text' ) ) {
+					$title = esc_html( $title );
+				}
+				$output .= '<label class="' . esc_attr( $class ) . '"><input' . $id . $name . ' type="checkbox" value="' . esc_attr( $value ) . '"' . $append . '>' . $title . '</label>';
 			} elseif ( 'radio' == $mode ) {
-				$output .= '<label class="' . esc_attr( $class ) . '"><input' . $id . $name . ' type="radio" value="' . esc_attr( $value ) . '"' . $append . '>' . esc_html( $title ) . '</label>';
+				if ( false === strpos( $title, 'wpcf7-free-text' ) ) {
+					$title = esc_html( $title );
+				}
+				$output .= '<label class="' . esc_attr( $class ) . '"><input' . $id . $name . ' type="radio" value="' . esc_attr( $value ) . '"' . $append . '>' . $title . '</label>';
 			} else {
 				$wrapper_class = array();
 
