@@ -1,5 +1,9 @@
 == Changelog ==
 
+= 1.2.0 =
+* Tweaked: plugin now adheres to WordPress Coding Standards
+* Fixed: textarea row attribute now honored
+
 = 1.1.1 =
 * Fixed: exclusive option for checkbox now working
 * Fixed: default option for radio/checkbox now working
