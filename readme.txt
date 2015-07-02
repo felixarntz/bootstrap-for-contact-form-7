@@ -66,6 +66,10 @@ So if you need to change the layout to a horizontal one, the function can look l
 
 You could also modify the default form properties (affecting every form on your site) by using the filter `cf7bs_default_form_properties`.
 
+= How do I use the input group feature of Bootstrap? =
+
+All textual input fields support the input group feature that Bootstrap provides. To use it, add an attribute `input_before` and/or `input_after` to any text / email / url / tel input (for example `[text* twitter-username input_before:@]Your Twitter Handle[/text*]`).
+
 = Why do my labels always appear in a separate line? =
 
 If your labels still appear in a separate line although you have already changed the layout, you might still be using the shortcode the same way you did before. Please read the description to see what to look out for.

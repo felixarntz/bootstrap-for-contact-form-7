@@ -1,8 +1,11 @@
 == Changelog ==
 
 = 1.2.0 =
+* Enhanced: textual inputs now support Bootstrap's input group feature
 * Tweaked: plugin now adheres to WordPress Coding Standards
 * Fixed: textarea row attribute now honored
+* Fixed: free_text attribute on checkbox and radio types now honored
+* Fixed: check if CF7 functions are available before calling them
 
 = 1.1.1 =
 * Fixed: exclusive option for checkbox now working

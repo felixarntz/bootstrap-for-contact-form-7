@@ -24,6 +24,21 @@ function cf7bs_add_shortcode_text() {
 function cf7bs_text_shortcode_handler( $tag ) {
 	$tag = new WPCF7_Shortcode( $tag );
 
+	$input_before = $tag->get_first_match_option( '/input_before:([^\s]+)/' );
+	$input_after = $tag->get_first_match_option( '/input_after:([^\s]+)/' );
+
+	if ( is_array( $input_before ) && isset( $input_before[1] ) ) {
+		$input_before = $input_before[1];
+	} else {
+		$input_before = '';
+	}
+
+	if ( is_array( $input_after ) && isset( $input_after[1] ) ) {
+		$input_after = $input_after[1];
+	} else {
+		$input_after = '';
+	}
+
 	if ( empty( $tag->name ) ) {
 		return '';
 	}
@@ -81,6 +96,8 @@ function cf7bs_text_shortcode_handler( $tag ) {
 		'maxlength'			=> $tag->get_maxlength_option(),
 		'tabindex'			=> $tag->get_option( 'tabindex', 'int', true ),
 		'wrapper_class'		=> $tag->name,
+		'input_before'		=> $input_before,
+		'input_after'		=> $input_after,
 	) );
 
 	$html = $field->display( false );
