@@ -98,6 +98,19 @@ If you're a developer and you have some ideas to improve the plugin or to solve 
 
 == Changelog ==
 
+= 1.2.0 =
+* Added: new CF7 count shortcode is now supported
+* Enhanced: form properties can now be modified without any code (i.e. without a filter); the properties can be defined in the new "Additional Settings" tab of Contact Form 7
+* Enhanced: textual inputs now support Bootstrap's input group feature
+* Enhanced: checkbox and radio types can now show an actual label; it is only used as the checkbox label if no option is provided
+* Tweaked: plugin now adheres to WordPress Coding Standards
+* Fixed: improved display method for captcha images
+* Fixed: textarea row attribute now honored
+* Fixed: free_text attribute on checkbox and radio types now honored
+* Fixed: form attribute 'group_type' now honored
+* Fixed: additional CF7 styles are now outputted in the head
+* Fixed: check if CF7 functions are available before calling them
+
 = 1.1.1 =
 * Fixed: exclusive option for checkbox now working
 * Fixed: default option for radio/checkbox now working
