@@ -26,33 +26,29 @@ function cf7bs_captcha_shortcode_handler( $tag ) {
 		return '';
 	}
 
-	$mode = $status = 'default';
-
 	$validation_error = wpcf7_get_validation_error( $tag_obj->name );
-
-	$class = wpcf7_form_controls_class( $tag_obj->type, 'wpcf7-text' );
 
 	if ( 'captchac' == $tag_obj->type ) {
 		$field = new CF7BS_Form_Field( array(
-			'name'				=> $tag_obj->name,
-			'id'				=> $tag_obj->get_option( 'id', 'id', true ),
-			'type'				=> 'file',
-			'value'				=> '1',
+			'name'				=> wpcf7_captcha_shortcode_handler( $tag ),
+			'type'				=> 'custom',
 			'label'				=> $tag_obj->content,
 			'help_text'			=> $validation_error,
 			'form_layout'		=> cf7bs_get_form_property( 'layout' ),
 			'form_label_width'	=> cf7bs_get_form_property( 'label_width' ),
 			'form_breakpoint'	=> cf7bs_get_form_property( 'breakpoint' ),
-			'mode'				=> $mode,
-			'status'			=> $status,
 			'tabindex'			=> false,
 			'wrapper_class'		=> '',
 		) );
 
 		$html = $field->display( false );
 
-		return str_replace( '<input' . ( '' != $tag_obj->get_option( 'id', 'id', true ) ? ' id="' . esc_attr( $tag_obj->get_option( 'id', 'id', true ) ) . '"' : '' ) . ' name="' . esc_attr( $tag_obj->name ) . '" type="file">', wpcf7_captcha_shortcode_handler( $tag ), $html );
+		return $html;
 	} elseif ( 'captchar' == $tag_obj->type ) {
+		$mode = $status = 'default';
+
+		$class = wpcf7_form_controls_class( $tag_obj->type, 'wpcf7-text' );
+
 		if ( $validation_error ) {
 			$class .= ' wpcf7-not-valid';
 			$status = 'error';

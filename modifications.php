@@ -98,10 +98,12 @@ function cf7bs_inline_styles() {
 			display: none;
 		}
 		div.wpcf7 img.ajax-loader {
-			display: inline;
 			border: none;
 			vertical-align: middle;
 			margin-left: 4px;
+		}
+		div.wpcf7 .form-inline img.ajax-loader {
+			display: inline;
 		}
 		div.wpcf7 div.ajax-error {
 			display: none;

@@ -38,6 +38,7 @@ function cf7bs_maybe_init() {
 			'acceptance',
 			'submit',
 			'captcha',
+			'count',
 			'number',
 			'text',
 			'checkbox',
@@ -66,7 +67,7 @@ function cf7bs_get_form_property( $property, $form_id = 0 ) {
 	if ( $form_id == 0 ) {
 		if ( is_callable( array( 'WPCF7_ContactForm', 'get_current' ) ) ) {
 			$current_form = WPCF7_ContactForm::get_current();
-			if ( $current_form !== null && is_callable( array( $current_form, 'id' ) ) ) {
+			if ( is_a( $current_form, 'WPCF7_ContactForm' ) && is_callable( array( $current_form, 'id' ) ) ) {
 				$form_id = $current_form->id();
 			}
 		}
@@ -80,6 +81,16 @@ function cf7bs_get_form_property( $property, $form_id = 0 ) {
 		$current_form_id = $form_id;
 
 		$properties = cf7bs_get_default_form_properties();
+		if ( is_a( $current_form, 'WPCF7_ContactForm' ) && is_callable( array( $current_form, 'additional_setting' ) ) ) {
+			foreach ( $properties as $key => &$value ) {
+				$setting = $current_form->additional_setting( $key );
+				if ( isset( $setting[0] ) ) {
+					$value = $setting[0];
+				}
+			}
+			unset( $key );
+			unset( $value );
+		}
 		$current_form_properties = apply_filters( 'cf7bs_form_' . $form_id . '_properties', $properties );
 	}
 

@@ -302,6 +302,11 @@ class CF7BS_Form_Field extends CF7BS_Component {
 					}
 					$output .= '<input' . $input_class . ( ! empty( $id ) ? ' id="' . esc_attr( $id ) . '"' : '' ) . ' name="' . esc_attr( $name ) . '" type="' . esc_attr( $type ) . '" value="' . esc_attr( $value ) . '"' . $placeholder . $min . $max . $step . $readonly . $tabindex . $append . '>';
 					break;
+				case 'custom':
+					if ( ! empty( $name ) ) {
+						$output .= $name;
+					}
+					break;
 				default:
 					if ( 'static' == $mode ) {
 						$output .= '<p class="form-control-static">' . esc_html( $value ) . '</p>';
@@ -424,6 +429,7 @@ class CF7BS_Form_Field extends CF7BS_Component {
 			'multiselect',
 			'checkbox',
 			'radio',
+			'custom',
 		);
 
 		$type = strtolower( $type );
