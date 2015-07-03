@@ -51,16 +51,20 @@ When using a well-known framework which provides general styles for all the impo
 
 = How can I use a different form layout for my form? =
 
-To modify the layout (or one of the other six form properties), you need to use the filter `'cf7bs_form_' . $form_id . '_properties'` where `$form_id` must be the ID of the form you'd like to modify. You find this number in the form shortcode. An array is passed to the function you specify, containing entries with the following keys:
+The easiest method to modify the layout (or one of the other seven form properties) is to add the properties and their desired values into the "Additional Settings" tab of Contact Form 7 (note that you need to have a current version of CF7 to have that feature available).
 
-* `layout` - adjusts the form's layout; possible values: default, inline, horizontal; default value: default
-* `label_width` - adjusts the form's label width (applies only to horizontal layout); possible values: any integer between 1 and 11; default value: 3
-* `breakpoint` - adjusts the responsive breakpoint (applies only to horizontal layout); possible values: xs, sm, md, lg; default value: sm
-* `size` - adjusts the size of all input fields; possible values: default, small, large; default value: default
-* `required_html` - adjusts the HTML output to append to required fields' labels; possible values: any HTML output; default value: `<span class="required">*</span>`
-* `group_layout` - adjusts the layout of checkbox and radio groups; possible values: default, inline, buttons; default value: default
-* `group_type` - adjusts the color of checkbox and radio groups with buttons layout; possible values: default, primary, success, info, warning, danger; default value: default
-* `submit_type` - adjusts the color of the submit button; possible values: default, primary, success, info, warning, danger; default value: primary
+As an alternative (or if you're using an older version), you could also use the filter `'cf7bs_form_' . $form_id . '_properties'` where `$form_id` must be the ID of the form you'd like to modify. You find this number in the form shortcode. An array of `'property' => 'property_value'` is passed to the function you specify so that you can override the defaults.
+
+The following is a list of the eight available form properties, valid values for them and their default values.
+
+* `layout` - adjusts the form's layout; valid values: default, inline, horizontal; default value: default
+* `label_width` - adjusts the form's label width (applies only to horizontal layout); valid values: any integer between 1 and 11; default value: 3
+* `breakpoint` - adjusts the responsive breakpoint (applies only to horizontal layout); valid values: xs, sm, md, lg; default value: sm
+* `size` - adjusts the size of all input fields; valid values: default, small, large; default value: default
+* `required_html` - adjusts the HTML output to append to required fields' labels; valid values: any HTML output; default value: `<span class="required">*</span>`
+* `group_layout` - adjusts the layout of checkbox and radio groups; valid values: default, inline, buttons; default value: default
+* `group_type` - adjusts the color of checkbox and radio groups with buttons layout; valid values: default, primary, success, info, warning, danger; default value: default
+* `submit_type` - adjusts the color of the submit button; valid values: default, primary, success, info, warning, danger; default value: primary
 
 So if you need to change the layout to a horizontal one, the function can look like this: `function yourfunction( $properties ) { $properties['layout'] = 'horizontal'; return $properties; }`
 
