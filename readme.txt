@@ -53,14 +53,14 @@ When using a well-known framework which provides general styles for all the impo
 
 To modify the layout (or one of the other six form properties), you need to use the filter `'cf7bs_form_' . $form_id . '_properties'` where `$form_id` must be the ID of the form you'd like to modify. You find this number in the form shortcode. An array is passed to the function you specify, containing entries with the following keys:
 
-* `layout` - possible values: default, inline, horizontal; default value: default
-* `label_width` - possible values: any integer between 1 and 11; default value: 3
-* `breakpoint` - possible values: xs, sm, md, lg; default value: sm
-* `size` - possible values: default, small, large; default value: default
-* `required_html` - possible values: any HTML output to append to labels for required fields; default value: `<span class="required">*</span>`
-* `group_layout` - possible values: default, inline, buttons; default value: default
-* `group_type` - possible values: default, primary, success, info, warning, danger; default value: default
-* `submit_type` - possible values: default, primary, success, info, warning, danger; default value: primary
+* `layout` - adjusts the form's layout; possible values: default, inline, horizontal; default value: default
+* `label_width` - adjusts the form's label width (applies only to horizontal layout); possible values: any integer between 1 and 11; default value: 3
+* `breakpoint` - adjusts the responsive breakpoint (applies only to horizontal layout); possible values: xs, sm, md, lg; default value: sm
+* `size` - adjusts the size of all input fields; possible values: default, small, large; default value: default
+* `required_html` - adjusts the HTML output to append to required fields' labels; possible values: any HTML output; default value: `<span class="required">*</span>`
+* `group_layout` - adjusts the layout of checkbox and radio groups; possible values: default, inline, buttons; default value: default
+* `group_type` - adjusts the color of checkbox and radio groups with buttons layout; possible values: default, primary, success, info, warning, danger; default value: default
+* `submit_type` - adjusts the color of the submit button; possible values: default, primary, success, info, warning, danger; default value: primary
 
 So if you need to change the layout to a horizontal one, the function can look like this: `function yourfunction( $properties ) { $properties['layout'] = 'horizontal'; return $properties; }`
 

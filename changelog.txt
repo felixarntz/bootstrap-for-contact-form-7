@@ -2,9 +2,12 @@
 
 = 1.2.0 =
 * Enhanced: textual inputs now support Bootstrap's input group feature
+* Enhanced: checkbox and radio types can now show an actual label; it is only used as the checkbox label if no option is provided
 * Tweaked: plugin now adheres to WordPress Coding Standards
 * Fixed: textarea row attribute now honored
 * Fixed: free_text attribute on checkbox and radio types now honored
+* Fixed: form attribute 'group_type' now honored
+* Fixed: additional CF7 styles are now outputted in the head
 * Fixed: check if CF7 functions are available before calling them
 
 = 1.1.1 =

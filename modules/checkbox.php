@@ -137,13 +137,24 @@ function cf7bs_checkbox_shortcode_handler( $tag ) {
 		$count++;
 	}
 
+	$label = $tag->content;
+
+	if ( count( $options ) < 1 ) {
+		if ( $free_text ) {
+			$options = array( 'true' => '<input type="text" name="' . sprintf( '_wpcf7_%1$s_free_text_%2$s', $tag->basetype, $tag->name ) . '" class="wpcf7-free-text">' );
+		} else {
+			$options = array( 'true' => $label );
+			$label = '';
+		}
+	}
+
 	$field = new CF7BS_Form_Field( array(
 		'name'				=> $tag->name,
 		'id'				=> $tag->get_option( 'id', 'id', true ),
 		'class'				=> '',
 		'type'				=> $tag->basetype,
 		'value'				=> $checked,
-		'label'				=> $tag->content,
+		'label'				=> $label,
 		'options'			=> $options,
 		'help_text'			=> $validation_error,
 		'size'				=> cf7bs_get_form_property( 'size' ),
@@ -151,6 +162,7 @@ function cf7bs_checkbox_shortcode_handler( $tag ) {
 		'form_label_width'	=> cf7bs_get_form_property( 'label_width' ),
 		'form_breakpoint'	=> cf7bs_get_form_property( 'breakpoint' ),
 		'group_layout'		=> cf7bs_get_form_property( 'group_layout' ),
+		'group_type'		=> cf7bs_get_form_property( 'group_type' ),
 		'mode'				=> $mode,
 		'status'			=> $status,
 		'tabindex'			=> $tag->get_option( 'tabindex', 'int', true ),

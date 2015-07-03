@@ -94,9 +94,24 @@ add_action( 'wpcf7_enqueue_styles', 'cf7bs_enqueue_styles' );
 function cf7bs_inline_styles() {
 	?>
 	<style type="text/css">
-	.screen-reader-response {
-		display: none;
-	}
+		.screen-reader-response {
+			display: none;
+		}
+		div.wpcf7 img.ajax-loader {
+			display: inline;
+			border: none;
+			vertical-align: middle;
+			margin-left: 4px;
+		}
+		div.wpcf7 div.ajax-error {
+			display: none;
+		}
+		.wpcf7-display-none {
+			display: none;
+		}
+		.form-inline .form-group {
+			max-width: 250px;
+		}
 	</style>
 	<?php
 }
@@ -124,10 +139,8 @@ add_filter( 'wpcf7_form_novalidate', 'cf7bs_form_novalidate' );
 
 function cf7bs_form_response_output( $output, $class, $content, $form_obj ) {
 	$type = 'warning';
-	$hide = false;
 
 	if ( false !== strpos( $class, 'wpcf7-display-none' ) ) {
-		$hide = true;
 		$type = '';
 	} else {
 		if ( false !== strpos( $class, 'wpcf7-mail-sent-ng' ) ) {
@@ -142,7 +155,6 @@ function cf7bs_form_response_output( $output, $class, $content, $form_obj ) {
 	$alert = new CF7BS_Alert( array(
 		'type'		=> $type,
 		'class'		=> $class,
-		'hide'		=> $hide,
 	) );
 
 	return $alert->open( false ) . esc_html( $content ) . $alert->close( false );

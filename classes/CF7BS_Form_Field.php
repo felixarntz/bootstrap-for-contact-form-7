@@ -26,7 +26,7 @@ class CF7BS_Form_Field extends CF7BS_Component {
 					$classes = $this->get_column_width_classes( $form_label_width, $form_breakpoint );
 					$label_class .= ' ' . $classes['label'];
 					$input_div_class = $classes['input'];
-					if ( empty( $label ) || in_array( $type, array( 'radio', 'checkbox' ) ) && count( $options ) <= 1 ) {
+					if ( empty( $label ) ) {
 						$input_div_class .= ' ' . $this->get_column_offset_class( $form_label_width, $form_breakpoint );
 					}
 				} elseif( 'inline' == $form_layout ) {
@@ -105,27 +105,23 @@ class CF7BS_Form_Field extends CF7BS_Component {
 
 				if ( 'horizontal' == $form_layout ) {
 					$output .= '<div class="form-group' . $wrapper_class . $status . '">';
-					if ( ! empty( $label ) && ( ! in_array( $type, array( 'radio', 'checkbox' ) ) || count( $options ) > 1 ) ) {
+					if ( ! empty( $label ) ) {
 						$output .= '<label class="' . esc_attr( $label_class ) . '" for="' . esc_attr( $id ) . '">' . esc_html( $label ) . $label_required . '</label>';
 					}
 					$output .= '<div class="' . esc_attr( $input_div_class ) . '">';
 				} elseif( 'inline' == $form_layout ) {
-					if ( ! in_array( $type, array( 'radio', 'checkbox' ) ) || count( $options ) > 1 ) {
-						$output .= '<div class="form-group' . $wrapper_class . $status . '">';
-						if ( ! empty( $label ) ) {
-							$output .= '<label class="sr-only" for="' . esc_attr( $id ) . '">' . esc_html( $label ) . $label_required . '</label>';
-						}
+					$output .= '<div class="form-group' . $wrapper_class . $status . '">';
+					if ( ! empty( $label ) ) {
+						$output .= '<label class="sr-only" for="' . esc_attr( $id ) . '">' . esc_html( $label ) . $label_required . '</label>';
 					}
 				} else {
-					if ( ! in_array( $type, array( 'radio', 'checkbox' ) ) || count( $options ) > 1 ) {
-						$output .= '<div class="form-group' . $wrapper_class . $status . '">';
-						if ( ! empty( $label ) ) {
-							$rc_group_style = '';
-							if ( in_array( $type, array( 'radio', 'checkbox' ) ) ) {
-								$rc_group_style = ' style="display:block;"';
-							}
-							$output .= '<label for="' . esc_attr( $id ) . '"' . $rc_group_style . '>' . esc_html( $label ) . $label_required . '</label>';
+					$output .= '<div class="form-group' . $wrapper_class . $status . '">';
+					if ( ! empty( $label ) ) {
+						$rc_group_style = '';
+						if ( in_array( $type, array( 'radio', 'checkbox' ) ) ) {
+							$rc_group_style = ' style="display:block;"';
 						}
+						$output .= '<label for="' . esc_attr( $id ) . '"' . $rc_group_style . '>' . esc_html( $label ) . $label_required . '</label>';
 					}
 				}
 			}
@@ -133,14 +129,8 @@ class CF7BS_Form_Field extends CF7BS_Component {
 			switch ( $type ) {
 				case 'checkbox':
 					if ( count( $options ) <= 1 ) {
-						if ( count( $options ) < 1 ) {
-							$curval = 'true';
-							$title = $label;
-						} else {
-							reset( $options );
-							$curval = key( $options );
-							$title = $options[ $curval ];
-						}
+						$curval = key( $options );
+						$title = $options[ $curval ];
 						if ( false === strpos( $title, 'wpcf7-free-text' ) ) {
 							$title = esc_html( $title );
 						}
@@ -217,14 +207,8 @@ class CF7BS_Form_Field extends CF7BS_Component {
 					break;
 				case 'radio':
 					if ( count( $options ) <= 1 ) {
-						if ( count( $options ) < 1 ) {
-							$curval = 'true';
-							$title = $label;
-						} else {
-							reset( $options );
-							$curval = key( $options );
-							$title = $options[ $curval ];
-						}
+						$curval = key( $options );
+						$title = $options[ $curval ];
 						if ( false === strpos( $title, 'wpcf7-free-text' ) ) {
 							$title = esc_html( $title );
 						}
@@ -361,7 +345,7 @@ class CF7BS_Form_Field extends CF7BS_Component {
 				if ( 'horizontal' == $form_layout ) {
 					$output .= '</div>';
 					$output .= '</div>';
-				} elseif ( !in_array( $type, array( 'radio', 'checkbox' ) ) || count( $options ) > 1 ) {
+				} else {
 					$output .= '</div>';
 				}
 			}
