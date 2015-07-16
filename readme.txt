@@ -58,6 +58,7 @@ As an alternative (or if you're using an older version), you could also use the 
 The following is a list of the eight available form properties, valid values for them and their default values.
 
 * `layout` - adjusts the form's layout; valid values: default, inline, horizontal; default value: default
+* `grid_columns` - allows you to override the total grid column count of Bootstrap (you might only need to adjust this if you're using a custom version of Bootstrap); valid values: any integer greater than 1; default value: 12
 * `label_width` - adjusts the form's label width (applies only to horizontal layout); valid values: any integer between 1 and 11; default value: 3
 * `breakpoint` - adjusts the responsive breakpoint (applies only to horizontal layout); valid values: xs, sm, md, lg; default value: sm
 * `size` - adjusts the size of all input fields; valid values: default, small, large; default value: default
