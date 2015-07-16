@@ -3,7 +3,7 @@
 Plugin Name: Bootstrap for Contact Form 7
 Plugin URI: http://wordpress.org/plugins/bootstrap-for-contact-form-7/
 Description: This plugin modifies the output of the popular Contact Form 7 plugin to be styled in compliance with themes using the Bootstrap CSS framework.
-Version: 1.2.0
+Version: 1.2.1
 Author: Felix Arntz
 Author URI: http://leaves-and-love.net
 License: GNU General Public License v2
@@ -11,11 +11,11 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 */
 /**
  * @package CF7BS
- * @version 1.2.0
+ * @version 1.2.1
  * @author Felix Arntz <felix-arntz@leaves-and-love.net>
  */
 
-define( 'CF7BS_VERSION', '1.2.0' );
+define( 'CF7BS_VERSION', '1.2.1' );
 define( 'CF7BS_MAINFILE', __FILE__ );
 define( 'CF7BS_PATH', untrailingslashit( plugin_dir_path( CF7BS_MAINFILE ) ) );
 define( 'CF7BS_URL', untrailingslashit( plugin_dir_url( CF7BS_MAINFILE ) ) );
@@ -103,6 +103,7 @@ function cf7bs_get_form_property( $property, $form_id = 0 ) {
 function cf7bs_get_default_form_properties() {
 	$properties = array(
 		'layout'		=> 'default', // default, inline, horizontal
+		'grid_columns'	=> 12,
 		'label_width'	=> 3, // integer between 1 and 11
 		'breakpoint'	=> 'sm', // xs, sm, md, lg
 		'size'			=> 'default', // default, small, large

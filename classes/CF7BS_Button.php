@@ -1,7 +1,7 @@
 <?php
 /**
  * @package CF7BS
- * @version 1.2.0
+ * @version 1.2.1
  * @author Felix Arntz <felix-arntz@leaves-and-love.net>
  */
 
@@ -57,7 +57,7 @@ class CF7BS_Button extends CF7BS_Component {
 				}
 
 				if ( 'horizontal' == $form_layout ) {
-					$wrapper_class[] = $this->get_column_class( $form_label_width, $form_breakpoint );
+					$wrapper_class[] = $this->get_column_class( $form_label_width, $form_breakpoint, $grid_columns );
 				}
 
 				$wrapper_class = implode( ' ', $wrapper_class );
@@ -114,6 +114,7 @@ class CF7BS_Button extends CF7BS_Component {
 			'value'					=> '', // for checkbox/radio only
 			'tabindex'				=> false,
 			'align'					=> false,
+			'grid_columns'			=> 12,
 			'form_layout'			=> 'default', // default, inline, horizontal
 			'form_label_width'		=> 2,
 			'form_breakpoint'		=> 'sm',
@@ -139,13 +140,13 @@ class CF7BS_Button extends CF7BS_Component {
 		return $type;
 	}
 
-	private function get_column_class( $label_column_width = 2, $breakpoint = 'sm' ) {
-		if ( $label_column_width > 11 || $label_column_width < 1 ) {
+	private function get_column_class( $label_column_width = 2, $breakpoint = 'sm', $grid_columns = 12 ) {
+		if ( $label_column_width > $grid_columns - 1 || $label_column_width < 1 ) {
 			$label_column_width = 2;
 		}
 		if ( ! in_array( $breakpoint, array( 'xs', 'sm', 'md', 'lg' ) ) ) {
 			$breakpoint = 'sm';
 		}
-		return 'col-' . $breakpoint . '-' . ( 12 - $label_column_width ) . ' col-' . $breakpoint . '-offset-' . $label_column_width;
+		return 'col-' . $breakpoint . '-' . ( $grid_columns - $label_column_width ) . ' col-' . $breakpoint . '-offset-' . $label_column_width;
 	}
 }

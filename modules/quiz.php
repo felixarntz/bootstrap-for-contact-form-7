@@ -1,7 +1,7 @@
 <?php
 /**
  * @package CF7BS
- * @version 1.2.0
+ * @version 1.2.1
  * @author Felix Arntz <felix-arntz@leaves-and-love.net>
  */
 
@@ -54,6 +54,7 @@ function cf7bs_quiz_shortcode_handler( $tag ) {
 		'label'				=> $tag->content,
 		'help_text'			=> $validation_error,
 		'size'				=> cf7bs_get_form_property( 'size' ),
+		'grid_columns'		=> cf7bs_get_form_property( 'grid_columns' ),
 		'form_layout'		=> cf7bs_get_form_property( 'layout' ),
 		'form_label_width'	=> cf7bs_get_form_property( 'label_width' ),
 		'form_breakpoint'	=> cf7bs_get_form_property( 'breakpoint' ),

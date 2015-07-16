@@ -1,5 +1,8 @@
 == Changelog ==
 
+= 1.2.1 =
+* Enhanced: the default grid column count of Bootstrap can now be overridden using the form property 'grid_columns'
+
 = 1.2.0 =
 * Added: new CF7 count shortcode is now supported
 * Enhanced: form properties can now be modified without any code (i.e. without a filter); the properties can be defined in the new "Additional Settings" tab of Contact Form 7
