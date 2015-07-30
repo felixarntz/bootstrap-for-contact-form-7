@@ -244,3 +244,28 @@ function cf7bs_array_decode( $values ) {
 	$decoded = explode( '---', $values );
 	return $decoded;
 }
+
+function cf7bs_editor_panel_additional_settings( $post ) {
+	if ( ! function_exists( 'wpcf7_editor_panel_additional_settings' ) ) {
+		return;
+	}
+
+	ob_start();
+	wpcf7_editor_panel_additional_settings( $post );
+	$output = ob_get_clean();
+
+	$output = str_replace( 'http://contactform7.com/additional-settings/', 'https://wordpress.org/plugins/bootstrap-for-contact-form-7/other_notes/', $output );
+
+	echo $output;
+}
+
+function cf7bs_editor_panels( $panels ) {
+	if ( ! isset( $panels['additional-settings-panel'] ) ) {
+		return $panels;
+	}
+
+	$panels['additional-settings-panel']['callback'] = 'cf7bs_editor_panel_additional_settings';
+
+	return $panels;
+}
+add_filter( 'wpcf7_editor_panels', 'cf7bs_editor_panels' );

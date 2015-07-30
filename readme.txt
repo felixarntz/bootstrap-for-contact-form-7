@@ -152,6 +152,8 @@ If you're a developer and you have some ideas to improve the plugin or to solve 
 
 = Additional Settings =
 
+> Here you find additional settings which are part of the Bootstrap for Contact Form 7 plugin. If you want to learn more about the additional settings of the original Contact Form 7 plugin, please visit [this page](http://contactform7.com/additional-settings/).
+
 You can adjust several form properties (properties that affect an entire form, not just a single field of it) to give your forms the appearance you want. Here is a list of the properties, what they do and their possible values:
 
 * `layout` - adjusts the form's layout (note that in most cases the inline form will need additional styling to look good); valid values: 'default', 'inline', 'horizontal'; default value: 'default'
