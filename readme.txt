@@ -60,13 +60,11 @@ When using a well-known framework which provides general styles for all the impo
 
 While the shortcodes generally work the same like in the original plugin, there are a few things to consider. If you like to get started quickly, just copy/paste the content below and adjust it to get the form you like (the code below recreates the default form from Contact Form 7).
 
-```
-[text* your-name]Your Name[/text*]
-[email* your-email]Your Email[/email*]
-[text your-subject]Subject[/text]
-[textarea your-message]Your Message[/textarea]
-[submit "Send"]
-```
+	[text* your-name]Your Name[/text*]
+	[email* your-email]Your Email[/email*]
+	[text your-subject]Subject[/text]
+	[textarea your-message]Your Message[/textarea]
+	[submit "Send"]
 
 The following are the most important things that are different in Bootstrap for Contact Form 7:
 
@@ -169,23 +167,19 @@ You can adjust several form properties (properties that affect an entire form, n
 
 There are three methods to adjust the above properties: The easiest one is to use the "Additional Settings" tab when editing a form in Contact Form 7 and insert any property and its desired value there, one per line. For example:
 
-```
-layout:horizontal
-size:large
-group_layout:inline
-```
+	layout:horizontal
+	size:large
+	group_layout:inline
 
 Alternatively you can use the filter `cf7bs_form_{{FORM_ID}}_properties` where `{{FORM_ID}}` must be replaced by the ID of the form you would like to modify (you find that number in the overall form's shortcode). An array of all the properties and their values is passed to that function so that you can easily adjust them. Example (in this case we would adjust the contact form with the ID 3):
 
-```
-function my_custom_form_properties( $properties ) {
-	$properties['layout'] = 'horizontal';
-	$properties['size'] = 'large';
-	$properties['group_layout'] = 'inline';
-	return $properties;
-}
-add_filter( 'cf7bs_form_3_properties', 'my_custom_form_properties' );
-```
+	function my_custom_form_properties( $properties ) {
+		$properties['layout'] = 'horizontal';
+		$properties['size'] = 'large';
+		$properties['group_layout'] = 'inline';
+		return $properties;
+	}
+	add_filter( 'cf7bs_form_3_properties', 'my_custom_form_properties' );
 
 The third way does something slightly different from the other two since it does not change a specific form's properties, but the default properties for all forms. To do that, you should use the filter `cf7bs_default_form_properties` which works exactly like the other filter mentioned above.
 
@@ -195,56 +189,43 @@ Note that the custom form filter takes precedence over the properties defined in
 
 All textual input fields support the input group feature that Bootstrap provides. To use it, add an option `input_before` and/or `input_after` to any text / email / url / tel input. Example:
 
-```
-[text twitter-username input_before:@]Your Twitter Handle[/text]
-```
+	[text twitter-username input_before:@]Your Twitter Handle[/text]
 
 Note that the `input_before` and `input_after` options can also be added to textareas. In this case, the content will be displayed directly above or below the textarea respectively. To display content that contains one or more spaces, just enter it as the option value, replacing all spaces by three dashes. Example:
 
-```
-[textarea* your-text input_before:Please---enter---something]Your Text[/textarea*]
-```
+	[textarea* your-text input_before:Please---enter---something]Your Text[/textarea*]
 
 = Submit Button Alignment =
 
 The submit button can be aligned left, center or right to fit your form's desired appearance. Simply provide an `align` option with either 'left', 'center' or 'right' as value. Example:
 
-```
-[submit align:right "Send"]
-```
+	[submit align:right "Send"]
 
 = Inline Character Count =
 
 Contact Form 7 provides a `[count]` shortcode that renders a number showing how many characters have been entered or how many characters are remaining in a specific input field. Using it on its own looks kind of ugly though. But guess what, you can adjust that too by adding an option `include_count` to any text / email / url / tel / textarea input. You can optionally specify a value for that option as well which can consist of the positioning ('before' or 'after') and the count direction ('up' or 'down') of the counter. Just as a reminder, when choosing 'down', make sure you give the input element a maximum length, otherwise there is no point in having that counter. Example:
 
-```
-[text your-text maxlength:80 include_count:after:down]Your Text[/text]
-```
+	[text your-text maxlength:80 include_count:after:down]Your Text[/text]
 
 By the way, have you read the information about input groups above? You can combine those with the character count (because just seeing a number without any additional information might confuse your site's visitors). The following example will show a message like '433 characters left' after the field:
 
-```
-[textarea your-text maxlength:500 include_count:after:down input_after:characters---left]Your Text[/textarea]
-```
+	[textarea your-text maxlength:500 include_count:after:down input_after:characters---left]Your Text[/textarea]
 
 = Inline Captcha Image =
 
 If you've been using Contact Form 7 together with the [Really Simple CAPTCHA](https://wordpress.org/plugins/really-simple-captcha/) plugin, you are probably aware of the `[captchar]` (captcha input field) and `[captchac]` (captcha image) shortcodes it provides. You can still use them independently, but it probably looks nicer to show the captcha image ride beside its input field. To accomplish this, remove the `[captchac]` shortcode completely and instead add a new option `include_captchac` to the `[captchar]` shortcode. You can optionally give this option a value (either 'before' or 'after') to mark the location where the image should show up. Example:
 
-```
-[captchar your-captcha include_captchac:before]Captcha[/captchar]
-```
+	[captchar your-captcha include_captchac:before]Captcha[/captchar]
+
 = Custom Form URLs =
 
 You can add GET parameters to populate your forms with custom initial values by simply using the field name as parameter's key and the desired value as the parameter's value. This works with checkboxes, date fields, number fields, select fields, all text fields and textareas. The easiest way to create such a URL is to use the plugin's function `cf7bs_add_get_parameter()` where you provide parameters similarly to the WordPress Core function [add_query_arg](https://codex.wordpress.org/Function_Reference/add_query_arg). Example:
 
-```
-$my_custom_url = cf7bs_add_get_parameter( array(
-	'your-name'		=> 'John Doe',
-	'your-email'	=> 'johndoe@example.com',
-	'your-subject'	=> 'Support Request',
-), 'http://www.example.com/my-custom-form/' );
-```
+	$my_custom_url = cf7bs_add_get_parameter( array(
+		'your-name'		=> 'John Doe',
+		'your-email'	=> 'johndoe@example.com',
+		'your-subject'	=> 'Support Request',
+	), 'http://www.example.com/my-custom-form/' );
 
 == Unsupported functionality ==
 
