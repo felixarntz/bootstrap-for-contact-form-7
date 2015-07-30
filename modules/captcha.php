@@ -29,12 +29,12 @@ function cf7bs_captcha_shortcode_handler( $tag ) {
 	$validation_error = wpcf7_get_validation_error( $tag_obj->name );
 
 	if ( 'captchac' == $tag_obj->type ) {
-		$size = cf7bs_get_form_property( 'size' );
-		if ( ! preg_grep( '%^size:[smlSML]$%', $tag['options'] ) ) {
-			$size = cf7bs_get_form_property( 'size' );
-			$image_size = 'large' == $size ? 'l' : ( 'small' == $size ? 's' : 'm' );
-			$tag['options'][] = 'size:' . $image_size;
+		if ( $image_sizes_array = preg_grep( '%^size:[smlSML]$%', $tag['options'] ) ) {
+			$tag['options'] = array_values( array_diff_key( $tag['options'], $image_sizes_array ) );
 		}
+		$size = cf7bs_get_form_property( 'size' );
+		$image_size = 'large' == $size ? 'l' : ( 'small' == $size ? 's' : 'm' );
+		$tag['options'][] = 'size:' . $image_size;
 
 		$field = new CF7BS_Form_Field( array(
 			'name'				=> wpcf7_captcha_shortcode_handler( $tag ),

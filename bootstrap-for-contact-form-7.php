@@ -102,15 +102,16 @@ function cf7bs_get_form_property( $property, $form_id = 0 ) {
 
 function cf7bs_get_default_form_properties() {
 	$properties = array(
-		'layout'		=> 'default', // default, inline, horizontal
-		'grid_columns'	=> 12,
-		'label_width'	=> 3, // integer between 1 and 11
-		'breakpoint'	=> 'sm', // xs, sm, md, lg
-		'size'			=> 'default', // default, small, large
+		'layout'		=> 'default', // 'default', 'inline', 'horizontal'
+		'size'			=> 'default', // 'default', 'small', 'large'
+		'group_layout'	=> 'default', // 'default', 'inline', 'buttons'
+		'group_type'	=> 'default', // 'default', 'primary', 'success', 'info', 'warning', 'danger' (only if group_layout=buttons)
+		'submit_size'	=> '', // 'default', 'small', 'large' or leave empty to use value of 'size'
+		'submit_type'	=> 'primary', // 'default', 'primary', 'success', 'info', 'warning', 'danger'
 		'required_html'	=> '<span class="required">*</span>',
-		'group_layout'	=> 'default', // default, inline, buttons
-		'group_type'	=> 'default', // default, primary, success, info, warning, danger (only if group_layout=buttons)
-		'submit_type'	=> 'primary', // default, primary, success, info, warning, danger
+		'grid_columns'	=> 12,
+		'label_width'	=> 3, // integer between 1 and 'grid_columns' minus 1
+		'breakpoint'	=> 'sm', // xs, sm, md, lg
 	);
 	return apply_filters( 'cf7bs_default_form_properties', $properties );
 }

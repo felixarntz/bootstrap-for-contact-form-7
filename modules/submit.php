@@ -22,7 +22,7 @@ function cf7bs_submit_shortcode_handler( $tag ) {
 		$value = __( 'Send', 'contact-form-7' );
 	}
 
-	$size = $tag->get_option( 'size', '[A-Za-z]+', true );
+	$size = cf7bs_get_form_property( 'submit_size' );
 	if ( ! $size ) {
 		$size = cf7bs_get_form_property( 'size' );
 	}
