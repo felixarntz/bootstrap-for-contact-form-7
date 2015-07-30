@@ -114,6 +114,15 @@ function cf7bs_inline_styles() {
 		.form-inline .form-group {
 			max-width: 250px;
 		}
+		.input-group-addon img {
+			height: 100%;
+			width: auto;
+			max-width: none !important;
+			border-radius: 5px;
+		}
+		.input-group-addon.input-group-has-image {
+			padding: 0;
+		}
 	</style>
 	<?php
 }
