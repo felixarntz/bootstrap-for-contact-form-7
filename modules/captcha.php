@@ -77,16 +77,16 @@ function cf7bs_captcha_shortcode_handler( $tag ) {
 
 		$input_before = $input_after = '';
 		if ( $tag_obj->has_option( 'include_captchac' ) && class_exists( 'ReallySimpleCaptcha' ) ) {
-			$captchar_mode = $tag_obj->get_option( 'include_captchac', '[A-Za-z]+', true );
-			if ( $captchar_mode && strtolower( $captchar_mode ) == 'after' ) {
-				$captchar_mode = 'input_after';
+			$captchac_mode = $tag_obj->get_option( 'include_captchac', '[A-Za-z]+', true );
+			if ( $captchac_mode && 'after' == strtolower( $captchac_mode ) ) {
+				$captchac_mode = 'input_after';
 			} else {
-				$captchar_mode = 'input_before';
+				$captchac_mode = 'input_before';
 			}
 
 			$tag = cf7bs_captchar_to_captchac( $tag );
 
-			$$captchar_mode = wpcf7_captcha_shortcode_handler( $tag );
+			$$captchac_mode = wpcf7_captcha_shortcode_handler( $tag );
 		}
 
 		$field = new CF7BS_Form_Field( array(

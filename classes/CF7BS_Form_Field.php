@@ -75,7 +75,13 @@ class CF7BS_Form_Field extends CF7BS_Component {
 					$readonly = '';
 				}
 
-				if ( $maxlength > -1 && !empty( $maxlength ) ) {
+				if ( $minlength && $minlength > 0 ) {
+					$minlength = ' minlength="' . absint( $minlength ) . '"';
+				} else {
+					$minlength = '';
+				}
+
+				if ( $maxlength && $maxlength > -1 ) {
 					$maxlength = ' maxlength="' . absint( $maxlength ) . '"';
 				} else {
 					$maxlength = '';
@@ -270,9 +276,17 @@ class CF7BS_Form_Field extends CF7BS_Component {
 					}
 					break;
 				case 'textarea':
-					$output .= '<textarea' . $input_class . ( ! empty( $id ) ? ' id="' . esc_attr( $id ) . '"' : '' ) . ' name="' . esc_attr( $name ) . '" rows="' . absint( $rows ) . '"' . $placeholder . $readonly . $tabindex . $append . '>';
+					if ( ! empty( $input_before ) && 'inline' != $form_layout ) {
+						$input_before_class = trim( str_replace( 'input-group-addon', '', $input_before_class ) );
+						$output .= '<p class="text-right' . ( ! empty( $input_before_class ) ? ' ' . $input_before_class : '' ) . '">' . $input_before . '</p>';
+					}
+					$output .= '<textarea' . $input_class . ( ! empty( $id ) ? ' id="' . esc_attr( $id ) . '"' : '' ) . ' name="' . esc_attr( $name ) . '" rows="' . absint( $rows ) . '"' . $placeholder . $readonly . $minlength . $maxlength . $tabindex . $append . '>';
 					$output .= esc_textarea( $value );
 					$output .= '</textarea>';
+					if ( ! empty( $input_after ) && 'inline' != $form_layout ) {
+						$input_after_class = trim( str_replace( 'input-group-addon', '', $input_after_class ) );
+						$output .= '<p class="text-right' . ( ! empty( $input_after_class ) ? ' ' . $input_after_class : '' ) . '">' . $input_after . '</p>';
+					}
 					break;
 				case 'file':
 					$output .= '<input' . $input_class . ( ! empty( $id ) ? ' id="' . esc_attr( $id ) . '"' : '' ) . ' name="' . esc_attr( $name ) . '" type="file"' . $tabindex . $append . '>';
@@ -328,7 +342,7 @@ class CF7BS_Form_Field extends CF7BS_Component {
 							}
 						}
 
-						$output .= '<input' . $input_class . ( ! empty( $id ) ? ' id="' . esc_attr( $id ) . '"' : '' ) . ' name="' . esc_attr( $name ) . '" type="' . esc_attr( $type ) . '" value="' . esc_attr( $value ) . '"' . $placeholder . $readonly . $maxlength . $tabindex . $append . '>';
+						$output .= '<input' . $input_class . ( ! empty( $id ) ? ' id="' . esc_attr( $id ) . '"' : '' ) . ' name="' . esc_attr( $name ) . '" type="' . esc_attr( $type ) . '" value="' . esc_attr( $value ) . '"' . $placeholder . $readonly . $minlength . $maxlength . $tabindex . $append . '>';
 
 						if ( ! empty( $input_before ) || ! empty( $input_after ) ) {
 							if ( ! empty( $input_after ) ) {
@@ -393,6 +407,7 @@ class CF7BS_Form_Field extends CF7BS_Component {
 			'mode'					=> 'default', // default, required, static, disabled
 			'status'				=> 'default', // default, success, warning, error
 			'readonly'				=> false,
+			'minlength'				=> false,
 			'maxlength'				=> false,
 			'tabindex'				=> false,
 			'group_layout'			=> 'default', // default, inline, buttons

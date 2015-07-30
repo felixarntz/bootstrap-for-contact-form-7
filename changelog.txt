@@ -2,9 +2,13 @@
 
 = 1.2.1 =
 * Enhanced: the default grid column count of Bootstrap can now be overridden using the form property 'grid_columns'
-* Enhanced: the submit button now supports a 'size' option to override the general form control size
 * Enhanced: the captchar shortcode now supports an 'include_captchac' option to display the captcha image inline with the input field
+* Enhanced: the textarea shortcode and all other text inputs now support an 'include_count' option to display their character count inline with them
+* Enhanced: the submit button now supports a 'size' option to override the general form control size
+* Enhanced: the textarea shortcode now supports 'input_before' and 'input_after' (content is displayed above / below the textarea)
 * Tweaked: captcha images now have their image size adjusted to the 'size' form property by default
+* Tweaked: `---` typed in the 'input_before' or 'input_after' option will render as a space in the frontend
+* Fixed: minlength and maxlength attributes are now honored by all text inputs and textareas
 
 = 1.2.0 =
 * Added: new CF7 count shortcode is now supported
