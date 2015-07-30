@@ -2,6 +2,7 @@
 
 = 1.2.1 =
 * Enhanced: the default grid column count of Bootstrap can now be overridden using the form property 'grid_columns'
+* Enhanced: the submit button now supports a 'size' option to override the general form control size
 
 = 1.2.0 =
 * Added: new CF7 count shortcode is now supported

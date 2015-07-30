@@ -22,13 +22,18 @@ function cf7bs_submit_shortcode_handler( $tag ) {
 		$value = __( 'Send', 'contact-form-7' );
 	}
 
+	$size = $tag->get_option( 'size', '[A-Za-z]+', true );
+	if ( ! $size ) {
+		$size = cf7bs_get_form_property( 'size' );
+	}
+
 	$button = new CF7BS_Button( array(
 		'mode'				=> 'submit',
 		'id'				=> $tag->get_option( 'id', 'id', true ),
 		'class'				=> $tag->get_class_option( $class ),
 		'title'				=> $value,
 		'type'				=> cf7bs_get_form_property( 'submit_type' ),
-		'size'				=> cf7bs_get_form_property( 'size' ),
+		'size'				=> $size,
 		'tabindex'			=> $tag->get_option( 'tabindex', 'int', true ),
 		'align'				=> $tag->get_option( 'align', '[A-Za-z]+', true ),
 		'grid_columns'		=> cf7bs_get_form_property( 'grid_columns' ),
