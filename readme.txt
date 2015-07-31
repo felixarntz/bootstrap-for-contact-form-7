@@ -8,8 +8,8 @@ Donate link:       http://leaves-and-love.net/wordpress-plugins/
 Contributors:      flixos90
 Requires at least: 3.6 
 Tested up to:      4.2
-Stable tag:        1.2.1
-Version:           1.2.1
+Stable tag:        1.2.2
+Version:           1.2.2
 License:           GPL v2 
 License URI:       http://www.gnu.org/licenses/gpl-2.0.html
 Tags:              contact form 7, wpcf7, bootstrap, bootstrap 3, bootstrap framework, addon, css framework, contact form 7 addon, contact form, cf7bs, css
@@ -108,6 +108,9 @@ If you're a developer and you have some ideas to improve the plugin or to solve 
 3. A warning alert as displayed by Bootstrap for Contact Form 7
 
 == Changelog ==
+
+= 1.2.2 =
+* Fixed: CSS is now specific to the contact form to prevent conflicts
 
 = 1.2.1 =
 * Added: the captchar shortcode now supports an 'include_captchac' option to display the captcha image inline with the input field

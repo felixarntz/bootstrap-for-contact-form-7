@@ -1,5 +1,8 @@
 == Changelog ==
 
+= 1.2.2 =
+* Fixed: CSS is now specific to the contact form to prevent conflicts
+
 = 1.2.1 =
 * Added: the captchar shortcode now supports an 'include_captchac' option to display the captcha image inline with the input field
 * Added: the textarea shortcode and all other text inputs now support an 'include_count' option to display their character count inline with them

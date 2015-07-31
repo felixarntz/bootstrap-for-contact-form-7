@@ -1,7 +1,7 @@
 <?php
 /**
  * @package CF7BS
- * @version 1.2.1
+ * @version 1.2.2
  * @author Felix Arntz <felix-arntz@leaves-and-love.net>
  */
 

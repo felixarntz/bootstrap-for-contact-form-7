@@ -1,7 +1,7 @@
 <?php
 /**
  * @package CF7BS
- * @version 1.2.1
+ * @version 1.2.2
  * @author Felix Arntz <felix-arntz@leaves-and-love.net>
  */
 
@@ -94,7 +94,7 @@ add_action( 'wpcf7_enqueue_styles', 'cf7bs_enqueue_styles' );
 function cf7bs_inline_styles() {
 	?>
 	<style type="text/css">
-		.screen-reader-response {
+		div.wpcf7 .screen-reader-response {
 			display: none;
 		}
 		div.wpcf7 img.ajax-loader {
@@ -108,19 +108,19 @@ function cf7bs_inline_styles() {
 		div.wpcf7 div.ajax-error {
 			display: none;
 		}
-		.wpcf7-display-none {
+		div.wpcf7 .wpcf7-display-none {
 			display: none;
 		}
-		.form-inline .form-group {
+		div.wpcf7 .form-inline .form-group {
 			max-width: 250px;
 		}
-		.input-group-addon img {
+		div.wpcf7 .input-group-addon img {
 			height: 100%;
 			width: auto;
 			max-width: none !important;
 			border-radius: 5px;
 		}
-		.input-group-addon.input-group-has-image {
+		div.wpcf7 .input-group-addon.input-group-has-image {
 			padding: 0;
 		}
 	</style>
