@@ -1,7 +1,7 @@
 <?php
 /**
  * @package CF7BS
- * @version 1.2.2
+ * @version 1.2.3
  * @author Felix Arntz <felix-arntz@leaves-and-love.net>
  */
 
@@ -44,7 +44,7 @@ function cf7bs_quiz_shortcode_handler( $tag ) {
 	}
 	$answer = wpcf7_canonicalize( $answer );
 
-	$field = new CF7BS_Form_Field( array(
+	$field = new CF7BS_Form_Field( cf7bs_apply_field_args_filter( array(
 		'name'				=> $tag->name,
 		'id'				=> $tag->get_option( 'id', 'id', true ),
 		'class'				=> $tag->get_class_option( $class ),
@@ -62,7 +62,7 @@ function cf7bs_quiz_shortcode_handler( $tag ) {
 		'maxlength'			=> $tag->get_maxlength_option(),
 		'tabindex'			=> $tag->get_option( 'tabindex', 'int', true ),
 		'wrapper_class'		=> $tag->name,
-	) );
+	), $tag->basetype, $tag->name ) );
 
 	$html = $field->display( false );
 	$hidden_html = sprintf( '<input type="hidden" name="_wpcf7_quiz_answer_%1$s" value="%2$s">', $tag->name, wp_hash( $answer, 'wpcf7_quiz' ) );

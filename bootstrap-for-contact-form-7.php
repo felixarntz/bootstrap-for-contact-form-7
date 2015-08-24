@@ -3,7 +3,7 @@
 Plugin Name: Bootstrap for Contact Form 7
 Plugin URI: http://wordpress.org/plugins/bootstrap-for-contact-form-7/
 Description: This plugin modifies the output of the popular Contact Form 7 plugin to be styled in compliance with themes using the Bootstrap CSS framework.
-Version: 1.2.2
+Version: 1.2.3
 Author: Felix Arntz
 Author URI: http://leaves-and-love.net
 License: GNU General Public License v2
@@ -11,11 +11,11 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 */
 /**
  * @package CF7BS
- * @version 1.2.2
+ * @version 1.2.3
  * @author Felix Arntz <felix-arntz@leaves-and-love.net>
  */
 
-define( 'CF7BS_VERSION', '1.2.2' );
+define( 'CF7BS_VERSION', '1.2.3' );
 define( 'CF7BS_MAINFILE', __FILE__ );
 define( 'CF7BS_PATH', untrailingslashit( plugin_dir_path( CF7BS_MAINFILE ) ) );
 define( 'CF7BS_URL', untrailingslashit( plugin_dir_url( CF7BS_MAINFILE ) ) );
@@ -64,17 +64,22 @@ $current_form_properties = array();
 function cf7bs_get_form_property( $property, $form_id = 0 ) {
 	global $current_form_id, $current_form_properties;
 
-	if ( $form_id == 0 ) {
-		if ( is_callable( array( 'WPCF7_ContactForm', 'get_current' ) ) ) {
-			$current_form = WPCF7_ContactForm::get_current();
-			if ( is_a( $current_form, 'WPCF7_ContactForm' ) && is_callable( array( $current_form, 'id' ) ) ) {
-				$form_id = $current_form->id();
+	$current_form = $original_form = null;
+
+	if ( ! $form_id ) {
+		$form_id = cf7bs_get_current_form_id();
+		if ( ! $form_id ) {
+			return false;
+		}
+		$current_form = WPCF7_ContactForm::get_current();
+	} else {
+		$current_form = WPCF7_ContactForm::get_instance( $form_id );
+		$original_form = WPCF7_ContactForm::get_current();
+		if ( is_a( $current_form, 'WPCF7_ContactForm' ) && is_callable( array( $current_form, 'id' ) ) && is_a( $original_form, 'WPCF7_ContactForm' ) && is_callable( array( $original_form, 'id' ) ) ) {
+			if ( $original_form->id() === $current_form->id() ) {
+				$original_form = null;
 			}
 		}
-	}
-
-	if ( $form_id == 0 ) {
-		return false;
 	}
 
 	if ( $current_form_id != $form_id ) {
@@ -92,6 +97,12 @@ function cf7bs_get_form_property( $property, $form_id = 0 ) {
 			unset( $value );
 		}
 		$current_form_properties = apply_filters( 'cf7bs_form_' . $form_id . '_properties', $properties );
+	}
+
+	if ( null !== $original_form ) {
+		if ( is_a( $original_form, 'WPCF7_ContactForm' ) && is_callable( array( $original_form, 'id' ) ) ) {
+			WPCF7_ContactForm::get_instance( $original_form->id() );
+		}
 	}
 
 	if ( isset( $current_form_properties[ $property ] ) ) {
@@ -114,6 +125,14 @@ function cf7bs_get_default_form_properties() {
 		'breakpoint'	=> 'sm', // xs, sm, md, lg
 	);
 	return apply_filters( 'cf7bs_default_form_properties', $properties );
+}
+
+function cf7bs_apply_field_args_filter( $field_args, $tag_type, $tag_name, $form_id = 0 ) {
+	if ( ! $form_id ) {
+		$form_id = cf7bs_get_current_form_id();
+	}
+
+	return apply_filters( 'cf7bs_form_' . $form_id . '_field_' . $tag_type . '_' . $tag_name . '_properties', $field_args );
 }
 
 function cf7bs_add_get_parameter() {
@@ -140,4 +159,15 @@ function cf7bs_add_get_parameter() {
 		return add_query_arg( $args[0], cf7bs_parameter_encode( $args[1] ), $uri );
 	}
 	return '';
+}
+
+function cf7bs_get_current_form_id() {
+	if ( is_callable( array( 'WPCF7_ContactForm', 'get_current' ) ) ) {
+		$current_form = WPCF7_ContactForm::get_current();
+		if ( is_a( $current_form, 'WPCF7_ContactForm' ) && is_callable( array( $current_form, 'id' ) ) ) {
+			return $current_form->id();
+		}
+	}
+
+	return false;
 }

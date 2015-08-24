@@ -1,7 +1,7 @@
 <?php
 /**
  * @package CF7BS
- * @version 1.2.2
+ * @version 1.2.3
  * @author Felix Arntz <felix-arntz@leaves-and-love.net>
  */
 
@@ -102,7 +102,7 @@ function cf7bs_textarea_shortcode_handler( $tag ) {
 		}
 	}
 
-	$field = new CF7BS_Form_Field( array(
+	$field = new CF7BS_Form_Field( cf7bs_apply_field_args_filter( array(
 		'name'				=> $tag_obj->name,
 		'id'				=> $tag_obj->get_option( 'id', 'id', true ),
 		'class'				=> $tag_obj->get_class_option( $class ),
@@ -126,7 +126,7 @@ function cf7bs_textarea_shortcode_handler( $tag ) {
 		'rows' 				=> $rows,
 		'input_before'		=> $input_before,
 		'input_after'		=> $input_after,
-	) );
+	), $tag_obj->basetype, $tag_obj->name ) );
 
 	$html = $field->display( false );
 

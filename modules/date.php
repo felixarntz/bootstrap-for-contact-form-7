@@ -1,7 +1,7 @@
 <?php
 /**
  * @package CF7BS
- * @version 1.2.2
+ * @version 1.2.3
  * @author Felix Arntz <felix-arntz@leaves-and-love.net>
  */
 
@@ -50,7 +50,7 @@ function cf7bs_date_shortcode_handler( $tag ) {
 		$value = stripslashes_deep( rawurldecode( $_GET[ $tag->name ] ) );
 	}
 
-	$field = new CF7BS_Form_Field( array(
+	$field = new CF7BS_Form_Field( cf7bs_apply_field_args_filter( array(
 		'name'				=> $tag->name,
 		'id'				=> $tag->get_option( 'id', 'id', true ),
 		'class'				=> $tag->get_class_option( $class ),
@@ -74,7 +74,7 @@ function cf7bs_date_shortcode_handler( $tag ) {
 		'readonly'			=> $tag->has_option( 'readonly' ) ? true : false,
 		'tabindex'			=> $tag->get_option( 'tabindex', 'int', true ),
 		'wrapper_class'		=> $tag->name,
-	) );
+	), $tag->basetype, $tag->name ) );
 
 	$html = $field->display( false );
 

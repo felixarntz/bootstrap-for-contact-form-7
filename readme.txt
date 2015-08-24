@@ -7,9 +7,9 @@ Author:            Felix Arntz
 Donate link:       http://leaves-and-love.net/wordpress-plugins/
 Contributors:      flixos90
 Requires at least: 3.6 
-Tested up to:      4.2
-Stable tag:        1.2.2
-Version:           1.2.2
+Tested up to:      4.3
+Stable tag:        1.2.3
+Version:           1.2.3
 License:           GPL v2 
 License URI:       http://www.gnu.org/licenses/gpl-2.0.html
 Tags:              contact form 7, wpcf7, bootstrap, bootstrap 3, bootstrap framework, addon, css framework, contact form 7 addon, contact form, cf7bs, css
@@ -108,6 +108,9 @@ If you're a developer and you have some ideas to improve the plugin or to solve 
 3. A warning alert as displayed by Bootstrap for Contact Form 7
 
 == Changelog ==
+
+= 1.2.3 =
+* Enhanced: Arguments for every field are now filtered to allow detailed adjustments
 
 = 1.2.2 =
 * Fixed: CSS is now specific to the contact form to prevent conflicts
@@ -229,6 +232,10 @@ You can add GET parameters to populate your forms with custom initial values by 
 		'your-email'	=> 'johndoe@example.com',
 		'your-subject'	=> 'Support Request',
 	), 'http://www.example.com/my-custom-form/' );
+
+= Filter Field Arguments =
+
+As of version 1.2.3, field arguments for every single field can be filtered, which allows you to basically modify anything you like. The filters you need to hook your function into have the following structure `cf7bs_form_{{FORM_ID}}_field_{{FIELD_BASETYPE}}_{{FIELD_NAME}}_properties`. Yep, it's a long filter name, but it is necessary so that you can filter in the most detailed way possible. When using one of the filters, replace `{{FORM_ID}}` with the ID of the form, `{{FIELD_BASETYPE}}` with the type of the field you need to adjust (be sure to not include the asterisks here!) and `{{FIELD_NAME}}` with the name of the field. The function should accept one argument, an array of parameters. For an overview about the available parameters, please check the plugin's source code.
 
 == Unsupported functionality ==
 
