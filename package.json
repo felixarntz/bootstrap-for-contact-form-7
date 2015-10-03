@@ -1,7 +1,7 @@
 {
   "name": "bootstrap-for-contact-form-7",
   "pluginName": "Bootstrap for Contact Form 7",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "description": "This plugin modifies the output of the popular Contact Form 7 plugin to be styled in compliance with themes using the Bootstrap CSS framework.",
   "keywords": [
     "wordpress", "plugin", "contact form 7", "wpcf7", "bootstrap", "bootstrap 3", "bootstrap framework", "addon", "contact form 7 addon", "contact form", "cf7bs", "css"
@@ -29,10 +29,11 @@
   },
   "devDependencies": {
     "grunt": "~0.4.5",
-    "grunt-contrib-clean": "~0.5.0",
+    "grunt-contrib-clean": "~0.6.0",
     "grunt-contrib-jshint": "~0.10.0",
     "grunt-contrib-uglify": "~0.5.0",
     "grunt-banner": "~0.2.3",
-    "grunt-text-replace": "~0.3.12"
+    "grunt-text-replace": "~0.4.0",
+    "grunt-wp-i18n": "~0.5.3"
   }
 }

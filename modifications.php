@@ -1,7 +1,7 @@
 <?php
 /**
  * @package CF7BS
- * @version 1.2.3
+ * @version 1.2.4
  * @author Felix Arntz <felix-arntz@leaves-and-love.net>
  */
 
@@ -202,11 +202,11 @@ function cf7bs_default_template( $template, $prop = 'form' ) {
 add_filter( 'wpcf7_default_template', 'cf7bs_default_template', 10, 2 );
 
 function cf7bs_default_form_template() {
-	$template = '[text* your-name]' . __( 'Your Name', 'contact-form-7' ) . '[/text*]' . "\n"
-		. '[email* your-email]' . __( 'Your Email', 'contact-form-7' ) . '[/email*]' . "\n"
-		. '[text your-subject]' . __( 'Subject', 'contact-form-7' ) . '[/text]' . "\n"
-		. '[textarea your-message]' . __( 'Your Message', 'contact-form-7' ) . '[/textarea]' . "\n"
-		. '[submit "' . __( 'Send', 'contact-form-7' ) . '"]';
+	$template = '[text* your-name]' . __( 'Your Name', 'bootstrap-for-contact-form-7' ) . '[/text*]' . "\n"
+		. '[email* your-email]' . __( 'Your Email', 'bootstrap-for-contact-form-7' ) . '[/email*]' . "\n"
+		. '[text your-subject]' . __( 'Subject', 'bootstrap-for-contact-form-7' ) . '[/text]' . "\n"
+		. '[textarea your-message]' . __( 'Your Message', 'bootstrap-for-contact-form-7' ) . '[/textarea]' . "\n"
+		. '[submit "' . __( 'Send', 'bootstrap-for-contact-form-7' ) . '"]';
 
 	return $template;
 }

@@ -1,0 +1,78 @@
+# Copyright (c) 2014-2015 Felix Arntz
+msgid ""
+msgstr ""
+"Project-Id-Version: bootstrap-for-contact-form-7 1.2.4\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/plugins/bootstrap-for-contact-"
+"form-7/\n"
+"POT-Creation-Date: 2015-10-03 09:44:02+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2015-10-03 11:49+0100\n"
+"Last-Translator: Felix Arntz <felix-arntz@leaves-and-love.net>\n"
+"Language-Team: Felix Arntz <felix-arntz@leaves-and-love.net>\n"
+"X-Generator: Poedit 1.6.7\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SourceCharset: uft-8\n"
+"X-Poedit-KeywordsList: __;_e;_x:1,2c;_ex:1,2c;_n:1,2; _nx:1,2,4c;_n_noop:1,2;"
+"_nx_noop:1,2,3c;esc_attr__; esc_html__;esc_attr_e; esc_html_e;"
+"esc_attr_x:1,2c; esc_html_x:1,2c\n"
+"X-Poedit-Bookmars: \n"
+"X-Textdomain-Support: yes\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: de_DE\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: modifications.php:205
+msgid "Your Name"
+msgstr "Ihr Name"
+
+#: modifications.php:206
+msgid "Your Email"
+msgstr "Ihre Email-Adresse"
+
+#: modifications.php:207
+msgid "Subject"
+msgstr "Betreff"
+
+#: modifications.php:208
+msgid "Your Message"
+msgstr "Ihre Nachricht"
+
+#: modifications.php:209 modules/submit.php:22
+msgid "Send"
+msgstr "Senden"
+
+#: modules/captcha.php:22
+msgid ""
+"To use CAPTCHA, you need <a href=\"http://wordpress.org/extend/plugins/"
+"really-simple-captcha/\">Really Simple CAPTCHA</a> plugin installed."
+msgstr ""
+"Um CAPTCHA zu verwenden, müssen Sie das Plugin <a href=\"http://wordpress."
+"org/extend/plugins/really-simple-captcha/\">Really Simple CAPTCHA</a> "
+"installieren."
+
+#. Plugin Name of the plugin/theme
+msgid "Bootstrap for Contact Form 7"
+msgstr "Bootstrap for Contact Form 7"
+
+#. Plugin URI of the plugin/theme
+msgid "http://wordpress.org/plugins/bootstrap-for-contact-form-7/"
+msgstr "http://wordpress.org/plugins/bootstrap-for-contact-form-7/"
+
+#. Description of the plugin/theme
+msgid ""
+"This plugin modifies the output of the popular Contact Form 7 plugin to be "
+"styled in compliance with themes using the Bootstrap CSS framework."
+msgstr ""
+"Dieses Plugin verändert die Ausgabe des beliebten Plugins Contact Form 7, "
+"sodass diese bei Verwendung eines Bootstrap-Themes automatisch passend "
+"gestylt ist."
+
+#. Author of the plugin/theme
+msgid "Felix Arntz"
+msgstr "Felix Arntz"
+
+#. Author URI of the plugin/theme
+msgid "http://leaves-and-love.net"
+msgstr "http://leaves-and-love.net"

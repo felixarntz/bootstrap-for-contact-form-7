@@ -8,8 +8,8 @@ Donate link:       http://leaves-and-love.net/wordpress-plugins/
 Contributors:      flixos90
 Requires at least: 3.6 
 Tested up to:      4.3
-Stable tag:        1.2.3
-Version:           1.2.3
+Stable tag:        1.2.4
+Version:           1.2.4
 License:           GPL v2 
 License URI:       http://www.gnu.org/licenses/gpl-2.0.html
 Tags:              contact form 7, wpcf7, bootstrap, bootstrap 3, bootstrap framework, addon, css framework, contact form 7 addon, contact form, cf7bs, css
@@ -108,6 +108,11 @@ If you're a developer and you have some ideas to improve the plugin or to solve 
 3. A warning alert as displayed by Bootstrap for Contact Form 7
 
 == Changelog ==
+
+= 1.2.4 =
+* Tweaked: added textdomain for translate.wordpress.org
+* Fixed: defaults are now working correctly on all field types
+* Fixed: the label for attribute is no longer printed if no ID has been provided
 
 = 1.2.3 =
 * Enhanced: Arguments for every field are now filtered to allow detailed adjustments

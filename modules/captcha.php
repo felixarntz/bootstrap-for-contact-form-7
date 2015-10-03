@@ -1,7 +1,7 @@
 <?php
 /**
  * @package CF7BS
- * @version 1.2.3
+ * @version 1.2.4
  * @author Felix Arntz <felix-arntz@leaves-and-love.net>
  */
 
@@ -19,7 +19,7 @@ function cf7bs_captcha_shortcode_handler( $tag ) {
 	$tag_obj = new WPCF7_Shortcode( $tag );
 
 	if ( 'captchac' == $tag_obj->type && ! class_exists( 'ReallySimpleCaptcha' ) ) {
-		return '<em>' . __( 'To use CAPTCHA, you need <a href="http://wordpress.org/extend/plugins/really-simple-captcha/">Really Simple CAPTCHA</a> plugin installed.', 'contact-form-7' ) . '</em>';
+		return '<em>' . __( 'To use CAPTCHA, you need <a href="http://wordpress.org/extend/plugins/really-simple-captcha/">Really Simple CAPTCHA</a> plugin installed.', 'bootstrap-for-contact-form-7' ) . '</em>';
 	}
 
 	if ( empty( $tag_obj->name ) ) {

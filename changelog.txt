@@ -1,5 +1,10 @@
 == Changelog ==
 
+= 1.2.4 =
+* Tweaked: added textdomain for translate.wordpress.org
+* Fixed: defaults are now working correctly on all field types
+* Fixed: the label for attribute is no longer printed if no ID has been provided
+
 = 1.2.3 =
 * Enhanced: Arguments for every field are now filtered to allow detailed adjustments
 
