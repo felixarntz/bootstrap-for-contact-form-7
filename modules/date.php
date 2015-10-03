@@ -44,6 +44,8 @@ function cf7bs_date_shortcode_handler( $tag ) {
 		$value = '';
 	}
 
+	$value = $tag->get_default_option( $value );
+
 	if ( wpcf7_is_posted() && isset( $_POST[ $tag->name ] ) ) {
 		$value = stripslashes_deep( $_POST[ $tag->name ] );
 	} elseif( isset( $_GET ) && array_key_exists( $tag->name, $_GET ) ) {

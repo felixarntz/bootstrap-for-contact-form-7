@@ -46,6 +46,8 @@ function cf7bs_textarea_shortcode_handler( $tag ) {
 		$value = '';
 	}
 
+	$value = $tag_obj->get_default_option( $value );
+
 	if ( wpcf7_is_posted() && isset( $_POST[ $tag_obj->name ] ) ) {
 		$value = stripslashes_deep( $_POST[ $tag_obj->name ] );
 	} elseif ( isset( $_GET ) && array_key_exists( $tag_obj->name, $_GET ) ) {

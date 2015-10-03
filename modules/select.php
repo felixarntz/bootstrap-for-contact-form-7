@@ -37,9 +37,21 @@ function cf7bs_select_shortcode_handler( $tag ) {
 	}
 
 	$defaults = array();
+
+	$default_choice = $tag->get_default_option( null, 'multiple=1' );
+	foreach ( $default_choice as $value ) {
+		$key = array_search( $value, $values, true );
+		if ( false !== $key ) {
+			$defaults[] = (int) $key + 1;
+		}
+	}
+
 	if ( $matches = $tag->get_first_match_option( '/^default:([0-9_]+)$/' ) ) {
 		$defaults = explode( '_', $matches[1] );
 	}
+
+	$defaults = array_unique( $defaults );
+
 	$multiple = $tag->has_option( 'multiple' );
 	$include_blank = $tag->has_option( 'include_blank' );
 	$first_as_label = $tag->has_option( 'first_as_label' );
@@ -54,9 +66,11 @@ function cf7bs_select_shortcode_handler( $tag ) {
 
 	$empty_select = empty( $values );
 
+	$shifted = false;
 	if ( $empty_select || $include_blank ) {
 		array_unshift( $labels, '---' );
 		array_unshift( $values, '' );
+		$shifted = true;
 	} elseif ( $first_as_label ) {
 		$values[0] = '';
 	}
@@ -98,7 +112,7 @@ function cf7bs_select_shortcode_handler( $tag ) {
 			if ( ! $multiple && $get == esc_sql( $value ) ) {
 				$selected = $value;
 			}
-		} elseif( ! $empty_select && in_array( $key + 1, (array) $defaults ) ) {
+		} elseif ( ! $shifted && in_array( (int) $key + 1, (array) $defaults ) || $shifted && in_array( (int) $key, (array) $defaults ) ) {
 			if ( $multiple ) {
 				$selected[] = $value;
 			} else {

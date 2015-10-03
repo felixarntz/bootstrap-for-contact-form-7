@@ -77,8 +77,7 @@ function cf7bs_checkbox_shortcode_handler( $tag ) {
 		}
 	}
 
-	if ( $matches = $tag->get_first_match_option( '/^default:([0-9_]+)$/' ) )
-	{
+	if ( $matches = $tag->get_first_match_option( '/^default:([0-9_]+)$/' ) ) {
 		$defaults = array_merge( $defaults, explode( '_', $matches[1] ) );
 	}
 

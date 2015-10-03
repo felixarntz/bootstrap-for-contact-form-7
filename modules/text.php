@@ -53,9 +53,10 @@ function cf7bs_text_shortcode_handler( $tag ) {
 	if ( $tag_obj->has_option( 'placeholder' ) || $tag_obj->has_option( 'watermark' ) ) {
 		$placeholder = $value;
 		$value = '';
-	} elseif ( empty( $value ) ) {
-		$value = $tag_obj->get_default_option();
 	}
+
+	$value = $tag_obj->get_default_option( $value );
+
 	if ( wpcf7_is_posted() && isset( $_POST[ $tag_obj->name ] ) ) {
 		$value = stripslashes_deep( $_POST[ $tag_obj->name ] );
 	} elseif ( isset( $_GET ) && array_key_exists( $tag_obj->name, $_GET ) ) {
