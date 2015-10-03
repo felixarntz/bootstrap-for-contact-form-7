@@ -112,13 +112,13 @@ class CF7BS_Form_Field extends CF7BS_Component {
 				if ( 'horizontal' == $form_layout ) {
 					$output .= '<div class="form-group' . $wrapper_class . $status . '">';
 					if ( ! empty( $label ) ) {
-						$output .= '<label class="' . esc_attr( $label_class ) . '" for="' . esc_attr( $id ) . '">' . esc_html( $label ) . $label_required . '</label>';
+						$output .= '<label class="' . esc_attr( $label_class ) . '"' . ( ! empty( $id ) ? ' for="' . esc_attr( $id ) . '"' : '' ) . '>' . esc_html( $label ) . $label_required . '</label>';
 					}
 					$output .= '<div class="' . esc_attr( $input_div_class ) . '">';
 				} elseif( 'inline' == $form_layout ) {
 					$output .= '<div class="form-group' . $wrapper_class . $status . '">';
 					if ( ! empty( $label ) ) {
-						$output .= '<label class="sr-only" for="' . esc_attr( $id ) . '">' . esc_html( $label ) . $label_required . '</label>';
+						$output .= '<label class="sr-only"' . ( ! empty( $id ) ? ' for="' . esc_attr( $id ) . '"' : '' ) . '>' . esc_html( $label ) . $label_required . '</label>';
 					}
 				} else {
 					$output .= '<div class="form-group' . $wrapper_class . $status . '">';
@@ -127,7 +127,7 @@ class CF7BS_Form_Field extends CF7BS_Component {
 						if ( in_array( $type, array( 'radio', 'checkbox' ) ) ) {
 							$rc_group_style = ' style="display:block;"';
 						}
-						$output .= '<label for="' . esc_attr( $id ) . '"' . $rc_group_style . '>' . esc_html( $label ) . $label_required . '</label>';
+						$output .= '<label' . ( ! empty( $id ) ? ' for="' . esc_attr( $id ) . '"' : '' ) . $rc_group_style . '>' . esc_html( $label ) . $label_required . '</label>';
 					}
 				}
 			}
