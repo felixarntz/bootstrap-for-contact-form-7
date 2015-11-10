@@ -6,8 +6,8 @@ Description: This plugin modifies the output of the popular Contact Form 7 plugi
 Version: 1.2.4
 Author: Felix Arntz
 Author URI: http://leaves-and-love.net
-License: GNU General Public License v2
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
+License: GNU General Public License v3
+License URI: http://www.gnu.org/licenses/gpl-3.0.html
 Text Domain: bootstrap-for-contact-form-7
 Domain Path: /languages/
 */
