@@ -20,9 +20,9 @@
     "url" : "https://github.com/felixarntz/bootstrap-for-contact-form-7/issues"
   },
   "license": {
-    "type": "GPL-2.0",
-    "name": "GNU General Public License v2",
-    "url": "http://www.gnu.org/licenses/gpl-2.0.html"
+    "type": "GPL-3.0",
+    "name": "GNU General Public License v3",
+    "url": "http://www.gnu.org/licenses/gpl-3.0.html"
   },
   "engines": {
     "node": ">= 0.10.0"
