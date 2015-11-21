@@ -1,18 +1,18 @@
 === Bootstrap for Contact Form 7 ===
 
 Plugin Name:       Bootstrap for Contact Form 7
-Plugin URI:        http://wordpress.org/plugins/bootstrap-for-contact-form-7/
+Plugin URI:        https://wordpress.org/plugins/bootstrap-for-contact-form-7/
 Author URI:        http://leaves-and-love.net
 Author:            Felix Arntz
 Donate link:       http://leaves-and-love.net/wordpress-plugins/
 Contributors:      flixos90
 Requires at least: 3.6 
-Tested up to:      4.3
-Stable tag:        1.2.4
-Version:           1.2.4
+Tested up to:      4.4-beta4
+Stable tag:        1.3.0
+Version:           1.3.0
 License:           GPL v3
 License URI:       http://www.gnu.org/licenses/gpl-3.0.html
-Tags:              contact form 7, wpcf7, bootstrap, bootstrap 3, bootstrap framework, addon, css framework, contact form 7 addon, contact form, cf7bs, css
+Tags:              wordpress, plugin, contact form 7, wpcf7, bootstrap, bootstrap 3, bootstrap framework, addon, contact form 7 addon, contact form, cf7bs, css
 
 This plugin modifies the output of the popular Contact Form 7 plugin to be styled in compliance with themes using the Bootstrap CSS framework.
 
@@ -108,6 +108,16 @@ If you're a developer and you have some ideas to improve the plugin or to solve 
 3. A warning alert as displayed by Bootstrap for Contact Form 7
 
 == Changelog ==
+
+= 1.3.0 =
+* Added: the new Google reCAPTCHA shortcode is now supported
+* Enhanced: added an additional filter to adjust form field arguments
+* Enhanced: a notice in the admin is now shown if the plugin cannot be initialized
+* Enhanced: language files no longer bundled in the plugin; now completely relies on language packs
+* Fixed: form element errors are now displayed correctly on horizontal forms and hidden on inline forms
+* Fixed: plugin constant definitions now happen on 'plugins_loaded' hook
+* Fixed: typo 'dismissable' in alert setting / class is now 'dismissible'
+* Fixed: readme link to 'Additional Settings' now translateable
 
 = 1.2.4 =
 * Tweaked: added textdomain for translate.wordpress.org

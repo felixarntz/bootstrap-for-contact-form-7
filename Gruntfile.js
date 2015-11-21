@@ -18,6 +18,7 @@ module.exports = function(grunt) {
 						'License: <%= pkg.license.name %>\n' +
 						'License URI: <%= pkg.license.url %>\n' +
 						'Text Domain: bootstrap-for-contact-form-7\n' +
+						'Tags: <%= pkg.keywords.join(", ") %>\n' +
 						'*/',
 		fileheader:		'/**\n' +
 						' * @package CF7BS\n' +
