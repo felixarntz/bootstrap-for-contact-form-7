@@ -9,7 +9,6 @@ Author URI: http://leaves-and-love.net
 License: GNU General Public License v3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 Text Domain: bootstrap-for-contact-form-7
-Domain Path: /languages/
 */
 /**
  * @package CF7BS
@@ -27,6 +26,8 @@ function cf7bs_maybe_init() {
 	define( 'CF7BS_PATH', untrailingslashit( plugin_dir_path( CF7BS_MAINFILE ) ) );
 	define( 'CF7BS_URL', untrailingslashit( plugin_dir_url( CF7BS_MAINFILE ) ) );
 	define( 'CF7BS_BASENAME', plugin_basename( CF7BS_MAINFILE ) );
+
+	load_plugin_textdomain( 'bootstrap-for-contact-form-7' );
 
 	if ( defined( 'WPCF7_VERSION' ) && apply_filters( 'cf7bs_using_bootstrap', true ) ) {
 		include_once CF7BS_PATH . '/modifications.php';
