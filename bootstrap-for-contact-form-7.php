@@ -17,17 +17,17 @@ Domain Path: /languages/
  * @author Felix Arntz <felix-arntz@leaves-and-love.net>
  */
 
-define( 'CF7BS_VERSION', '1.2.4' );
-define( 'CF7BS_MAINFILE', __FILE__ );
-define( 'CF7BS_PATH', untrailingslashit( plugin_dir_path( CF7BS_MAINFILE ) ) );
-define( 'CF7BS_URL', untrailingslashit( plugin_dir_url( CF7BS_MAINFILE ) ) );
-define( 'CF7BS_BASENAME', plugin_basename( CF7BS_MAINFILE ) );
-
 if ( ! defined( 'WPCF7_AUTOP' ) ) {
 	define( 'WPCF7_AUTOP', false );
 }
 
 function cf7bs_maybe_init() {
+	define( 'CF7BS_VERSION', '1.2.4' );
+	define( 'CF7BS_MAINFILE', __FILE__ );
+	define( 'CF7BS_PATH', untrailingslashit( plugin_dir_path( CF7BS_MAINFILE ) ) );
+	define( 'CF7BS_URL', untrailingslashit( plugin_dir_url( CF7BS_MAINFILE ) ) );
+	define( 'CF7BS_BASENAME', plugin_basename( CF7BS_MAINFILE ) );
+
 	if ( defined( 'WPCF7_VERSION' ) && apply_filters( 'cf7bs_using_bootstrap', true ) ) {
 		include_once CF7BS_PATH . '/modifications.php';
 		include_once CF7BS_PATH . '/classes/CF7BS_Component.php';
