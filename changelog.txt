@@ -1,6 +1,8 @@
 == Changelog ==
 
 = 1.3.0 =
+* Added: the new Google reCAPTCHA shortcode is now supported
+* Enhanced: added an additional filter to adjust form field arguments
 * Enhanced: a notice in the admin is now shown if the plugin cannot be initialized
 * Enhanced: language files no longer bundled in the plugin; now completely relies on language packs
 * Fixed: form element errors are now displayed correctly on horizontal forms and hidden on inline forms

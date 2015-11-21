@@ -40,7 +40,6 @@ function cf7bs_maybe_init() {
 		$modules = array(
 			'acceptance',
 			'submit',
-			'captcha',
 			'count',
 			'number',
 			'text',
@@ -50,6 +49,8 @@ function cf7bs_maybe_init() {
 			'date',
 			'file',
 			'select',
+			'really-simple-captcha',
+			'recaptcha',
 		);
 		foreach ( $modules as $module ) {
 			$file = CF7BS_PATH . '/modules/' . $module . '.php';
@@ -132,12 +133,16 @@ function cf7bs_get_default_form_properties() {
 	return apply_filters( 'cf7bs_default_form_properties', $properties );
 }
 
-function cf7bs_apply_field_args_filter( $field_args, $tag_type, $tag_name, $form_id = 0 ) {
+function cf7bs_apply_field_args_filter( $field_args, $tag_type, $tag_name = '', $form_id = 0 ) {
 	if ( ! $form_id ) {
 		$form_id = cf7bs_get_current_form_id();
 	}
 
-	return apply_filters( 'cf7bs_form_' . $form_id . '_field_' . $tag_type . '_' . $tag_name . '_properties', $field_args );
+	if ( ! empty( $tag_name ) ) {
+		$field_args = apply_filters( 'cf7bs_form_' . $form_id . '_field_' . $tag_type . '_' . $tag_name . '_properties', $field_args );
+	}
+
+	return apply_filters( 'cf7bs_form_' . $form_id . '_field_' . $tag_type . '_properties', $field_args );
 }
 
 function cf7bs_add_get_parameter() {
