@@ -22,18 +22,25 @@
 		return this.each( function() {
 			var $into = $( this );
 			$into.addClass( 'has-error' );
-			$into.find( 'span.wpcf7-not-valid-tip' ).remove();
-			$into.append( '<span class="help-block wpcf7-not-valid-tip">' + message + '</span>' );
-			$into.slideDown( 'fast' );
 
-			if ( $into.is( '.use-floating-validation-tip *' ) ) {
-				$( '.wpcf7-not-valid-tip', $into ).mouseover( function() {
-					$( this ).wpcf7FadeOut();
-				});
+			if ( ! $into.parents( '.wpcf7-form' ).hasClass( 'form-inline' ) ) {
+				$into.find( 'span.wpcf7-not-valid-tip' ).remove();
+				if ( $into.parents( '.wpcf7-form' ).hasClass( 'form-horizontal' ) ) {
+					$into.children( 'div' ).append( '<span class="help-block wpcf7-not-valid-tip">' + message + '</span>' );
+				} else {
+					$into.append( '<span class="help-block wpcf7-not-valid-tip">' + message + '</span>' );
+				}
+				$into.slideDown( 'fast' );
 
-				$( ':input', $into ).focus( function() {
-					$( '.wpcf7-not-valid-tip', $into ).not( ':hidden' ).wpcf7FadeOut();
-				});
+				if ( $into.is( '.use-floating-validation-tip *' ) ) {
+					$( '.wpcf7-not-valid-tip', $into ).mouseover( function() {
+						$( this ).wpcf7FadeOut();
+					});
+
+					$( ':input', $into ).focus( function() {
+						$( '.wpcf7-not-valid-tip', $into ).not( ':hidden' ).wpcf7FadeOut();
+					});
+				}
 			}
 		});
 	};

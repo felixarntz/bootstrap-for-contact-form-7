@@ -1,6 +1,7 @@
 == Changelog ==
 
 = 1.3.0 =
+* Fixed: form element errors are now displayed correctly on horizontal forms and hidden on inline forms
 * Fixed: typo 'dismissable' in alert setting / class is now 'dismissible'
 
 = 1.2.4 =
