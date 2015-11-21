@@ -8,6 +8,7 @@
 * Fixed: form element errors are now displayed correctly on horizontal forms and hidden on inline forms
 * Fixed: plugin constant definitions now happen on 'plugins_loaded' hook
 * Fixed: typo 'dismissable' in alert setting / class is now 'dismissible'
+* Fixed: readme link to 'Additional Settings' now translateable
 
 = 1.2.4 =
 * Tweaked: added textdomain for translate.wordpress.org

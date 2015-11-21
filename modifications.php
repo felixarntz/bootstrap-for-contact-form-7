@@ -254,7 +254,7 @@ function cf7bs_editor_panel_additional_settings( $post ) {
 	wpcf7_editor_panel_additional_settings( $post );
 	$output = ob_get_clean();
 
-	$output = str_replace( 'http://contactform7.com/additional-settings/', 'https://wordpress.org/plugins/bootstrap-for-contact-form-7/other_notes/', $output );
+	$output = str_replace( 'http://contactform7.com/additional-settings/', __( 'https://wordpress.org/plugins/bootstrap-for-contact-form-7/other_notes/', 'bootstrap-for-contact-form-7' ), $output );
 
 	echo $output;
 }
