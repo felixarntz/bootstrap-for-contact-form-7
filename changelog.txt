@@ -1,5 +1,8 @@
 == Changelog ==
 
+= 1.3.0 =
+* Fixed: typo 'dismissable' in alert setting / class is now 'dismissible'
+
 = 1.2.4 =
 * Tweaked: added textdomain for translate.wordpress.org
 * Fixed: defaults are now working correctly on all field types

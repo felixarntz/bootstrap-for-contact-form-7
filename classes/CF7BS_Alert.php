@@ -28,7 +28,7 @@ class CF7BS_Alert extends CF7BS_Component {
 			}
 
 			$output .= '<div class="' . esc_attr( $class ) . '"' . ( $hide ? ' style="display:none;"' : '' ) . '>';
-			if ( $dismissable ) {
+			if ( $dismissible ) {
 				$output .= '<button class="close" data-dismiss="alert" type="button">&times;</button>';
 			}
 		}
