@@ -56,6 +56,8 @@ function cf7bs_maybe_init() {
 				include_once $file;
 			}
 		}
+	} else {
+		add_action( 'admin_notices', 'cf7bs_disabled_notice' );
 	}
 }
 add_action( 'plugins_loaded', 'cf7bs_maybe_init', 50 );
@@ -172,4 +174,18 @@ function cf7bs_get_current_form_id() {
 	}
 
 	return false;
+}
+
+function cf7bs_disabled_notice() {
+	if ( ! current_user_can( 'activate_plugins' ) ) {
+		return;
+	}
+
+	echo '<div class="error">';
+	echo '<p>';
+	_e( 'The plugin <em>Bootstrap for Contact Form 7</em> has not been initialized since either <em>Contact Form 7</em> is not active or you are not using a Bootstrap theme.', 'bootstrap-for-contact-form-7' );
+	echo '<br/>';
+	_e( 'Please make sure the conditions for the plugin are met or deactivate it otherwise.', 'bootstrap-for-contact-form-7' );
+	echo '</p>';
+	echo '</div>';
 }
