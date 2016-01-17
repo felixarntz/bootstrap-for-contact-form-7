@@ -7,7 +7,7 @@ Author:            Felix Arntz
 Donate link:       http://leaves-and-love.net/wordpress-plugins/
 Contributors:      flixos90
 Requires at least: 3.6 
-Tested up to:      4.4-beta4
+Tested up to:      4.4.1
 Stable tag:        1.3.0
 Version:           1.3.0
 License:           GPL v3
