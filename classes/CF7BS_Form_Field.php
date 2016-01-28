@@ -140,6 +140,7 @@ class CF7BS_Form_Field extends CF7BS_Component {
 						if ( false === strpos( $title, 'wpcf7-free-text' ) ) {
 							$title = esc_html( $title );
 						}
+                        
 						$output .= '<div class="checkbox' . $wrapper_class . '">';
 						$output .= '<label '. ( ! empty( $id ) ? ' for="' . esc_attr( $id ) . '"' : '' ) .'>' ;
 						$output .= '<input' . $input_class . ( ! empty( $id ) ? ' id="' . esc_attr( $id ) . '"' : '' ) . ' name="' . esc_attr( $name ) . '" type="checkbox" value="' . esc_attr( $curval ) . '"' . cf7bs_checked( $value, $curval, false ) . ( is_int( $tabindex ) ? ' tabindex="' . $tabindex . '"' : '' ) . $append . '>';
@@ -170,6 +171,7 @@ class CF7BS_Form_Field extends CF7BS_Component {
 							$output .= $button_group->close( false );
 						} elseif ( 'inline' == $group_layout && 'inline' != $form_layout ) {
 							$counter = 0;
+                            $output .= '<fieldset>';
 							foreach ( $options as $curval => $title ) {
 								if ( false === strpos( $title, 'wpcf7-free-text' ) ) {
 									$title = esc_html( $title );
@@ -180,8 +182,10 @@ class CF7BS_Form_Field extends CF7BS_Component {
 								$output .= '</label>';
 								$counter++;
 							}
+                            $output .= '</fieldset>';
 						} else {
 							$counter = 0;
+                            $output .= '<fieldset>';
 							foreach ( $options as $curval => $title ) {
 								if ( false === strpos( $title, 'wpcf7-free-text' ) ) {
 									$title = esc_html( $title );
@@ -194,6 +198,7 @@ class CF7BS_Form_Field extends CF7BS_Component {
 								$output .= '</div>';
 								$counter++;
 							}
+                            $output .= '</fieldset>';
 						}
 					}
 					break;
