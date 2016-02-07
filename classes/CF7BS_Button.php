@@ -31,7 +31,9 @@ class CF7BS_Button extends CF7BS_Component {
 				$class .= ' btn-' . $sizes[ $size ];
 			}
 
+			$for = '';
 			if ( ! empty( $id ) ) {
+				$for = ' for="' . esc_attr( $id ) . '"';
 				$id = ' id="' . esc_attr( $id ) . '"';
 			}
 
@@ -43,12 +45,12 @@ class CF7BS_Button extends CF7BS_Component {
 				if ( false === strpos( $title, 'wpcf7-free-text' ) ) {
 					$title = esc_html( $title );
 				}
-				$output .= '<label class="' . esc_attr( $class ) . '"><input' . $id . $name . ' type="checkbox" value="' . esc_attr( $value ) . '"' . $append . '>' . $title . '</label>';
+				$output .= '<label' . $for . ' class="' . esc_attr( $class ) . '"><input' . $id . $name . ' type="checkbox" value="' . esc_attr( $value ) . '"' . $append . '>' . $title . '</label>';
 			} elseif ( 'radio' == $mode ) {
 				if ( false === strpos( $title, 'wpcf7-free-text' ) ) {
 					$title = esc_html( $title );
 				}
-				$output .= '<label class="' . esc_attr( $class ) . '"><input' . $id . $name . ' type="radio" value="' . esc_attr( $value ) . '"' . $append . '>' . $title . '</label>';
+				$output .= '<label' . $for . ' class="' . esc_attr( $class ) . '"><input' . $id . $name . ' type="radio" value="' . esc_attr( $value ) . '"' . $append . '>' . $title . '</label>';
 			} else {
 				$wrapper_class = array();
 

@@ -1,8 +1,9 @@
 == Changelog ==
 
 = 1.3.1 =
-* Added: For checkboxes and radio buttons if the id:<id> option is set in CF7, we'll properly append <label for='id"> on label elements.
-* Enhanced: Added `<fieldset>` wrapper element to radio button groups.
+* Fixed: properly add `for` attributes to labels for checkbox and radio groups for accessibility
+* Fixed: wrapped checkbox and radio groups with `<fieldset>` for accessibility; needs to be manually enabled by defining the constant `CF7BS_FIELDSET_WRAP` (because of possible backwards compatibility issues with styling)
+* Fixed: ID is no longer created for button groups which have an empty ID specified
 
 = 1.3.0 =
 * Added: the new Google reCAPTCHA shortcode is now supported
