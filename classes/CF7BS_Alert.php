@@ -29,7 +29,8 @@ class CF7BS_Alert extends CF7BS_Component {
 
 			$output .= '<div class="' . esc_attr( $class ) . '"' . ( $hide ? ' style="display:none;"' : '' ) . '>';
 			if ( $dismissible ) {
-				$output .= '<button class="close" data-dismiss="alert" type="button">&times;</button>';
+				// do not add `data-dismiss="alert"` here so that Bootstrap JS does not handle this
+				$output .= '<button class="close" type="button">&times;</button>';
 			}
 		}
 

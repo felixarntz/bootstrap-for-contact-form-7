@@ -164,8 +164,9 @@ function cf7bs_form_response_output( $output, $class, $content, $form_obj ) {
 	}
 
 	$alert = new CF7BS_Alert( array(
-		'type'		=> $type,
-		'class'		=> $class,
+		'type'			=> $type,
+		'class'			=> $class,
+		'dismissible'	=> defined( 'CF7BS_ALERT_DISMISSIBLE' ) && CF7BS_ALERT_DISMISSIBLE,
 	) );
 
 	return $alert->open( false ) . esc_html( $content ) . $alert->close( false );
@@ -174,8 +175,9 @@ add_filter( 'wpcf7_form_response_output', 'cf7bs_form_response_output', 10, 4 );
 
 function cf7bs_validation_error( $output, $name, $form_obj ) {
 	$alert = new CF7BS_Alert( array(
-		'type'		=> 'warning',
-		'class'		=> 'wpcf7-not-valid-tip',
+		'type'			=> 'warning',
+		'class'			=> 'wpcf7-not-valid-tip',
+		'dismissible'	=> defined( 'CF7BS_ALERT_DISMISSIBLE' ) && CF7BS_ALERT_DISMISSIBLE,
 	) );
 	$output = str_replace( '<span role="alert" class="wpcf7-not-valid-tip">', $alert->open( false ), $output );
 	$output = str_replace( '</span>', $alert->close( false ), $output );

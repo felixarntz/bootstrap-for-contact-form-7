@@ -15,6 +15,11 @@
 		$( 'div.wpcf7' ).on( 'mailfailed.wpcf7', function() {
 			$( this ).find( 'div.wpcf7-response-output' ).addClass( 'alert-danger' );
 		});
+
+		$( 'div.wpcf7' ).on( 'click', 'div.wpcf7-response-output .close', function( e ) {
+			$( this ).parent().hide();
+			e.preventDefault();
+		});
 	});
 
 	// WPCF7 Function Override: Adjusted for Bootstrap Help Block Output and Status Class
@@ -61,7 +66,11 @@
 	// WPCF7 Function Override: Adjusted for Bootstrap Alert classes and Status Class
 	$.fn.wpcf7ClearResponseOutput = function() {
 		return this.each(function() {
+			var $close = $( this ).find( 'div.wpcf7-response-output .close' );
 			$( this ).find( 'div.wpcf7-response-output' ).hide().empty().removeClass( 'wpcf7-mail-sent-ok wpcf7-mail-sent-ng wpcf7-validation-errors wpcf7-spam-blocked alert-warning alert-success alert-danger' ).removeAttr( 'role' );
+			if ( 0 < $close.length ) {
+				$( this ).find( 'div.wpcf7-response-output' ).append( $close );
+			}
 			$( this ).find( 'div.form-group' ).removeClass( 'has-error' );
 			$( this ).find( 'span.wpcf7-not-valid-tip' ).remove();
 			$( this ).find( 'img.ajax-loader' ).css({ visibility: 'hidden' });
