@@ -7,9 +7,9 @@ Author:            Felix Arntz
 Donate link:       http://leaves-and-love.net/wordpress-plugins/
 Contributors:      flixos90
 Requires at least: 3.6 
-Tested up to:      4.4.1
-Stable tag:        1.3.0
-Version:           1.3.0
+Tested up to:      4.4.2
+Stable tag:        1.3.1
+Version:           1.3.1
 License:           GPL v3
 License URI:       http://www.gnu.org/licenses/gpl-3.0.html
 Tags:              wordpress, plugin, contact form 7, wpcf7, bootstrap, bootstrap 3, bootstrap framework, addon, contact form 7 addon, contact form, cf7bs, css
@@ -108,6 +108,12 @@ If you're a developer and you have some ideas to improve the plugin or to solve 
 3. A warning alert as displayed by Bootstrap for Contact Form 7
 
 == Changelog ==
+
+= 1.3.1 =
+* Enhanced: alerts can now be made dismissible by defining the constant `CF7BS_ALERT_DISMISSIBLE`
+* Fixed: properly add `for` attributes to labels for checkbox and radio groups for accessibility
+* Fixed: wrapped checkbox and radio groups with `<fieldset>` for accessibility; needs to be manually enabled by defining the constant `CF7BS_FIELDSET_WRAP` (because of possible backwards compatibility issues with styling)
+* Fixed: ID is no longer created for button groups which have an empty ID specified
 
 = 1.3.0 =
 * Added: the new Google reCAPTCHA shortcode is now supported
