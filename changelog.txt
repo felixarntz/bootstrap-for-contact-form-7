@@ -1,5 +1,9 @@
 == Changelog ==
 
+= 1.3.1 =
+* Added: For checkboxes and radio buttons if the id:<id> option is set in CF7, we'll properly append <label for='id"> on label elements.
+* Enhanced: Added `<fieldset>` wrapper element to radio button groups.
+
 = 1.3.0 =
 * Added: the new Google reCAPTCHA shortcode is now supported
 * Enhanced: added an additional filter to adjust form field arguments
