@@ -52,6 +52,15 @@ function cf7bs_date_shortcode_handler( $tag ) {
 		$value = stripslashes_deep( rawurldecode( $_GET[ $tag->name ] ) );
 	}
 
+	if ( is_callable( array( $tag, 'get_date_option' ) ) ) {
+		$min = $tag->get_date_option( 'min' );
+		$max = $tag->get_date_option( 'max' );
+	} else {
+		$min = $tag->get_option( 'min', 'date', true );
+		$max = $tag->get_option( 'max', 'date', true );
+	}
+	$step = $tag->get_option( 'step', 'int', true );
+
 	$field = new CF7BS_Form_Field( cf7bs_apply_field_args_filter( array(
 		'name'				=> $tag->name,
 		'id'				=> $tag->get_option( 'id', 'id', true ),
@@ -61,8 +70,8 @@ function cf7bs_date_shortcode_handler( $tag ) {
 		'placeholder'		=> $placeholder,
 		'label'				=> $tag->content,
 		'options'			=> array(
-		  'min'					=> $tag->get_date_option( 'min' ),
-		  'max'					=> $tag->get_date_option( 'max' ),
+		  'min'					=> $min,
+		  'max'					=> $max,
 		  'step'				=> $tag->get_option( 'step', 'int', true ),
 		),
 		'help_text'			=> $validation_error,
