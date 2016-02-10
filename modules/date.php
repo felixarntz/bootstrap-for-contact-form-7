@@ -61,8 +61,8 @@ function cf7bs_date_shortcode_handler( $tag ) {
 		'placeholder'		=> $placeholder,
 		'label'				=> $tag->content,
 		'options'			=> array(
-		  'min'					=> $tag->get_option( 'min', 'date', true ),
-		  'max'					=> $tag->get_option( 'max', 'date', true ),
+		  'min'					=> $tag->get_date_option( 'min' ),
+		  'max'					=> $tag->get_date_option( 'max' ),
 		  'step'				=> $tag->get_option( 'step', 'int', true ),
 		),
 		'help_text'			=> $validation_error,
