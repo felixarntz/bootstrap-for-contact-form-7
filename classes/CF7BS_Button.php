@@ -16,6 +16,10 @@ class CF7BS_Button extends CF7BS_Component {
 
 			$type = $this->validate_type( $type );
 
+			if ( is_numeric($tabindex) ) {
+				$tabindex = intval($tabindex);
+			}
+
 			if ( ! empty( $class ) ) {
 				$class .= ' ';
 			}
