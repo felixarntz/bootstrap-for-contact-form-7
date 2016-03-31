@@ -18,6 +18,10 @@ class CF7BS_Form_Field extends CF7BS_Component {
 
 			$value = $this->validate_value( $value, $type, $options );
 
+			if ( is_numeric($tabindex) ) {
+				$tabindex = intval($tabindex);
+			}
+
 			if ( 'hidden' != $type ) {
 				$label_class = 'control-label';
 				$input_div_class = '';
