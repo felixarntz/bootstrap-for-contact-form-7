@@ -1,8 +1,10 @@
 <?php
 /**
+ * Utility functions
+ *
  * @package CF7BS
- * @version 1.3.1
  * @author Felix Arntz <felix-arntz@leaves-and-love.net>
+ * @since 1.0.0
  */
 
 function cf7bs_selected( $selected, $current = true, $echo = true ) {
@@ -82,7 +84,10 @@ function cf7bs_enqueue_scripts() {
 	if ( 'header' === WPCF7_LOAD_JS ) {
 		$in_footer = false;
 	}
-	wp_enqueue_script( 'contact-form-7-bootstrap', CF7BS_URL . '/assets/scripts.min.js', array( 'jquery', 'jquery-form', 'contact-form-7' ), CF7BS_VERSION, $in_footer );
+
+	$min = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
+
+	wp_enqueue_script( 'contact-form-7-bootstrap', CF7BS_URL . '/assets/dist/js/scripts' . $min . '.js', array( 'jquery', 'jquery-form', 'contact-form-7' ), CF7BS_VERSION, $in_footer );
 }
 add_action( 'wpcf7_enqueue_scripts', 'cf7bs_enqueue_scripts' );
 

@@ -9,6 +9,12 @@
   "latedef"  : true,
   "laxbreak" : true,
   "nonbsp"   : true,
+  "predef"   : [
+    "console",
+    "jQuery",
+    "wp",
+    "ajaxurl"
+  ],
   "strict"   : true,
   "undef"    : true,
   "unused"   : true

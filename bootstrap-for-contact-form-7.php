@@ -1,20 +1,22 @@
 <?php
 /*
 Plugin Name: Bootstrap for Contact Form 7
-Plugin URI: http://wordpress.org/plugins/bootstrap-for-contact-form-7/
+Plugin URI:  https://wordpress.org/plugins/bootstrap-for-contact-form-7/
 Description: This plugin modifies the output of the popular Contact Form 7 plugin to be styled in compliance with themes using the Bootstrap CSS framework.
-Version: 1.3.1
-Author: Felix Arntz
-Author URI: http://leaves-and-love.net
-License: GNU General Public License v3
+Version:     1.3.1
+Author:      Felix Arntz
+Author URI:  https://leaves-and-love.net
+License:     GNU General Public License v3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 Text Domain: bootstrap-for-contact-form-7
-Tags: wordpress, plugin, contact form 7, wpcf7, bootstrap, bootstrap 3, bootstrap framework, addon, contact form 7 addon, contact form, cf7bs, css
+Tags:        contact form 7, wpcf7, bootstrap, bootstrap 3, bootstrap framework, addon, contact form 7 addon, contact form, cf7bs
 */
 /**
+ * Plugin initialization file
+ *
  * @package CF7BS
- * @version 1.3.1
  * @author Felix Arntz <felix-arntz@leaves-and-love.net>
+ * @since 1.0.0
  */
 
 if ( ! defined( 'WPCF7_AUTOP' ) ) {

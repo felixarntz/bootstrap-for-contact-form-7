@@ -1,8 +1,10 @@
 <?php
 /**
+ * reCAPTCHA module
+ *
  * @package CF7BS
- * @version 1.3.1
  * @author Felix Arntz <felix-arntz@leaves-and-love.net>
+ * @since 1.3.0
  */
 
 if ( function_exists( 'wpcf7_recaptcha_add_shortcode_recaptcha' ) ) {

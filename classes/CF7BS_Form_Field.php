@@ -1,8 +1,10 @@
 <?php
 /**
+ * CF7BS_Form_Field class
+ *
  * @package CF7BS
- * @version 1.3.1
  * @author Felix Arntz <felix-arntz@leaves-and-love.net>
+ * @since 1.0.0
  */
 
 class CF7BS_Form_Field extends CF7BS_Component {

@@ -1,8 +1,10 @@
 <?php
 /**
+ * Quiz module
+ *
  * @package CF7BS
- * @version 1.3.1
  * @author Felix Arntz <felix-arntz@leaves-and-love.net>
+ * @since 1.0.0
  */
 
 remove_action( 'wpcf7_init', 'wpcf7_add_shortcode_quiz' );
