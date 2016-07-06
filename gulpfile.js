@@ -32,9 +32,11 @@ var config = {
 	licenseURI: pkg.license.url,
 	tags: keywords.join( ', ' ),
 	contributors: [ 'flixos90' ].join( ', ' ),
+	donateLink: 'https://leaves-and-love.net/wordpress-plugins/',
 	minRequired: '3.6',
-	testedUpTo: '4.5.2',
-	translateURI: 'https://translate.wordpress.org/projects/wp-plugins/' + pkg.name
+	testedUpTo: '4.5.3',
+	translateURI: 'https://translate.wordpress.org/projects/wp-plugins/' + pkg.name,
+	network: false
 };
 
 /* ---- DO NOT EDIT BELOW THIS LINE ---- */
@@ -49,6 +51,7 @@ var pluginheader = 	'Plugin Name: ' + config.pluginName + '\n' +
 					'License:     ' + config.license + '\n' +
 					'License URI: ' + config.licenseURI + '\n' +
 					'Text Domain: ' + config.pluginSlug + '\n' +
+					( config.network ? 'Network:     true' + '\n' : '' ) +
 					'Tags:        ' + config.tags;
 
 // WP plugin header for readme.txt
@@ -57,6 +60,7 @@ var readmeheader =	'Plugin Name:       ' + config.pluginName + '\n' +
 					'Author:            ' + config.author + '\n' +
 					'Author URI:        ' + config.authorURI + '\n' +
 					'Contributors:      ' + config.contributors + '\n' +
+					( config.donateLink ? 'Donate link:       ' + config.donateLink + '\n' : '' ) +
 					'Requires at least: ' + config.minRequired + '\n' +
 					'Tested up to:      ' + config.testedUpTo + '\n' +
 					'Stable tag:        ' + config.version + '\n' +
