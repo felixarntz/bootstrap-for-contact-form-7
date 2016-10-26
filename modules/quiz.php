@@ -64,6 +64,7 @@ function cf7bs_quiz_shortcode_handler( $tag ) {
 		'maxlength'			=> $tag->get_maxlength_option(),
 		'tabindex'			=> $tag->get_option( 'tabindex', 'int', true ),
 		'wrapper_class'		=> $tag->name,
+		'label_class'       => $tag->get_option( 'label_class', 'class', true ),
 	), $tag->basetype, $tag->name ) );
 
 	$html = $field->display( false );

@@ -109,6 +109,7 @@ function cf7bs_captcha_shortcode_handler( $tag ) {
 			'maxlength'			=> $tag_obj->get_maxlength_option(),
 			'tabindex'			=> $tag_obj->get_option( 'tabindex', 'int', true ),
 			'wrapper_class'		=> $tag_obj->name,
+			'label_class'       => $tag_obj->get_option( 'label_class', 'class', true ),
 			'input_before'		=> $input_before,
 			'input_after'		=> $input_after,
 			'input_before_class'=> 'input-group-addon input-group-has-image',

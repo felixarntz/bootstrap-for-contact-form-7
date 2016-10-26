@@ -145,6 +145,7 @@ function cf7bs_textarea_shortcode_handler( $tag ) {
 		'maxlength'			=> $tag_obj->get_maxlength_option(),
 		'tabindex'			=> $tag_obj->get_option( 'tabindex', 'int', true ),
 		'wrapper_class'		=> $tag_obj->name,
+		'label_class'       => $tag_obj->get_option( 'label_class', 'class', true ),
 		'rows' 				=> $rows,
 		'input_before'		=> $input_before,
 		'input_after'		=> $input_after,

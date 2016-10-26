@@ -25,10 +25,14 @@ class CF7BS_Form_Field extends CF7BS_Component {
 			}
 
 			if ( 'hidden' != $type ) {
-				$label_class = 'control-label';
+				if ( ! empty( $label_class ) ) {
+					$label_class .= ' ';
+				}
+
 				$input_div_class = '';
 				$input_class = $class;
 				if ( 'horizontal' == $form_layout ) {
+					$label_class .= ' control-label';
 					$classes = $this->get_column_width_classes( $form_label_width, $form_breakpoint, $grid_columns );
 					$label_class .= ' ' . $classes['label'];
 					$input_div_class = $classes['input'];
@@ -36,6 +40,7 @@ class CF7BS_Form_Field extends CF7BS_Component {
 						$input_div_class .= ' ' . $this->get_column_offset_class( $form_label_width, $form_breakpoint, $grid_columns );
 					}
 				} elseif( 'inline' == $form_layout ) {
+					$label_class .= ' sr-only';
 					if ( empty( $placeholder ) ) {
 						$placeholder = $label;
 					}
@@ -125,7 +130,7 @@ class CF7BS_Form_Field extends CF7BS_Component {
 					} elseif( 'inline' == $form_layout ) {
 						$output .= '<div class="form-group' . $wrapper_class . $status . '">';
 						if ( ! empty( $label ) ) {
-							$output .= '<label class="sr-only"' . ( ! empty( $id ) ? ' for="' . esc_attr( $id ) . '"' : '' ) . '>' . esc_html( $label ) . $label_required . '</label>';
+							$output .= '<label class="' . esc_attr( $label_class ) . '"' . ( ! empty( $id ) ? ' for="' . esc_attr( $id ) . '"' : '' ) . '>' . esc_html( $label ) . $label_required . '</label>';
 						}
 					} else {
 						$output .= '<div class="form-group' . $wrapper_class . $status . '">';
@@ -134,7 +139,7 @@ class CF7BS_Form_Field extends CF7BS_Component {
 							if ( in_array( $type, array( 'radio', 'checkbox' ) ) ) {
 								$rc_group_style = ' style="display:block;"';
 							}
-							$output .= '<label' . ( ! empty( $id ) ? ' for="' . esc_attr( $id ) . '"' : '' ) . $rc_group_style . '>' . esc_html( $label ) . $label_required . '</label>';
+							$output .= '<label class="' . esc_attr( $label_class ) . '"' . ( ! empty( $id ) ? ' for="' . esc_attr( $id ) . '"' : '' ) . $rc_group_style . '>' . esc_html( $label ) . $label_required . '</label>';
 						}
 					}
 				}
@@ -434,6 +439,7 @@ class CF7BS_Form_Field extends CF7BS_Component {
 			'group_layout'			=> 'default', // default, inline, buttons
 			'group_type'			=> 'default', // only if group_layout==buttons
 			'wrapper_class'			=> '',
+			'label_class'           => '',
 			'input_before'			=> '',
 			'input_after'			=> '',
 			'input_before_class'	=> 'input-group-addon',

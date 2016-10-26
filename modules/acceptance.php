@@ -54,6 +54,7 @@ function cf7bs_acceptance_shortcode_handler( $tag ) {
 		'status'			=> $status,
 		'tabindex'			=> $tag->get_option( 'tabindex', 'int', true ),
 		'wrapper_class'		=> $tag->name,
+		'label_class'       => $tag->get_option( 'label_class', 'class', true ),
 	), $tag->basetype, $tag->name ) );
 
 	$html = $field->display( false );

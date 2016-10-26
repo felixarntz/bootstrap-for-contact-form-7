@@ -87,6 +87,7 @@ function cf7bs_date_shortcode_handler( $tag ) {
 		'readonly'			=> $tag->has_option( 'readonly' ) ? true : false,
 		'tabindex'			=> $tag->get_option( 'tabindex', 'int', true ),
 		'wrapper_class'		=> $tag->name,
+		'label_class'       => $tag->get_option( 'label_class', 'class', true ),
 	), $tag->basetype, $tag->name ) );
 
 	$html = $field->display( false );
