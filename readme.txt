@@ -216,13 +216,11 @@ Note that the custom form filter takes precedence over the properties defined in
 
 = Input Groups =
 
-All textual input fields support the input group feature that Bootstrap provides. To use it, add an option `input_before` and/or `input_after` to any text / email / url / tel input. Example:
+All textual input fields support the input group feature that Bootstrap provides. To use it, add a shortcode-like construct (almost, but it has to use curly braces instead) into the content of any text / email / url / tel input shortcode. Example:
 
-	[text twitter-username input_before:@]Your Twitter Handle[/text]
+	[text twitter-username]{input_before}@{/input_before}Your Twitter Handle[/text]
 
-Note that the `input_before` and `input_after` options can also be added to textareas. In this case, the content will be displayed directly above or below the textarea respectively. To display content that contains one or more spaces, just enter it as the option value, replacing all spaces by three dashes. Example:
-
-	[textarea* your-text input_before:Please---enter---something]Your Text[/textarea*]
+Note that the `input_before` and `input_after` can also be added to textareas. In this case, the content will be displayed directly above or below the textarea respectively.
 
 = Submit Button Alignment =
 

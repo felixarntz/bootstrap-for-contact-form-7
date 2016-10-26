@@ -76,6 +76,24 @@ function cf7bs_textarea_shortcode_handler( $tag ) {
 		$input_after = '';
 	}
 
+	$content = $tag_obj->content;
+
+	$matches = array();
+	if ( preg_match( '/\{input_before\}(.*)\{\/input_before\}/imU', $content, $matches ) ) {
+		if ( ! empty( $matches[1] ) ) {
+			$input_before = $matches[1];
+		}
+		$content = str_replace( $matches[0], '', $content );
+	}
+
+	$matches = array();
+	if ( preg_match( '/\{input_after\}(.*)\{\/input_after\}/imU', $content, $matches ) ) {
+		if ( ! empty( $matches[1] ) ) {
+			$input_after = $matches[1];
+		}
+		$content = str_replace( $matches[0], '', $content );
+	}
+
 	if ( $tag_obj->has_option( 'include_count' ) ) {
 		$count_mode = 'input_after';
 		$count_down = false;
@@ -113,7 +131,7 @@ function cf7bs_textarea_shortcode_handler( $tag ) {
 		'type'				=> 'textarea',
 		'value'				=> $value,
 		'placeholder'		=> $placeholder,
-		'label'				=> $tag_obj->content,
+		'label'				=> $content,
 		'help_text'			=> $validation_error,
 		'size'				=> cf7bs_get_form_property( 'size' ),
 		'grid_columns'		=> cf7bs_get_form_property( 'grid_columns' ),

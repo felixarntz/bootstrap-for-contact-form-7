@@ -1,5 +1,8 @@
 == Changelog ==
 
+= 1.4.0 =
+* Enhanced: `input_before` and `input_after` now support HTML by putting something like `{input_before}<span>Content before</span>{/input_before} into the content of a field shortcode (make sure to use curly braces); this method is now recommended and takes precedence over the old way
+
 = 1.3.1 =
 * Enhanced: alerts can now be made dismissible by defining the constant `CF7BS_ALERT_DISMISSIBLE`
 * Fixed: properly add `for` attributes to labels for checkbox and radio groups for accessibility
