@@ -7,9 +7,9 @@ Author URI:        https://leaves-and-love.net
 Contributors:      flixos90
 Donate link:       https://leaves-and-love.net/wordpress-plugins/
 Requires at least: 3.6
-Tested up to:      4.5.3
-Stable tag:        1.3.1
-Version:           1.3.1
+Tested up to:      4.6
+Stable tag:        1.4.0
+Version:           1.4.0
 License:           GNU General Public License v3
 License URI:       http://www.gnu.org/licenses/gpl-3.0.html
 Tags:              contact form 7, wpcf7, bootstrap, bootstrap 3, bootstrap framework, addon, contact form 7 addon, contact form, cf7bs
@@ -110,6 +110,13 @@ You can also contribute to the plugin by translating it. Simply visit [translate
 3. A warning alert as displayed by Bootstrap for Contact Form 7
 
 == Changelog ==
+
+= 1.4.0 =
+* Enhanced: all form settings except `submit_size`, `submit_type` and `required_html` can now be overridden on a per-field basis by providing the setting name and its intended value as a shortcode attribute
+* Enhanced: a new value 'none' is now supported for the `layout` form setting which will prevent any wrapper from rendering; it is recommended to only use this for advanced field layouts
+* Enhanced: a new attribute `label_class` can now be added to shortcodes for additional label classes
+* Enhanced: `input_before` and `input_after` now support HTML by putting something like `{input_before}<span>Content before</span>{/input_before} into the content of a field shortcode (make sure to use curly braces); this method is now recommended and takes precedence over the old way
+* Fixed: the label of the `free_text` option in radio buttons / checkboxes is now displayed correctly
 
 = 1.3.1 =
 * Enhanced: alerts can now be made dismissible by defining the constant `CF7BS_ALERT_DISMISSIBLE`
