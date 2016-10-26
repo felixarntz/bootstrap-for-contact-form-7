@@ -194,7 +194,7 @@ You can adjust several form properties (properties that affect an entire form, n
 * `label_width` - adjusts the form's label width (applies only to horizontal layout); valid values: any integer between 1 and the value of `grid_columns` minus 1; default value: 3
 * `breakpoint` - adjusts the responsive breakpoint (applies only to horizontal layout); valid values: 'xs', 'sm', 'md', 'lg'; default value: 'sm'
 
-There are three methods to adjust the above properties: The easiest one is to use the "Additional Settings" tab when editing a form in Contact Form 7 and insert any property and its desired value there, one per line. For example:
+There are four methods to adjust the above properties: The easiest one is to use the "Additional Settings" tab when editing a form in Contact Form 7 and insert any property and its desired value there, one per line. For example:
 
 	layout:horizontal
 	size:large
@@ -211,6 +211,13 @@ Alternatively you can use the filter `cf7bs_form_{{FORM_ID}}_properties` where `
 	add_filter( 'cf7bs_form_3_properties', 'my_custom_form_properties' );
 
 The third way does something slightly different from the other two since it does not change a specific form's properties, but the default properties for all forms. To do that, you should use the filter `cf7bs_default_form_properties` which works exactly like the other filter mentioned above.
+
+The fourth method is different from the others as it allows to override the form settings on a per-field basis. You can add any of the setting names plus its intended value as a shortcode attribute for any field to make this field behave differently from the form's setting. This can be especially helpful if you need to create advanced form layouts like when you need multiple fields on the same line. For example, you could do the following to display two fields in one row, even though the form's `layout` is set to 'default':
+
+	<div class="form-group row">
+		<div class="col-md-6"><label for="user-first-name">First Name</label>[text user_first_name id:user-first-name layout:none][/text]</div>
+		<div class="col-md-6"><label for="user-last-name">Last Name</label>[text user_last_name id:user-last-name layout:none][/text]</div>
+	</div>
 
 Note that the custom form filter takes precedence over the properties defined in the admin, while the default filter is just used as fallback.
 

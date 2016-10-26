@@ -70,8 +70,21 @@ add_action( 'plugins_loaded', 'cf7bs_maybe_init', 50 );
 $current_form_id = 0;
 $current_form_properties = array();
 
-function cf7bs_get_form_property( $property, $form_id = 0 ) {
+function cf7bs_get_form_property( $property, $form_id = 0, $field_tag = null ) {
 	global $current_form_id, $current_form_properties;
+
+	// Allow overriding some form properties by individual fields.
+	if ( $field_tag ) {
+		if ( in_array( $property, array_keys( cf7bs_get_default_form_properties( true ) ) ) ) {
+			$ret = $field_tag->get_option( $property, '[-0-9a-zA-Z_]+', true );
+			if ( $ret ) {
+				// special case: skip the `$size` property if it is numeric (default CF7 way)
+				if ( 'size' != $property || ! is_numeric( $ret ) ) {
+					return $ret;
+				}
+			}
+		}
+	}
 
 	$current_form = $original_form = null;
 
@@ -120,20 +133,26 @@ function cf7bs_get_form_property( $property, $form_id = 0 ) {
 	return false;
 }
 
-function cf7bs_get_default_form_properties() {
+function cf7bs_get_default_form_properties( $only_overrideables = false ) {
 	$properties = array(
 		'layout'		=> 'default', // 'default', 'inline', 'horizontal', 'none'
 		'size'			=> 'default', // 'default', 'small', 'large'
 		'group_layout'	=> 'default', // 'default', 'inline', 'buttons'
 		'group_type'	=> 'default', // 'default', 'primary', 'success', 'info', 'warning', 'danger' (only if group_layout=buttons)
-		'submit_size'	=> '', // 'default', 'small', 'large' or leave empty to use value of 'size'
-		'submit_type'	=> 'primary', // 'default', 'primary', 'success', 'info', 'warning', 'danger'
-		'required_html'	=> '<span class="required">*</span>',
 		'grid_columns'	=> 12,
 		'label_width'	=> 3, // integer between 1 and 'grid_columns' minus 1
 		'breakpoint'	=> 'sm', // xs, sm, md, lg
 	);
-	return apply_filters( 'cf7bs_default_form_properties', $properties );
+
+	if ( ! $only_overrideables ) {
+		$properties = array_merge( $properties, array(
+			'submit_size'	=> '', // 'default', 'small', 'large' or leave empty to use value of 'size'
+			'submit_type'	=> 'primary', // 'default', 'primary', 'success', 'info', 'warning', 'danger'
+			'required_html'	=> '<span class="required">*</span>',
+		) );
+	}
+
+	return apply_filters( 'cf7bs_default_form_properties', $properties, $only_overrideables );
 }
 
 function cf7bs_apply_field_args_filter( $field_args, $tag_type, $tag_name = '', $form_id = 0 ) {

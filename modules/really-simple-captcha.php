@@ -34,7 +34,7 @@ function cf7bs_captcha_shortcode_handler( $tag ) {
 		if ( $image_sizes_array = preg_grep( '%^size:[smlSML]$%', $tag['options'] ) ) {
 			$tag['options'] = array_values( array_diff_key( $tag['options'], $image_sizes_array ) );
 		}
-		$size = cf7bs_get_form_property( 'size' );
+		$size = cf7bs_get_form_property( 'size', 0, $tag_obj );
 		$image_size = 'large' == $size ? 'l' : ( 'small' == $size ? 's' : 'm' );
 		$tag['options'][] = 'size:' . $image_size;
 
@@ -43,10 +43,10 @@ function cf7bs_captcha_shortcode_handler( $tag ) {
 			'type'				=> 'custom',
 			'label'				=> $tag_obj->content,
 			'help_text'			=> $validation_error,
-			'grid_columns'		=> cf7bs_get_form_property( 'grid_columns' ),
-			'form_layout'		=> cf7bs_get_form_property( 'layout' ),
-			'form_label_width'	=> cf7bs_get_form_property( 'label_width' ),
-			'form_breakpoint'	=> cf7bs_get_form_property( 'breakpoint' ),
+			'grid_columns'		=> cf7bs_get_form_property( 'grid_columns', 0, $tag_obj ),
+			'form_layout'		=> cf7bs_get_form_property( 'layout', 0, $tag_obj ),
+			'form_label_width'	=> cf7bs_get_form_property( 'label_width', 0, $tag_obj ),
+			'form_breakpoint'	=> cf7bs_get_form_property( 'breakpoint', 0, $tag_obj ),
 			'tabindex'			=> false,
 			'wrapper_class'		=> '',
 		), $tag_obj->basetype, $tag_obj->name ) );
@@ -100,10 +100,10 @@ function cf7bs_captcha_shortcode_handler( $tag ) {
 			'placeholder'		=> $placeholder,
 			'label'				=> $tag_obj->content,
 			'help_text'			=> $validation_error,
-			'size'				=> cf7bs_get_form_property( 'size' ),
-			'form_layout'		=> cf7bs_get_form_property( 'layout' ),
-			'form_label_width'	=> cf7bs_get_form_property( 'label_width' ),
-			'form_breakpoint'	=> cf7bs_get_form_property( 'breakpoint' ),
+			'size'				=> cf7bs_get_form_property( 'size', 0, $tag_obj ),
+			'form_layout'		=> cf7bs_get_form_property( 'layout', 0, $tag_obj ),
+			'form_label_width'	=> cf7bs_get_form_property( 'label_width', 0, $tag_obj ),
+			'form_breakpoint'	=> cf7bs_get_form_property( 'breakpoint', 0, $tag_obj ),
 			'mode'				=> $mode,
 			'status'			=> $status,
 			'maxlength'			=> $tag_obj->get_maxlength_option(),
