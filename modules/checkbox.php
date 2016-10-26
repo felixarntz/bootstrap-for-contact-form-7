@@ -106,12 +106,12 @@ function cf7bs_checkbox_shortcode_handler( $tag ) {
 	$posted = wpcf7_is_posted();
 
 	$count = 0;
+	$replace_index = count( (array) $tag->values ) - 1;
 
 	foreach ( (array) $tag->values as $key => $value ) {
-		if ( $free_text && $count == count( $tag->values ) - 1 ) {
-			$options[ $value ] = '<input type="text" name="' . sprintf( '_wpcf7_%1$s_free_text_%2$s', $tag->basetype, $tag->name ) . '" class="wpcf7-free-text">';
-		} else {
-			$options[ $value ] = isset( $labels[ $key ] ) ? $labels[ $key ] : $value;
+		$options[ $value ] = isset( $labels[ $key ] ) ? $labels[ $key ] : $value;
+		if ( $free_text && $count == $replace_index ) {
+			$options[ $value ] .= ' <input type="text" name="' . sprintf( '_wpcf7_%1$s_free_text_%2$s', $tag->basetype, $tag->name ) . '" class="wpcf7-free-text">';
 		}
 
 		if ( $posted && ! empty( $post ) ) {
