@@ -122,7 +122,7 @@ function cf7bs_get_form_property( $property, $form_id = 0 ) {
 
 function cf7bs_get_default_form_properties() {
 	$properties = array(
-		'layout'		=> 'default', // 'default', 'inline', 'horizontal'
+		'layout'		=> 'default', // 'default', 'inline', 'horizontal', 'none'
 		'size'			=> 'default', // 'default', 'small', 'large'
 		'group_layout'	=> 'default', // 'default', 'inline', 'buttons'
 		'group_type'	=> 'default', // 'default', 'primary', 'success', 'info', 'warning', 'danger' (only if group_layout=buttons)

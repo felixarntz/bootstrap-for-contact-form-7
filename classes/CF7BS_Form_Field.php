@@ -115,25 +115,27 @@ class CF7BS_Form_Field extends CF7BS_Component {
 					$append .= ' disabled';
 				}
 
-				if ( 'horizontal' == $form_layout ) {
-					$output .= '<div class="form-group' . $wrapper_class . $status . '">';
-					if ( ! empty( $label ) ) {
-						$output .= '<label class="' . esc_attr( $label_class ) . '"' . ( ! empty( $id ) ? ' for="' . esc_attr( $id ) . '"' : '' ) . '>' . esc_html( $label ) . $label_required . '</label>';
-					}
-					$output .= '<div class="' . esc_attr( $input_div_class ) . '">';
-				} elseif( 'inline' == $form_layout ) {
-					$output .= '<div class="form-group' . $wrapper_class . $status . '">';
-					if ( ! empty( $label ) ) {
-						$output .= '<label class="sr-only"' . ( ! empty( $id ) ? ' for="' . esc_attr( $id ) . '"' : '' ) . '>' . esc_html( $label ) . $label_required . '</label>';
-					}
-				} else {
-					$output .= '<div class="form-group' . $wrapper_class . $status . '">';
-					if ( ! empty( $label ) ) {
-						$rc_group_style = '';
-						if ( in_array( $type, array( 'radio', 'checkbox' ) ) ) {
-							$rc_group_style = ' style="display:block;"';
+				if ( 'none' != $form_layout ) {
+					if ( 'horizontal' == $form_layout ) {
+						$output .= '<div class="form-group' . $wrapper_class . $status . '">';
+						if ( ! empty( $label ) ) {
+							$output .= '<label class="' . esc_attr( $label_class ) . '"' . ( ! empty( $id ) ? ' for="' . esc_attr( $id ) . '"' : '' ) . '>' . esc_html( $label ) . $label_required . '</label>';
 						}
-						$output .= '<label' . ( ! empty( $id ) ? ' for="' . esc_attr( $id ) . '"' : '' ) . $rc_group_style . '>' . esc_html( $label ) . $label_required . '</label>';
+						$output .= '<div class="' . esc_attr( $input_div_class ) . '">';
+					} elseif( 'inline' == $form_layout ) {
+						$output .= '<div class="form-group' . $wrapper_class . $status . '">';
+						if ( ! empty( $label ) ) {
+							$output .= '<label class="sr-only"' . ( ! empty( $id ) ? ' for="' . esc_attr( $id ) . '"' : '' ) . '>' . esc_html( $label ) . $label_required . '</label>';
+						}
+					} else {
+						$output .= '<div class="form-group' . $wrapper_class . $status . '">';
+						if ( ! empty( $label ) ) {
+							$rc_group_style = '';
+							if ( in_array( $type, array( 'radio', 'checkbox' ) ) ) {
+								$rc_group_style = ' style="display:block;"';
+							}
+							$output .= '<label' . ( ! empty( $id ) ? ' for="' . esc_attr( $id ) . '"' : '' ) . $rc_group_style . '>' . esc_html( $label ) . $label_required . '</label>';
+						}
 					}
 				}
 			}
@@ -375,7 +377,7 @@ class CF7BS_Form_Field extends CF7BS_Component {
 					break;
 			}
 
-			if ( 'hidden' != $type ) {
+			if ( 'hidden' != $type && 'none' != $form_layout ) {
 				if ( ! empty( $help_text ) && 'inline' != $form_layout ) {
 					$output .= '<span class="help-block">' . $help_text . '</span>';
 				}
@@ -420,7 +422,7 @@ class CF7BS_Form_Field extends CF7BS_Component {
 			'help_text'				=> '',
 			'size'					=> 'default', // default, large, small, mini
 			'grid_columns'			=> 12,
-			'form_layout'			=> 'default', // default, inline, horizontal
+			'form_layout'			=> 'default', // default, inline, horizontal, none
 			'form_label_width'		=> 2,
 			'form_breakpoint'		=> 'sm',
 			'mode'					=> 'default', // default, required, static, disabled

@@ -58,30 +58,36 @@ class CF7BS_Button extends CF7BS_Component {
 				}
 				$output .= '<label' . $for . ' class="' . esc_attr( $class ) . '"><input' . $id . $name . ' type="radio" value="' . esc_attr( $value ) . '"' . $append . '>' . $title . '</label>';
 			} else {
-				$wrapper_class = array();
+				if ( 'none' != $form_layout ) {
+					$wrapper_class = array();
 
-				if ( $align && 'inline' != $form_layout ) {
-					$wrapper_class[] = 'text-' . $align;
+					if ( $align && 'inline' != $form_layout ) {
+						$wrapper_class[] = 'text-' . $align;
+					}
+
+					if ( 'horizontal' == $form_layout ) {
+						$wrapper_class[] = $this->get_column_class( $form_label_width, $form_breakpoint, $grid_columns );
+					}
+
+					$wrapper_class = implode( ' ', $wrapper_class );
+
+					if ( ! empty( $wrapper_class ) ) {
+						$wrapper_class = ' class="' . $wrapper_class . '"';
+					}
+
+					if ( is_int( $tabindex ) ) {
+						$tabindex = ' tabindex="' . $tabindex . '"';
+					} else {
+						$tabindex = '';
+					}
+					$output .= '<div class="form-group"><div' . $wrapper_class . '>';
 				}
 
-				if ( 'horizontal' == $form_layout ) {
-					$wrapper_class[] = $this->get_column_class( $form_label_width, $form_breakpoint, $grid_columns );
-				}
-
-				$wrapper_class = implode( ' ', $wrapper_class );
-
-				if ( ! empty( $wrapper_class ) ) {
-					$wrapper_class = ' class="' . $wrapper_class . '"';
-				}
-
-				if ( is_int( $tabindex ) ) {
-					$tabindex = ' tabindex="' . $tabindex . '"';
-				} else {
-					$tabindex = '';
-				}
-				$output .= '<div class="form-group"><div' . $wrapper_class . '>';
 				$output .= '<input class="' . esc_attr( $class ) . '"' . $id . $name . ' type="submit" value="' . esc_attr( $title ) . '"' . $tabindex . '>';
-				$output .= '</div></div>';
+
+				if ( 'none' != $form_layout ) {
+					$output .= '</div></div>';
+				}
 			}
 		}
 
@@ -123,7 +129,7 @@ class CF7BS_Button extends CF7BS_Component {
 			'tabindex'				=> false,
 			'align'					=> false,
 			'grid_columns'			=> 12,
-			'form_layout'			=> 'default', // default, inline, horizontal
+			'form_layout'			=> 'default', // default, inline, horizontal, none
 			'form_label_width'		=> 2,
 			'form_breakpoint'		=> 'sm',
 		);
