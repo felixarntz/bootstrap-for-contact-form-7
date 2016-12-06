@@ -7,15 +7,15 @@
  * @since 1.0.0
  */
 
-remove_action( 'wpcf7_init', 'wpcf7_add_shortcode_submit' );
-add_action( 'wpcf7_init', 'cf7bs_add_shortcode_submit' );
+remove_action( 'wpcf7_init', 'wpcf7_add_form_tag_submit' );
+add_action( 'wpcf7_init', 'cf7bs_add_form_tag_submit' );
 
-function cf7bs_add_shortcode_submit() {
-	wpcf7_add_shortcode( 'submit', 'cf7bs_submit_shortcode_handler' );
+function cf7bs_add_form_tag_submit() {
+	wpcf7_add_form_tag( 'submit', 'cf7bs_submit_shortcode_handler' );
 }
 
 function cf7bs_submit_shortcode_handler( $tag ) {
-	$tag = new WPCF7_Shortcode( $tag );
+	$tag = new WPCF7_FormTag( $tag );
 
 	$class = wpcf7_form_controls_class( $tag->type );
 

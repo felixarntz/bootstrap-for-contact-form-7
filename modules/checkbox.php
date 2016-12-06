@@ -7,11 +7,11 @@
  * @since 1.0.0
  */
 
-remove_action( 'wpcf7_init', 'wpcf7_add_shortcode_checkbox' );
-add_action( 'wpcf7_init', 'cf7bs_add_shortcode_checkbox' );
+remove_action( 'wpcf7_init', 'wpcf7_add_form_tag_checkbox' );
+add_action( 'wpcf7_init', 'cf7bs_add_form_tag_checkbox' );
 
-function cf7bs_add_shortcode_checkbox() {
-	wpcf7_add_shortcode( array(
+function cf7bs_add_form_tag_checkbox() {
+	wpcf7_add_form_tag( array(
 		'checkbox',
 		'checkbox*',
 		'radio',
@@ -19,7 +19,7 @@ function cf7bs_add_shortcode_checkbox() {
 }
 
 function cf7bs_checkbox_shortcode_handler( $tag ) {
-	$tag = new WPCF7_Shortcode( $tag );
+	$tag = new WPCF7_FormTag( $tag );
 
 	if ( empty( $tag->name ) ) {
 		return '';
