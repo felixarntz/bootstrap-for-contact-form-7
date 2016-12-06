@@ -149,7 +149,7 @@ function cf7bs_captcha_ajax_refill( $items ) {
 		return $items;
 	}
 
-	$fes = wpcf7_scan_shortcode( array( 'type' => 'captchar' ) );
+	$fes = wpcf7_scan_form_tags( array( 'type' => 'captchar' ) );
 
 	if ( empty( $fes ) ) {
 		return $items;
