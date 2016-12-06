@@ -15,7 +15,7 @@ if ( function_exists( 'wpcf7_recaptcha_add_shortcode_recaptcha' ) ) {
 		$recaptcha = WPCF7_RECAPTCHA::get_instance();
 
 		if ( $recaptcha->is_active() ) {
-			wpcf7_add_shortcode( 'recaptcha', 'cf7bs_recaptcha_shortcode_handler' );
+			wpcf7_add_form_tag( 'recaptcha', 'cf7bs_recaptcha_shortcode_handler' );
 		}
 	}
 

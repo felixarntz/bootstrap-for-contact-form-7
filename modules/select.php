@@ -7,11 +7,11 @@
  * @since 1.0.0
  */
 
-remove_action( 'wpcf7_init', 'wpcf7_add_shortcode_select' );
-add_action( 'wpcf7_init', 'cf7bs_add_shortcode_select' );
+remove_action( 'wpcf7_init', 'wpcf7_add_form_tag_select' );
+add_action( 'wpcf7_init', 'cf7bs_add_form_tag_select' );
 
-function cf7bs_add_shortcode_select() {
-	wpcf7_add_shortcode( array(
+function cf7bs_add_form_tag_select() {
+	wpcf7_add_form_tag( array(
 		'select',
 		'select*',
 	), 'cf7bs_select_shortcode_handler', true );
