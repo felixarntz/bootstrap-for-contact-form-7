@@ -18,7 +18,7 @@ function cf7bs_add_form_tag_textarea() {
 }
 
 function cf7bs_textarea_shortcode_handler( $tag ) {
-	$tag_obj = new WPCF7_Shortcode( $tag );
+	$tag_obj = new WPCF7_FormTag( $tag );
 
 	if ( empty( $tag_obj->name ) ) {
 		return '';

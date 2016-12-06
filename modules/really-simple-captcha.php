@@ -18,7 +18,7 @@ function cf7bs_add_form_tag_captcha() {
 }
 
 function cf7bs_captcha_shortcode_handler( $tag ) {
-	$tag_obj = new WPCF7_Shortcode( $tag );
+	$tag_obj = new WPCF7_FormTag( $tag );
 
 	if ( 'captchac' == $tag_obj->type && ! class_exists( 'ReallySimpleCaptcha' ) ) {
 		return '<em>' . __( 'To use CAPTCHA, you need <a href="http://wordpress.org/extend/plugins/really-simple-captcha/">Really Simple CAPTCHA</a> plugin installed.', 'bootstrap-for-contact-form-7' ) . '</em>';

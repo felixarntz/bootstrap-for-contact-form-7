@@ -18,7 +18,7 @@ function cf7bs_add_form_tag_select() {
 }
 
 function cf7bs_select_shortcode_handler( $tag ) {
-	$tag = new WPCF7_Shortcode( $tag );
+	$tag = new WPCF7_FormTag( $tag );
 
 	if ( empty( $tag->name ) ) {
 		return '';

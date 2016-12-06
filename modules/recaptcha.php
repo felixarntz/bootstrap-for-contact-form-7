@@ -20,7 +20,7 @@ if ( function_exists( 'wpcf7_recaptcha_add_shortcode_recaptcha' ) ) {
 	}
 
 	function cf7bs_recaptcha_shortcode_handler( $tag ) {
-		$tag_obj = new WPCF7_Shortcode( $tag );
+		$tag_obj = new WPCF7_FormTag( $tag );
 
 		$field = new CF7BS_Form_Field( cf7bs_apply_field_args_filter( array(
 			'name'				=> wpcf7_recaptcha_shortcode_handler( $tag ),

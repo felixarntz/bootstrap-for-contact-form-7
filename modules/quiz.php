@@ -15,7 +15,7 @@ function cf7bs_add_form_tag_quiz() {
 }
 
 function cf7bs_quiz_shortcode_handler( $tag ) {
-	$tag = new WPCF7_Shortcode( $tag );
+	$tag = new WPCF7_FormTag( $tag );
 
 	if ( empty( $tag->name ) ) {
 		return '';

@@ -19,7 +19,7 @@ function cf7bs_add_form_tag_checkbox() {
 }
 
 function cf7bs_checkbox_shortcode_handler( $tag ) {
-	$tag = new WPCF7_Shortcode( $tag );
+	$tag = new WPCF7_FormTag( $tag );
 
 	if ( empty( $tag->name ) ) {
 		return '';

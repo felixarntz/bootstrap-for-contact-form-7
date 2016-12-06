@@ -15,7 +15,7 @@ function cf7bs_add_form_tag_submit() {
 }
 
 function cf7bs_submit_shortcode_handler( $tag ) {
-	$tag = new WPCF7_Shortcode( $tag );
+	$tag = new WPCF7_FormTag( $tag );
 
 	$class = wpcf7_form_controls_class( $tag->type );
 
