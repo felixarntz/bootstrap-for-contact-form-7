@@ -7,10 +7,10 @@
  * @since 1.0.0
  */
 
-remove_action( 'wpcf7_init', 'wpcf7_add_form_tag_file' );
-add_action( 'wpcf7_init', 'cf7bs_add_form_tag_file' );
+remove_action( 'wpcf7_init', 'wpcf7_add_shortcode_file' );
+add_action( 'wpcf7_init', 'cf7bs_add_shortcode_file' );
 
-function cf7bs_add_form_tag_file() {
+function cf7bs_add_shortcode_file() {
 	wpcf7_add_form_tag( array(
 		'file',
 		'file*',

@@ -7,10 +7,10 @@
  * @since 1.0.0
  */
 
-remove_action( 'wpcf7_init', 'wpcf7_add_form_tag_checkbox' );
-add_action( 'wpcf7_init', 'cf7bs_add_form_tag_checkbox' );
+remove_action( 'wpcf7_init', 'wpcf7_add_shortcode_checkbox' );
+add_action( 'wpcf7_init', 'cf7bs_add_shortcode_checkbox' );
 
-function cf7bs_add_form_tag_checkbox() {
+function cf7bs_add_shortcode_checkbox() {
 	wpcf7_add_form_tag( array(
 		'checkbox',
 		'checkbox*',

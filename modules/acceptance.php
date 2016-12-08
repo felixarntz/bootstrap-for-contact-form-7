@@ -7,10 +7,10 @@
  * @since 1.0.0
  */
 
-remove_action( 'wpcf7_init', 'wpcf7_add_form_tag_acceptance' );
-add_action( 'wpcf7_init', 'cf7bs_add_form_tag_acceptance' );
+remove_action( 'wpcf7_init', 'wpcf7_add_shortcode_acceptance' );
+add_action( 'wpcf7_init', 'cf7bs_add_shortcode_acceptance' );
 
-function cf7bs_add_form_tag_acceptance() {
+function cf7bs_add_shortcode_acceptance() {
 	wpcf7_add_form_tag( 'acceptance', 'cf7bs_acceptance_shortcode_handler', true );
 }
 

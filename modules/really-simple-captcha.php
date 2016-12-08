@@ -7,10 +7,10 @@
  * @since 1.0.0
  */
 
-remove_action( 'wpcf7_init', 'wpcf7_add_form_tag_captcha' );
-add_action( 'wpcf7_init', 'cf7bs_add_form_tag_captcha' );
+remove_action( 'wpcf7_init', 'wpcf7_add_shortcode_captcha' );
+add_action( 'wpcf7_init', 'cf7bs_add_shortcode_captcha' );
 
-function cf7bs_add_form_tag_captcha() {
+function cf7bs_add_shortcode_captcha() {
 	wpcf7_add_form_tag( array(
 		'captchac',
 		'captchar',
