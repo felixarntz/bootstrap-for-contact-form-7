@@ -7,10 +7,10 @@
  * @since 1.2.0
  */
 
-remove_action( 'wpcf7_init', 'wpcf7_add_form_tag_count' );
-add_action( 'wpcf7_init', 'cf7bs_add_form_tag_count' );
+remove_action( 'wpcf7_init', 'wpcf7_add_shortcode_count' );
+add_action( 'wpcf7_init', 'cf7bs_add_shortcode_count' );
 
-function cf7bs_add_form_tag_count() {
+function cf7bs_add_shortcode_count() {
 	wpcf7_add_form_tag( 'count', 'cf7bs_count_shortcode_handler', true );
 }
 

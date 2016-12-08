@@ -7,10 +7,10 @@
  * @since 1.0.0
  */
 
-remove_action( 'wpcf7_init', 'wpcf7_add_form_tag_quiz' );
-add_action( 'wpcf7_init', 'cf7bs_add_form_tag_quiz' );
+remove_action( 'wpcf7_init', 'wpcf7_add_shortcode_quiz' );
+add_action( 'wpcf7_init', 'cf7bs_add_shortcode_quiz' );
 
-function cf7bs_add_form_tag_quiz() {
+function cf7bs_add_shortcode_quiz() {
 	wpcf7_add_form_tag( 'quiz', 'cf7bs_quiz_shortcode_handler', true );
 }
 
