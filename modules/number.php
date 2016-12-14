@@ -11,16 +11,16 @@ remove_action( 'wpcf7_init', 'wpcf7_add_shortcode_number' );
 add_action( 'wpcf7_init', 'cf7bs_add_shortcode_number' );
 
 function cf7bs_add_shortcode_number() {
-    $tags = array(
+	$tags = array(
 		'number',
 		'number*',
 		'range',
 		'range*',
 	);
-    foreach ( $tags as $tag ) {
-        wpcf7_remove_form_tag( $tag );
-    }
-    
+	foreach ( $tags as $tag ) {
+		wpcf7_remove_form_tag( $tag );
+	}
+
 	wpcf7_add_form_tag( $tags, 'cf7bs_number_shortcode_handler', true );
 }
 

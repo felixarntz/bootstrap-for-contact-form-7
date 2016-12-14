@@ -11,14 +11,14 @@ remove_action( 'wpcf7_init', 'wpcf7_add_shortcode_date' );
 add_action( 'wpcf7_init', 'cf7bs_add_shortcode_date' );
 
 function cf7bs_add_shortcode_date() {
-    $tags = array(
+	$tags = array(
 		'date',
 		'date*',
 	);
-    foreach ( $tags as $tag ) {
-        wpcf7_remove_form_tag( $tag );
-    }
-    
+	foreach ( $tags as $tag ) {
+		wpcf7_remove_form_tag( $tag );
+	}
+
 	wpcf7_add_form_tag( $tags, 'cf7bs_date_shortcode_handler', true );
 }
 

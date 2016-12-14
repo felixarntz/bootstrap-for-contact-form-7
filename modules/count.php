@@ -11,13 +11,13 @@ remove_action( 'wpcf7_init', 'wpcf7_add_shortcode_count' );
 add_action( 'wpcf7_init', 'cf7bs_add_shortcode_count' );
 
 function cf7bs_add_shortcode_count() {
-    $tags = array(
-        'count'
-    );
-    foreach ( $tags as $tag ) {
-        wpcf7_remove_form_tag( $tag );
-    }
-    
+	$tags = array(
+		'count'
+	);
+	foreach ( $tags as $tag ) {
+		wpcf7_remove_form_tag( $tag );
+	}
+
 	wpcf7_add_form_tag( $tags, 'cf7bs_count_shortcode_handler', true );
 }
 

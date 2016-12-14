@@ -11,7 +11,7 @@ remove_action( 'wpcf7_init', 'wpcf7_add_shortcode_text' );
 add_action( 'wpcf7_init', 'cf7bs_add_shortcode_text' );
 
 function cf7bs_add_shortcode_text() {
-    $tags = array(
+	$tags = array(
 		'text',
 		'text*',
 		'email',
@@ -21,10 +21,10 @@ function cf7bs_add_shortcode_text() {
 		'tel',
 		'tel*',
 	);
-    foreach ( $tags as $tag ) {
-        wpcf7_remove_form_tag( $tag );
-    }
-    
+	foreach ( $tags as $tag ) {
+		wpcf7_remove_form_tag( $tag );
+	}
+
 	wpcf7_add_form_tag( $tags, 'cf7bs_text_shortcode_handler', true );
 }
 

@@ -11,13 +11,13 @@ remove_action( 'wpcf7_init', 'wpcf7_add_shortcode_quiz' );
 add_action( 'wpcf7_init', 'cf7bs_add_shortcode_quiz' );
 
 function cf7bs_add_shortcode_quiz() {
-    $tags = array(
-        'quiz'
-    );
-    foreach ( $tags as $tag ) {
-        wpcf7_remove_form_tag( $tag );
-    }
-    
+	$tags = array(
+		'quiz'
+	);
+	foreach ( $tags as $tag ) {
+		wpcf7_remove_form_tag( $tag );
+	}
+
 	wpcf7_add_form_tag( $tags, 'cf7bs_quiz_shortcode_handler', true );
 }
 
