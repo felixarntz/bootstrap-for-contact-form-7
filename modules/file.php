@@ -11,10 +11,15 @@ remove_action( 'wpcf7_init', 'wpcf7_add_shortcode_file' );
 add_action( 'wpcf7_init', 'cf7bs_add_shortcode_file' );
 
 function cf7bs_add_shortcode_file() {
-	wpcf7_add_form_tag( array(
+	$tags = array(
 		'file',
 		'file*',
-	), 'cf7bs_file_shortcode_handler', true );
+	);
+	foreach ( $tags as $tag ) {
+		wpcf7_remove_form_tag( $tag );
+	}
+
+	wpcf7_add_form_tag( $tags, 'cf7bs_file_shortcode_handler', true );
 }
 
 function cf7bs_file_shortcode_handler( $tag ) {
