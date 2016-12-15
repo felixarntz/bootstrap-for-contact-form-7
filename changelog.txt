@@ -1,5 +1,8 @@
 == Changelog ==
 
+= 1.4.1 =
+* Fixed: plugin is now compatible with Contact Form 7 version 4.6 and its renamed functions / classes
+
 = 1.4.0 =
 * Enhanced: all form settings except `submit_size`, `submit_type` and `required_html` can now be overridden on a per-field basis by providing the setting name and its intended value as a shortcode attribute
 * Enhanced: a new value 'none' is now supported for the `layout` form setting which will prevent any wrapper from rendering; it is recommended to only use this for advanced field layouts
