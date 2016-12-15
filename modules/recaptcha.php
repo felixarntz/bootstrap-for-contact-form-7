@@ -8,26 +8,30 @@
  */
 
 if ( function_exists( 'wpcf7_recaptcha_add_shortcode_recaptcha' ) ) {
-	remove_action( 'wpcf7_init', 'wpcf7_recaptcha_add_shortcode_recaptcha' );
-	add_action( 'wpcf7_init', 'cf7bs_recaptcha_add_shortcode_recaptcha' );
+	add_action( 'wpcf7_init', 'cf7bs_recaptcha_add_shortcode_recaptcha', 11 );
 
 	function cf7bs_recaptcha_add_shortcode_recaptcha() {
 		$recaptcha = WPCF7_RECAPTCHA::get_instance();
 
 		if ( $recaptcha->is_active() ) {
+			$add_func    = function_exists( 'wpcf7_add_form_tag' )    ? 'wpcf7_add_form_tag'    : 'wpcf7_add_shortcode';
+			$remove_func = function_exists( 'wpcf7_remove_form_tag' ) ? 'wpcf7_remove_form_tag' : 'wpcf7_remove_shortcode';
+
 			$tags = array(
 				'recaptcha'
 			);
 			foreach ( $tags as $tag ) {
-				wpcf7_remove_form_tag( $tag );
+				call_user_func( $remove_func, $tag );
 			}
 
-			wpcf7_add_form_tag( $tags, 'cf7bs_recaptcha_shortcode_handler' );
+			call_user_func( $add_func, $tags, 'cf7bs_recaptcha_shortcode_handler' );
 		}
 	}
 
 	function cf7bs_recaptcha_shortcode_handler( $tag ) {
-		$tag_obj = new WPCF7_FormTag( $tag );
+		$classname = class_exists( 'WPCF7_FormTag' ) ? 'WPCF7_FormTag' : 'WPCF7_Shortcode';
+
+		$tag_obj = new $classname( $tag );
 
 		$field = new CF7BS_Form_Field( cf7bs_apply_field_args_filter( array(
 			'name'				=> wpcf7_recaptcha_shortcode_handler( $tag ),

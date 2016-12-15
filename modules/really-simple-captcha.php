@@ -7,23 +7,27 @@
  * @since 1.0.0
  */
 
-remove_action( 'wpcf7_init', 'wpcf7_add_shortcode_captcha' );
-add_action( 'wpcf7_init', 'cf7bs_add_shortcode_captcha' );
+add_action( 'wpcf7_init', 'cf7bs_add_shortcode_captcha', 11 );
 
 function cf7bs_add_shortcode_captcha() {
+	$add_func    = function_exists( 'wpcf7_add_form_tag' )    ? 'wpcf7_add_form_tag'    : 'wpcf7_add_shortcode';
+	$remove_func = function_exists( 'wpcf7_remove_form_tag' ) ? 'wpcf7_remove_form_tag' : 'wpcf7_remove_shortcode';
+
 	$tags = array(
 		'captchac',
 		'captchar',
 	);
 	foreach ( $tags as $tag ) {
-		wpcf7_remove_form_tag( $tag );
+		call_user_func( $remove_func, $tag );
 	}
 
-	wpcf7_add_form_tag( $tags, 'cf7bs_captcha_shortcode_handler', true );
+	call_user_func( $add_func, $tags, 'cf7bs_captcha_shortcode_handler', true );
 }
 
 function cf7bs_captcha_shortcode_handler( $tag ) {
-	$tag_obj = new WPCF7_FormTag( $tag );
+	$classname = class_exists( 'WPCF7_FormTag' ) ? 'WPCF7_FormTag' : 'WPCF7_Shortcode';
+
+	$tag_obj = new $classname( $tag );
 
 	if ( 'captchac' == $tag_obj->type && ! class_exists( 'ReallySimpleCaptcha' ) ) {
 		return '<em>' . __( 'To use CAPTCHA, you need <a href="http://wordpress.org/extend/plugins/really-simple-captcha/">Really Simple CAPTCHA</a> plugin installed.', 'bootstrap-for-contact-form-7' ) . '</em>';

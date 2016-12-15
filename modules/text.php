@@ -7,10 +7,12 @@
  * @since 1.0.0
  */
 
-remove_action( 'wpcf7_init', 'wpcf7_add_shortcode_text' );
-add_action( 'wpcf7_init', 'cf7bs_add_shortcode_text' );
+add_action( 'wpcf7_init', 'cf7bs_add_shortcode_text', 11 );
 
 function cf7bs_add_shortcode_text() {
+	$add_func    = function_exists( 'wpcf7_add_form_tag' )    ? 'wpcf7_add_form_tag'    : 'wpcf7_add_shortcode';
+	$remove_func = function_exists( 'wpcf7_remove_form_tag' ) ? 'wpcf7_remove_form_tag' : 'wpcf7_remove_shortcode';
+
 	$tags = array(
 		'text',
 		'text*',
@@ -22,14 +24,16 @@ function cf7bs_add_shortcode_text() {
 		'tel*',
 	);
 	foreach ( $tags as $tag ) {
-		wpcf7_remove_form_tag( $tag );
+		call_user_func( $remove_func, $tag );
 	}
 
-	wpcf7_add_form_tag( $tags, 'cf7bs_text_shortcode_handler', true );
+	call_user_func( $add_func, $tags, 'cf7bs_text_shortcode_handler', true );
 }
 
 function cf7bs_text_shortcode_handler( $tag ) {
-	$tag_obj = new WPCF7_FormTag( $tag );
+	$classname = class_exists( 'WPCF7_FormTag' ) ? 'WPCF7_FormTag' : 'WPCF7_Shortcode';
+
+	$tag_obj = new $classname( $tag );
 
 	if ( empty( $tag_obj->name ) ) {
 		return '';

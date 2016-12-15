@@ -7,22 +7,26 @@
  * @since 1.0.0
  */
 
-remove_action( 'wpcf7_init', 'wpcf7_add_shortcode_submit' );
-add_action( 'wpcf7_init', 'cf7bs_add_shortcode_submit' );
+add_action( 'wpcf7_init', 'cf7bs_add_shortcode_submit', 11 );
 
 function cf7bs_add_shortcode_submit() {
+	$add_func    = function_exists( 'wpcf7_add_form_tag' )    ? 'wpcf7_add_form_tag'    : 'wpcf7_add_shortcode';
+	$remove_func = function_exists( 'wpcf7_remove_form_tag' ) ? 'wpcf7_remove_form_tag' : 'wpcf7_remove_shortcode';
+
 	$tags = array(
 		'submit'
 	);
 	foreach ( $tags as $tag ) {
-		wpcf7_remove_form_tag( $tag );
+		call_user_func( $remove_func, $tag );
 	}
 
-	wpcf7_add_form_tag( $tags, 'cf7bs_submit_shortcode_handler' );
+	call_user_func( $add_func, $tags, 'cf7bs_submit_shortcode_handler' );
 }
 
 function cf7bs_submit_shortcode_handler( $tag ) {
-	$tag = new WPCF7_FormTag( $tag );
+	$classname = class_exists( 'WPCF7_FormTag' ) ? 'WPCF7_FormTag' : 'WPCF7_Shortcode';
+
+	$tag = new $classname( $tag );
 
 	$class = wpcf7_form_controls_class( $tag->type );
 
