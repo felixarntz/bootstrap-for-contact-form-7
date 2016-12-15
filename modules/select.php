@@ -27,29 +27,29 @@ function cf7bs_add_shortcode_select() {
 function cf7bs_select_shortcode_handler( $tag ) {
 	$classname = class_exists( 'WPCF7_FormTag' ) ? 'WPCF7_FormTag' : 'WPCF7_Shortcode';
 
-	$tag = new $classname( $tag );
+	$tag_obj = new $classname( $tag );
 
-	if ( empty( $tag->name ) ) {
+	if ( empty( $tag_obj->name ) ) {
 		return '';
 	}
 
 	$mode = $status = 'default';
 
-	$validation_error = wpcf7_get_validation_error( $tag->name );
+	$validation_error = wpcf7_get_validation_error( $tag_obj->name );
 
-	$class = wpcf7_form_controls_class( $tag->type );
+	$class = wpcf7_form_controls_class( $tag_obj->type );
 	if ( $validation_error ) {
 		$class .= ' wpcf7-not-valid';
 		$status = 'error';
 	}
 
-	if ( $tag->is_required() ) {
+	if ( $tag_obj->is_required() ) {
 		$mode = 'required';
 	}
 
 	$defaults = array();
 
-	$default_choice = $tag->get_default_option( null, 'multiple=1' );
+	$default_choice = $tag_obj->get_default_option( null, 'multiple=1' );
 	foreach ( $default_choice as $value ) {
 		$key = array_search( $value, $values, true );
 		if ( false !== $key ) {
@@ -57,20 +57,20 @@ function cf7bs_select_shortcode_handler( $tag ) {
 		}
 	}
 
-	if ( $matches = $tag->get_first_match_option( '/^default:([0-9_]+)$/' ) ) {
+	if ( $matches = $tag_obj->get_first_match_option( '/^default:([0-9_]+)$/' ) ) {
 		$defaults = explode( '_', $matches[1] );
 	}
 
 	$defaults = array_unique( $defaults );
 
-	$multiple = $tag->has_option( 'multiple' );
-	$include_blank = $tag->has_option( 'include_blank' );
-	$first_as_label = $tag->has_option( 'first_as_label' );
+	$multiple = $tag_obj->has_option( 'multiple' );
+	$include_blank = $tag_obj->has_option( 'include_blank' );
+	$first_as_label = $tag_obj->has_option( 'first_as_label' );
 
-	$values = $tag->values;
-	$labels = $tag->labels;
+	$values = $tag_obj->values;
+	$labels = $tag_obj->labels;
 
-	if ( $data = (array) $tag->get_data_option() ) {
+	if ( $data = (array) $tag_obj->get_data_option() ) {
 		$values = array_merge( $values, array_values( $data ) );
 		$labels = array_merge( $labels, array_values( $data ) );
 	}
@@ -92,14 +92,14 @@ function cf7bs_select_shortcode_handler( $tag ) {
 		$selected = array();
 	}
 
-	if ( isset( $_POST[ $tag->name ] ) ) {
-		$post = $_POST[ $tag->name ];
+	if ( isset( $_POST[ $tag_obj->name ] ) ) {
+		$post = $_POST[ $tag_obj->name ];
 	} else {
-		if ( isset( $_GET[ $tag->name ] ) ) {
+		if ( isset( $_GET[ $tag_obj->name ] ) ) {
 			if ( $multiple ) {
-				$get = cf7bs_array_decode( rawurldecode( $_GET[ $tag->name ] ) );
+				$get = cf7bs_array_decode( rawurldecode( $_GET[ $tag_obj->name ] ) );
 			} else {
-				$get = rawurldecode( $_GET[ $tag->name ] );
+				$get = rawurldecode( $_GET[ $tag_obj->name ] );
 			}
 		}
 		$post = $multiple ? array() : '';
@@ -133,25 +133,25 @@ function cf7bs_select_shortcode_handler( $tag ) {
 	}
 
 	$field = new CF7BS_Form_Field( cf7bs_apply_field_args_filter( array(
-		'name'				=> $tag->name,
-		'id'				=> $tag->get_option( 'id', 'id', true ),
-		'class'				=> $tag->get_class_option( $class ),
+		'name'				=> $tag_obj->name,
+		'id'				=> $tag_obj->get_option( 'id', 'id', true ),
+		'class'				=> $tag_obj->get_class_option( $class ),
 		'type'				=> $multiple ? 'multiselect' : 'select',
 		'value'				=> $selected,
-		'label'				=> $tag->content,
+		'label'				=> $tag_obj->content,
 		'options'			=> $options,
 		'help_text'			=> $validation_error,
-		'size'				=> cf7bs_get_form_property( 'size', 0, $tag ),
-		'grid_columns'		=> cf7bs_get_form_property( 'grid_columns', 0, $tag ),
-		'form_layout'		=> cf7bs_get_form_property( 'layout', 0, $tag ),
-		'form_label_width'	=> cf7bs_get_form_property( 'label_width', 0, $tag ),
-		'form_breakpoint'	=> cf7bs_get_form_property( 'breakpoint', 0, $tag ),
+		'size'				=> cf7bs_get_form_property( 'size', 0, $tag_obj ),
+		'grid_columns'		=> cf7bs_get_form_property( 'grid_columns', 0, $tag_obj ),
+		'form_layout'		=> cf7bs_get_form_property( 'layout', 0, $tag_obj ),
+		'form_label_width'	=> cf7bs_get_form_property( 'label_width', 0, $tag_obj ),
+		'form_breakpoint'	=> cf7bs_get_form_property( 'breakpoint', 0, $tag_obj ),
 		'mode'				=> $mode,
 		'status'			=> $status,
-		'tabindex'			=> $tag->get_option( 'tabindex', 'int', true ),
-		'wrapper_class'		=> $tag->name,
-		'label_class'       => $tag->get_option( 'label_class', 'class', true ),
-	), $tag->basetype, $tag->name ) );
+		'tabindex'			=> $tag_obj->get_option( 'tabindex', 'int', true ),
+		'wrapper_class'		=> $tag_obj->name,
+		'label_class'       => $tag_obj->get_option( 'label_class', 'class', true ),
+	), $tag_obj->basetype, $tag_obj->name ) );
 
 	$html = $field->display( false );
 

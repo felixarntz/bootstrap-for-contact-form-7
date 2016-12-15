@@ -74,7 +74,7 @@ function cf7bs_captcha_shortcode_handler( $tag ) {
 		}
 
 		// size is not used since Bootstrap input fields always scale 100%
-		//$atts['size'] = $tag->get_size_option( '40' );
+		//$atts['size'] = $tag_obj->get_size_option( '40' );
 
 		$value = (string) reset( $tag_obj->values );
 		$placeholder = '';
