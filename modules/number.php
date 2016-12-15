@@ -11,16 +11,21 @@ remove_action( 'wpcf7_init', 'wpcf7_add_shortcode_number' );
 add_action( 'wpcf7_init', 'cf7bs_add_shortcode_number' );
 
 function cf7bs_add_shortcode_number() {
-	wpcf7_add_shortcode( array(
+	$tags = array(
 		'number',
 		'number*',
 		'range',
 		'range*',
-	), 'cf7bs_number_shortcode_handler', true );
+	);
+	foreach ( $tags as $tag ) {
+		wpcf7_remove_form_tag( $tag );
+	}
+
+	wpcf7_add_form_tag( $tags, 'cf7bs_number_shortcode_handler', true );
 }
 
 function cf7bs_number_shortcode_handler( $tag ) {
-	$tag = new WPCF7_Shortcode( $tag );
+	$tag = new WPCF7_FormTag( $tag );
 
 	if ( empty( $tag->name ) ) {
 		return '';

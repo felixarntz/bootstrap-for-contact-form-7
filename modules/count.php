@@ -11,11 +11,18 @@ remove_action( 'wpcf7_init', 'wpcf7_add_shortcode_count' );
 add_action( 'wpcf7_init', 'cf7bs_add_shortcode_count' );
 
 function cf7bs_add_shortcode_count() {
-	wpcf7_add_shortcode( 'count', 'cf7bs_count_shortcode_handler', true );
+	$tags = array(
+		'count'
+	);
+	foreach ( $tags as $tag ) {
+		wpcf7_remove_form_tag( $tag );
+	}
+
+	wpcf7_add_form_tag( $tags, 'cf7bs_count_shortcode_handler', true );
 }
 
 function cf7bs_count_shortcode_handler( $tag ) {
-	$tag_obj = new WPCF7_Shortcode( $tag );
+	$tag_obj = new WPCF7_FormTag( $tag );
 
 	if ( empty( $tag_obj->name ) ) {
 		return '';

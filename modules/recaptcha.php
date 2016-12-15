@@ -15,12 +15,19 @@ if ( function_exists( 'wpcf7_recaptcha_add_shortcode_recaptcha' ) ) {
 		$recaptcha = WPCF7_RECAPTCHA::get_instance();
 
 		if ( $recaptcha->is_active() ) {
-			wpcf7_add_shortcode( 'recaptcha', 'cf7bs_recaptcha_shortcode_handler' );
+			$tags = array(
+				'recaptcha'
+			);
+			foreach ( $tags as $tag ) {
+				wpcf7_remove_form_tag( $tag );
+			}
+
+			wpcf7_add_form_tag( $tags, 'cf7bs_recaptcha_shortcode_handler' );
 		}
 	}
 
 	function cf7bs_recaptcha_shortcode_handler( $tag ) {
-		$tag_obj = new WPCF7_Shortcode( $tag );
+		$tag_obj = new WPCF7_FormTag( $tag );
 
 		$field = new CF7BS_Form_Field( cf7bs_apply_field_args_filter( array(
 			'name'				=> wpcf7_recaptcha_shortcode_handler( $tag ),

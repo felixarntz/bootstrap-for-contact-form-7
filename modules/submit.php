@@ -11,11 +11,18 @@ remove_action( 'wpcf7_init', 'wpcf7_add_shortcode_submit' );
 add_action( 'wpcf7_init', 'cf7bs_add_shortcode_submit' );
 
 function cf7bs_add_shortcode_submit() {
-	wpcf7_add_shortcode( 'submit', 'cf7bs_submit_shortcode_handler' );
+	$tags = array(
+		'submit'
+	);
+	foreach ( $tags as $tag ) {
+		wpcf7_remove_form_tag( $tag );
+	}
+
+	wpcf7_add_form_tag( $tags, 'cf7bs_submit_shortcode_handler' );
 }
 
 function cf7bs_submit_shortcode_handler( $tag ) {
-	$tag = new WPCF7_Shortcode( $tag );
+	$tag = new WPCF7_FormTag( $tag );
 
 	$class = wpcf7_form_controls_class( $tag->type );
 

@@ -11,14 +11,19 @@ remove_action( 'wpcf7_init', 'wpcf7_add_shortcode_select' );
 add_action( 'wpcf7_init', 'cf7bs_add_shortcode_select' );
 
 function cf7bs_add_shortcode_select() {
-	wpcf7_add_shortcode( array(
+	$tags = array(
 		'select',
 		'select*',
-	), 'cf7bs_select_shortcode_handler', true );
+	);
+	foreach ( $tags as $tag ) {
+		wpcf7_remove_form_tag( $tag );
+	}
+
+	wpcf7_add_form_tag( $tags, 'cf7bs_select_shortcode_handler', true );
 }
 
 function cf7bs_select_shortcode_handler( $tag ) {
-	$tag = new WPCF7_Shortcode( $tag );
+	$tag = new WPCF7_FormTag( $tag );
 
 	if ( empty( $tag->name ) ) {
 		return '';

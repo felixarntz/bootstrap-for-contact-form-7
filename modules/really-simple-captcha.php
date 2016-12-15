@@ -11,14 +11,19 @@ remove_action( 'wpcf7_init', 'wpcf7_add_shortcode_captcha' );
 add_action( 'wpcf7_init', 'cf7bs_add_shortcode_captcha' );
 
 function cf7bs_add_shortcode_captcha() {
-	wpcf7_add_shortcode( array(
+	$tags = array(
 		'captchac',
 		'captchar',
-	), 'cf7bs_captcha_shortcode_handler', true );
+	);
+	foreach ( $tags as $tag ) {
+		wpcf7_remove_form_tag( $tag );
+	}
+
+	wpcf7_add_form_tag( $tags, 'cf7bs_captcha_shortcode_handler', true );
 }
 
 function cf7bs_captcha_shortcode_handler( $tag ) {
-	$tag_obj = new WPCF7_Shortcode( $tag );
+	$tag_obj = new WPCF7_FormTag( $tag );
 
 	if ( 'captchac' == $tag_obj->type && ! class_exists( 'ReallySimpleCaptcha' ) ) {
 		return '<em>' . __( 'To use CAPTCHA, you need <a href="http://wordpress.org/extend/plugins/really-simple-captcha/">Really Simple CAPTCHA</a> plugin installed.', 'bootstrap-for-contact-form-7' ) . '</em>';
@@ -149,7 +154,7 @@ function cf7bs_captcha_ajax_refill( $items ) {
 		return $items;
 	}
 
-	$fes = wpcf7_scan_shortcode( array( 'type' => 'captchar' ) );
+	$fes = wpcf7_scan_form_tags( array( 'type' => 'captchar' ) );
 
 	if ( empty( $fes ) ) {
 		return $items;

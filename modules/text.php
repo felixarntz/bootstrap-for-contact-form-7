@@ -11,7 +11,7 @@ remove_action( 'wpcf7_init', 'wpcf7_add_shortcode_text' );
 add_action( 'wpcf7_init', 'cf7bs_add_shortcode_text' );
 
 function cf7bs_add_shortcode_text() {
-	wpcf7_add_shortcode( array(
+	$tags = array(
 		'text',
 		'text*',
 		'email',
@@ -20,11 +20,16 @@ function cf7bs_add_shortcode_text() {
 		'url*',
 		'tel',
 		'tel*',
-	), 'cf7bs_text_shortcode_handler', true );
+	);
+	foreach ( $tags as $tag ) {
+		wpcf7_remove_form_tag( $tag );
+	}
+
+	wpcf7_add_form_tag( $tags, 'cf7bs_text_shortcode_handler', true );
 }
 
 function cf7bs_text_shortcode_handler( $tag ) {
-	$tag_obj = new WPCF7_Shortcode( $tag );
+	$tag_obj = new WPCF7_FormTag( $tag );
 
 	if ( empty( $tag_obj->name ) ) {
 		return '';
