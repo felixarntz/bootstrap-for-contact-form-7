@@ -33,7 +33,7 @@ function cf7bs_count_shortcode_handler( $tag ) {
 	}
 
 	$field = new CF7BS_Form_Field( cf7bs_apply_field_args_filter( array(
-		'name'				=> wpcf7_count_shortcode_handler( $tag ),
+		'name'				=> function_exists('wpcf7_count_form_tag_handler') ? wpcf7_count_form_tag_handler( $tag ) : wpcf7_count_shortcode_handler( $tag ),
 		'type'				=> 'custom',
 		'label'				=> $tag_obj->content,
 		'grid_columns'		=> cf7bs_get_form_property( 'grid_columns', 0, $tag_obj ),
