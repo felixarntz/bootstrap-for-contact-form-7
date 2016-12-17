@@ -130,10 +130,12 @@ function cf7bs_text_shortcode_handler( $tag ) {
 
 		$tag = cf7bs_text_to_count( $tag, $count_down );
 
+		$handler_func = function_exists( 'wpcf7_count_form_tag_handler' ) ? 'wpcf7_count_form_tag_handler' : 'wpcf7_count_shortcode_handler';
+
 		if ( ! empty( $$count_mode ) ) {
-			$$count_mode = wpcf7_count_shortcode_handler( $tag ) . ' ' . $$count_mode;
+			$$count_mode = call_user_func( $handler_func, $tag ) . ' ' . $$count_mode;
 		} else {
-			$$count_mode = wpcf7_count_shortcode_handler( $tag );
+			$$count_mode = call_user_func( $handler_func, $tag );
 		}
 	}
 

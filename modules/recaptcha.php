@@ -34,7 +34,7 @@ if ( function_exists( 'wpcf7_recaptcha_add_shortcode_recaptcha' ) ) {
 		$tag_obj = new $classname( $tag );
 
 		$field = new CF7BS_Form_Field( cf7bs_apply_field_args_filter( array(
-			'name'				=> wpcf7_recaptcha_shortcode_handler( $tag ),
+			'name'				=> function_exists( 'wpcf7_recaptcha_form_tag_handler' ) ? wpcf7_recaptcha_form_tag_handler( $tag ) : wpcf7_recaptcha_shortcode_handler( $tag ),
 			'type'				=> 'custom',
 			'label'				=> $tag_obj->content,
 			'grid_columns'		=> cf7bs_get_form_property( 'grid_columns', 0, $tag_obj ),
