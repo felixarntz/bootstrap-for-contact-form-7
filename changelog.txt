@@ -1,5 +1,8 @@
 == Changelog ==
 
+= 1.4.2 =
+* Fixed: plugin compatibility fatal errors with Contact Form 7 version 4.6 with count and CAPTCHA shortcodes
+
 = 1.4.1 =
 * Fixed: plugin is now compatible with Contact Form 7 version 4.6 and its renamed functions / classes
 

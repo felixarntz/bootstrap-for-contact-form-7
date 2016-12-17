@@ -8,8 +8,8 @@ Contributors:      flixos90
 Donate link:       https://leaves-and-love.net/wordpress-plugins/
 Requires at least: 3.6
 Tested up to:      4.7
-Stable tag:        1.4.1
-Version:           1.4.1
+Stable tag:        1.4.2
+Version:           1.4.2
 License:           GNU General Public License v3
 License URI:       http://www.gnu.org/licenses/gpl-3.0.html
 Tags:              contact form 7, wpcf7, bootstrap, bootstrap 3, bootstrap framework, addon, contact form 7 addon, contact form, cf7bs
@@ -110,6 +110,9 @@ You can also contribute to the plugin by translating it. Simply visit [translate
 3. A warning alert as displayed by Bootstrap for Contact Form 7
 
 == Changelog ==
+
+= 1.4.2 =
+* Fixed: plugin compatibility fatal errors with Contact Form 7 version 4.6 with count and CAPTCHA shortcodes
 
 = 1.4.1 =
 * Fixed: plugin is now compatible with Contact Form 7 version 4.6 and its renamed functions / classes
