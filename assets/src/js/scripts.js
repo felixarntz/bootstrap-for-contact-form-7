@@ -73,7 +73,7 @@
 			}
 			$( this ).find( 'div.form-group' ).removeClass( 'has-error' );
 			$( this ).find( 'span.wpcf7-not-valid-tip' ).remove();
-			$( this ).find( 'img.ajax-loader' ).css({ visibility: 'hidden' });
+			$( this ).find( 'img.ajax-loader' ).removeClass( 'is-active' );
 		});
 	};
 
