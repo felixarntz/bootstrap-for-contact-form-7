@@ -1,5 +1,8 @@
 == Changelog ==
 
+= 1.4.4 =
+* Fixed: critical bug with REALLY SIMPLE CAPTCHA not showing image
+
 = 1.4.3 =
 * Fixed: plugin compatibility fatal errors with Contact Form 7 version 4.8 related to form validation and REALLY SIMPLE CAPTCHA
 * Fixed: Contact Form 7 version 4.7 features are now being used
