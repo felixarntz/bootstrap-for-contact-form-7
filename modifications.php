@@ -100,31 +100,71 @@ function cf7bs_inline_styles() {
 	?>
 	<style type="text/css">
 		div.wpcf7 .screen-reader-response {
-			display: none;
+			position: absolute;
+			overflow: hidden;
+			clip: rect(1px, 1px, 1px, 1px);
+			height: 1px;
+			width: 1px;
+			margin: 0;
+			padding: 0;
+			border: 0;
 		}
-		div.wpcf7 img.ajax-loader {
-			border: none;
-			vertical-align: middle;
-			margin-left: 4px;
-		}
+
 		div.wpcf7 .form-inline img.ajax-loader {
 			display: inline;
 		}
+
+		div.wpcf7 .ajax-loader {
+			visibility: hidden;
+			display: inline-block;
+			background-image: url('../../images/ajax-loader.gif');
+			width: 16px;
+			height: 16px;
+			border: none;
+			padding: 0;
+			margin: 0 0 0 4px;
+			vertical-align: middle;
+		}
+
+		div.wpcf7 .ajax-loader.is-active {
+			visibility: visible;
+		}
+
 		div.wpcf7 div.ajax-error {
 			display: none;
 		}
+
 		div.wpcf7 .wpcf7-display-none {
 			display: none;
 		}
+
+		div.wpcf7 .placeheld {
+			color: #888;
+		}
+
+		div.wpcf7 .wpcf7-recaptcha iframe {
+			margin-bottom: 0;
+		}
+
+		div.wpcf7 input[type="file"] {
+			cursor: pointer;
+		}
+
+		div.wpcf7 input[type="file"]:disabled {
+			cursor: default;
+		}
+
 		div.wpcf7 .form-inline .form-group {
 			max-width: 250px;
 		}
+
 		div.wpcf7 .input-group-addon img {
 			height: 100%;
 			width: auto;
 			max-width: none !important;
 			border-radius: 5px;
 		}
+
 		div.wpcf7 .input-group-addon.input-group-has-image {
 			padding: 0;
 		}
