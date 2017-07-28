@@ -108,7 +108,7 @@ function cf7bs_captcha_shortcode_handler( $tag ) {
 
 			$tag = cf7bs_captchar_to_captchac( $tag );
 
-			$$captchac_mode = function_exists( 'wpcf7_captchar_form_tag_handler' ) ? wpcf7_captchar_form_tag_handler( $tag ) : ( function_exists( 'wpcf7_captcha_form_tag_handler' ) ? wpcf7_captcha_form_tag_handler( $tag ) : wpcf7_captcha_shortcode_handler( $tag ) );
+			$$captchac_mode = function_exists( 'wpcf7_captchac_form_tag_handler' ) ? wpcf7_captchac_form_tag_handler( $tag ) : ( function_exists( 'wpcf7_captcha_form_tag_handler' ) ? wpcf7_captcha_form_tag_handler( $tag ) : wpcf7_captcha_shortcode_handler( $tag ) );
 		}
 
 		$field = new CF7BS_Form_Field( cf7bs_apply_field_args_filter( array(
