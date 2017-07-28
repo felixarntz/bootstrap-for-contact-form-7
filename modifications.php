@@ -97,6 +97,9 @@ function cf7bs_enqueue_styles() {
 add_action( 'wpcf7_enqueue_styles', 'cf7bs_enqueue_styles' );
 
 function cf7bs_inline_styles() {
+	$url = function_exists( 'wpcf7_plugin_url' ) ? wpcf7_plugin_url() : WPCF7_PLUGIN_URL;
+	$url = untrailingslashit( $url );
+
 	?>
 	<style type="text/css">
 		div.wpcf7 .screen-reader-response {
@@ -117,7 +120,7 @@ function cf7bs_inline_styles() {
 		div.wpcf7 .ajax-loader {
 			visibility: hidden;
 			display: inline-block;
-			background-image: url('../../images/ajax-loader.gif');
+			background-image: url('<?php echo $url . '/images/ajax-loader.gif'; ?>');
 			width: 16px;
 			height: 16px;
 			border: none;
