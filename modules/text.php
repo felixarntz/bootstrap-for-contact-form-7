@@ -175,12 +175,15 @@ function cf7bs_text_shortcode_handler( $tag ) {
 }
 
 function cf7bs_text_to_count( $tag, $count_down = false ) {
-	$tag['type'] = 'count';
-	$tag['basetype'] = 'count';
-	$tag['options'] = array();
+	$classname = class_exists( 'WPCF7_FormTag' ) ? 'WPCF7_FormTag' : 'WPCF7_Shortcode';
+	$tag_obj = new $classname( $tag );
+
+	$tag_obj->type = 'count';
+	$tag_obj->basetype = 'count';
+	$tag_obj->options = array();
 
 	if ( $count_down ) {
-		$tag['options'][] = 'down';
+		$tag_obj->options[] = 'down';
 	}
 
 	return $tag;
