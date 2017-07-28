@@ -24,7 +24,11 @@ if ( function_exists( 'wpcf7_recaptcha_add_shortcode_recaptcha' ) ) {
 				call_user_func( $remove_func, $tag );
 			}
 
-			call_user_func( $add_func, $tags, 'cf7bs_recaptcha_shortcode_handler' );
+			$features = version_compare( WPCF7_VERSION, '4.7', '<' ) ? false : array(
+				'display-block' => true,
+			);
+
+			call_user_func( $add_func, $tags, 'cf7bs_recaptcha_shortcode_handler', $features );
 		}
 	}
 

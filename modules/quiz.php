@@ -20,7 +20,12 @@ function cf7bs_add_shortcode_quiz() {
 		call_user_func( $remove_func, $tag );
 	}
 
-	call_user_func( $add_func, $tags, 'cf7bs_quiz_shortcode_handler', true );
+	$features = version_compare( WPCF7_VERSION, '4.7', '<' ) ? true : array(
+		'name-attr'    => true,
+		'do-not-store' => true,
+	);
+
+	call_user_func( $add_func, $tags, 'cf7bs_quiz_shortcode_handler', $features );
 }
 
 function cf7bs_quiz_shortcode_handler( $tag ) {
