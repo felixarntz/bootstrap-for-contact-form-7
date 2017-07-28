@@ -1,5 +1,38 @@
-+function ( $ ) {
+( function ( $ ) {
 	'use strict';
+
+	window.wpcf7.notValidTip = function( target, message ) {
+		var $target = $( target );
+
+		$target.addClass( 'has-error' );
+		$( '.wpcf7-not-valid-tip', $target ).remove();
+
+		if ( ! $target.parents( '.wpcf7-form' ).hasClass( 'form-inline' ) ) {
+			if ( $target.parents( '.wpcf7-form' ).hasClass( 'form-horizontal' ) ) {
+				$target.children( 'div' ).append( '<span class="help-block wpcf7-not-valid-tip">' + message + '</span>' );
+			} else {
+				$target.append( '<span class="help-block wpcf7-not-valid-tip">' + message + '</span>' );
+			}
+
+			if ( $target.is( '.use-floating-validation-tip *' ) ) {
+				var fadeOut = function( target ) {
+					$( target ).not( ':hidden' ).animate( {
+						opacity: 0
+					}, 'fast', function() {
+						$( this ).css( { 'z-index': -100 } );
+					} );
+				};
+
+				$target.on( 'mouseover', '.wpcf7-not-valid-tip', function() {
+					fadeOut( this );
+				} );
+
+				$target.on( 'focus', ':input', function() {
+					fadeOut( $( '.wpcf7-not-valid-tip', $target ) );
+				} );
+			}
+		}
+	};
 
 	// add Bootstrap Alert classes to response output
 	$( function() {
@@ -77,4 +110,4 @@
 		});
 	};
 
-}(jQuery);
+} )( jQuery );

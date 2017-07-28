@@ -319,3 +319,22 @@ function cf7bs_editor_panels( $panels ) {
 	return $panels;
 }
 add_filter( 'wpcf7_editor_panels', 'cf7bs_editor_panels' );
+
+function cf7bs_adjust_rest_feedback_response( $response, $result ) {
+	if ( 'validation_failed' == $result['status'] ) {
+		$invalid_fields = array();
+
+		foreach ( (array) $result['invalid_fields'] as $name => $field ) {
+			$invalid_fields[] = array(
+				'into' => '.form-group.' . sanitize_html_class( $name ),
+				'message' => $field['reason'],
+				'idref' => $field['idref'],
+			);
+		}
+
+		$response['invalidFields'] = $invalid_fields;
+	}
+
+	return $response;
+}
+add_filter( 'wpcf7_ajax_json_echo', 'cf7bs_adjust_rest_feedback_response', 10, 2 );
