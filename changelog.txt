@@ -1,5 +1,8 @@
 == Changelog ==
 
+= 1.4.5 =
+* Fixed: plugin compatibility with Contact Form 7 version 4.9 input type radio default required
+
 = 1.4.4 =
 * Fixed: critical bug with REALLY SIMPLE CAPTCHA not showing image
 

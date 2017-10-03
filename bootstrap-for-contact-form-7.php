@@ -24,7 +24,7 @@ if ( ! defined( 'WPCF7_AUTOP' ) ) {
 }
 
 function cf7bs_maybe_init() {
-	define( 'CF7BS_VERSION', '1.4.4' );
+	define( 'CF7BS_VERSION', '1.4.5' );
 	define( 'CF7BS_MAINFILE', __FILE__ );
 	define( 'CF7BS_PATH', untrailingslashit( plugin_dir_path( CF7BS_MAINFILE ) ) );
 	define( 'CF7BS_URL', untrailingslashit( plugin_dir_url( CF7BS_MAINFILE ) ) );
