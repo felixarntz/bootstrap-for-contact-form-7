@@ -113,12 +113,12 @@ class CF7BS_Form_Field extends CF7BS_Component {
 				}
 
 				$label_required = '';
-				$required = 'required' == $mode || ( version_compare(WPCF7_VERSION, '4.9', '>=') && 'radio' == $type );
+				$required = 'required' == $mode || version_compare( WPCF7_VERSION, '4.9', '>=' ) && 'radio' == $type;
 				if ( $required ) {
 					$append .= ' aria-required="true" required';
 					$label_required = ' ' . cf7bs_get_form_property( 'required_html' );
 				}
-				if( 'disabled' == $mode ) {
+				if ( 'disabled' == $mode ) {
 					$append .= ' disabled';
 				}
 
