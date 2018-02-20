@@ -115,4 +115,8 @@
 		});
 	};
 
+    $('div.wpcf7').on('wpcf7beforesubmit', function() {
+        $(this).wpcf7ClearResponseOutput();
+    });
+
 } )( jQuery );

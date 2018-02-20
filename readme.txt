@@ -8,8 +8,8 @@ Contributors:      flixos90
 Donate link:       https://leaves-and-love.net/wordpress-plugins/
 Requires at least: 3.6
 Tested up to:      4.8
-Stable tag:        1.4.5
-Version:           1.4.5
+Stable tag:        1.4.6
+Version:           1.4.6
 License:           GNU General Public License v3
 License URI:       http://www.gnu.org/licenses/gpl-3.0.html
 Tags:              contact form 7, wpcf7, bootstrap, bootstrap 3, bootstrap framework, addon, contact form 7 addon, contact form, cf7bs
@@ -110,6 +110,10 @@ You can also contribute to the plugin by translating it. Simply visit [translate
 3. A warning alert as displayed by Bootstrap for Contact Form 7
 
 == Changelog ==
+
+= 1.4.6 =
+* Fixed: plugin compatibility with Contact Form 7 version 5.0 acceptance checkbox triggering submit button
+* Fixed: plugin compatibility with Contact Form 7 after refactor removing wpcf7ClearResponseOutput() function
 
 = 1.4.5 =
 * Fixed: plugin compatibility with Contact Form 7 version 4.9 input type radio default required
