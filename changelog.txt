@@ -2,7 +2,7 @@
 
 = 1.4.6 =
 * Fixed: plugin compatibility with Contact Form 7 version 5.0 acceptance checkbox triggering submit button
-* Fixed: plugin compatibility with Contact Form 7 after refactor removing wpcf7ClearResponseOutput() function
+* Fixed: plugin compatibility with Contact Form 7 after refactor removing jQuery.fn.wpcf7ClearResponseOutput() function
 
 = 1.4.5 =
 * Fixed: plugin compatibility with Contact Form 7 version 4.9 input type radio default required

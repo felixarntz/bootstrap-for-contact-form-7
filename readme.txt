@@ -7,7 +7,7 @@ Author URI:        https://leaves-and-love.net
 Contributors:      flixos90
 Donate link:       https://leaves-and-love.net/wordpress-plugins/
 Requires at least: 3.6
-Tested up to:      4.8
+Tested up to:      4.9
 Stable tag:        1.4.6
 Version:           1.4.6
 License:           GNU General Public License v3
@@ -113,7 +113,7 @@ You can also contribute to the plugin by translating it. Simply visit [translate
 
 = 1.4.6 =
 * Fixed: plugin compatibility with Contact Form 7 version 5.0 acceptance checkbox triggering submit button
-* Fixed: plugin compatibility with Contact Form 7 after refactor removing wpcf7ClearResponseOutput() function
+* Fixed: plugin compatibility with Contact Form 7 after refactor removing jQuery.fn.wpcf7ClearResponseOutput() function
 
 = 1.4.5 =
 * Fixed: plugin compatibility with Contact Form 7 version 4.9 input type radio default required
