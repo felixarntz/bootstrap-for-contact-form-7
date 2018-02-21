@@ -95,6 +95,7 @@ composer.json
 composer.lock
 deploy.sh
 gulpfile.js
+package-lock.json
 package.json
 phpunit.xml
 README.md
