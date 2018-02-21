@@ -36,6 +36,7 @@ node_modules/*
 bin/
 tmp/
 composer.lock
+package-lock.json
 *.tmp
 *.bak
 *.log
