@@ -1,7 +1,7 @@
 {
   "name": "bootstrap-for-contact-form-7",
   "pluginName": "Bootstrap for Contact Form 7",
-  "version": "1.4.6",
+  "version": "1.4.7",
   "description": "This plugin modifies the output of the popular Contact Form 7 plugin to be styled in compliance with themes using the Bootstrap CSS framework.",
   "keywords": [
     "wordpress",

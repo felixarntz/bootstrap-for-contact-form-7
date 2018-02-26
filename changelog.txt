@@ -1,5 +1,8 @@
 == Changelog ==
 
+= 1.4.7 =
+* Fixed: plugin compatibility with Contact Form 7 version 5.0 acceptance checkbox triggering submit button
+
 = 1.4.6 =
 * Fixed: plugin compatibility with Contact Form 7 version 5.0 acceptance checkbox triggering submit button
 * Fixed: plugin compatibility with Contact Form 7 after refactor removing jQuery.fn.wpcf7ClearResponseOutput() function
