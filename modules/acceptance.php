@@ -53,7 +53,7 @@ function cf7bs_acceptance_shortcode_handler( $tag ) {
 	$field = new CF7BS_Form_Field( cf7bs_apply_field_args_filter( array(
 		'name'				=> $tag_obj->name,
 		'id'				=> $tag_obj->get_option( 'id', 'id', true ),
-		'class'				=> $tag_obj->get_class_option( $class ),
+		'class'				=> '',
 		'type'				=> 'checkbox',
 		'value'				=> $tag_obj->has_option( 'default:on' ) ? '1' : '0',
 		'options'			=> array(
@@ -69,7 +69,7 @@ function cf7bs_acceptance_shortcode_handler( $tag ) {
 		'mode'				=> $mode,
 		'status'			=> $status,
 		'tabindex'			=> $tag_obj->get_option( 'tabindex', 'int', true ),
-		'wrapper_class'		=> $tag_obj->name . ' wpcf7-acceptance',
+		'wrapper_class'		=> $tag_obj->get_class_option( $class ),
 		'label_class'       => $tag_obj->get_option( 'label_class', 'class', true ),
 	), $tag_obj->basetype, $tag_obj->name ) );
 
