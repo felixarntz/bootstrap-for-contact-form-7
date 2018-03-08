@@ -4,7 +4,7 @@ Plugin Name:       Bootstrap for Contact Form 7
 Plugin URI:        https://wordpress.org/plugins/bootstrap-for-contact-form-7/
 Author:            Felix Arntz
 Author URI:        https://leaves-and-love.net
-Contributors:      flixos90
+Contributors:      flixos90, gidomanders
 Donate link:       https://leaves-and-love.net/wordpress-plugins/
 Requires at least: 3.6
 Tested up to:      4.9

@@ -31,7 +31,7 @@ var config = {
 	license: pkg.license.name,
 	licenseURI: pkg.license.url,
 	tags: keywords.join( ', ' ),
-	contributors: [ 'flixos90' ].join( ', ' ),
+	contributors: [ 'flixos90', 'gidomanders' ].join( ', ' ),
 	donateLink: 'https://leaves-and-love.net/wordpress-plugins/',
 	minRequired: '3.6',
 	testedUpTo: '4.9',
