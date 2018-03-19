@@ -1,5 +1,8 @@
 == Changelog ==
 
+= 1.4.8 =
+* Added: support for input groups for number and range tags
+
 = 1.4.7 =
 * Fixed: plugin compatibility with Contact Form 7 version 5.0 acceptance checkbox triggering submit button
 
