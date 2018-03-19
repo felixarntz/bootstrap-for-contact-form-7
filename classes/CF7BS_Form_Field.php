@@ -324,6 +324,46 @@ class CF7BS_Form_Field extends CF7BS_Component {
 					break;
 				case 'number':
 				case 'range':
+                    if ( ! empty( $input_before ) || ! empty( $input_after ) ) {
+                        $input_group_class = 'input-group';
+                        if ( false !== strpos( $input_class, ' input-lg') ) {
+                            $input_class = str_replace( ' input-lg', '', $input_class );
+                            $input_group_class .= ' input-group-lg';
+                        } elseif ( false !== strpos( $input_class, ' input-sm') ) {
+                            $input_class = str_replace( ' input-sm', '', $input_class );
+                            $input_group_class .= ' input-group-sm';
+                        }
+                        $output .= '<div class="' . $input_group_class . '">';
+                        if ( ! empty( $input_before ) ) {
+                            $output .= '<span class="' . esc_attr( $input_before_class ) . '">';
+                            $output .= $input_before;
+                            $output .= '</span>';
+                        }
+                    }
+
+                    $min = '';
+                    if ( isset( $options['min'] ) ) {
+                        $min = ' min="' . esc_attr( $options['min'] ) . '"';
+                    }
+                    $max = '';
+                    if ( isset( $options['max'] ) ) {
+                        $max = ' max="' . esc_attr( $options['max'] ) . '"';
+                    }
+                    $step = '';
+                    if ( isset( $options['step'] ) ) {
+                        $step = ' step="' . esc_attr( $options['step'] ) . '"';
+                    }
+                    $output .= '<input' . $input_class . ( ! empty( $id ) ? ' id="' . esc_attr( $id ) . '"' : '' ) . ' name="' . esc_attr( $name ) . '" type="' . esc_attr( $type ) . '" value="' . esc_attr( $value ) . '"' . $placeholder . $min . $max . $step . $readonly . $tabindex . $append . '>';
+
+                    if ( ! empty( $input_before ) || ! empty( $input_after ) ) {
+                        if ( ! empty( $input_after ) ) {
+                            $output .= '<span class="' . esc_attr( $input_after_class ) . '">';
+                            $output .= $input_after;
+                            $output .= '</span>';
+                        }
+                        $output .= '</div>';
+                    }
+                    break;
 				case 'date':
 				case 'datetime':
 				case 'datetime-local':

@@ -69,6 +69,39 @@ function cf7bs_number_shortcode_handler( $tag ) {
 		$value = stripslashes_deep( rawurldecode( $_GET[ $tag_obj->name ] ) );
 	}
 
+    $input_before = $tag_obj->get_first_match_option( '/input_before:([^\s]+)/' );
+    $input_after = $tag_obj->get_first_match_option( '/input_after:([^\s]+)/' );
+
+    if ( is_array( $input_before ) && isset( $input_before[1] ) ) {
+        $input_before = str_replace( '---', ' ', $input_before[1] );
+    } else {
+        $input_before = '';
+    }
+
+    if ( is_array( $input_after ) && isset( $input_after[1] ) ) {
+        $input_after = str_replace( '---', ' ', $input_after[1] );
+    } else {
+        $input_after = '';
+    }
+
+    $content = $tag_obj->content;
+
+    $matches = array();
+    if ( preg_match( '/\{input_before\}(.*)\{\/input_before\}/imU', $content, $matches ) ) {
+        if ( ! empty( $matches[1] ) ) {
+            $input_before = $matches[1];
+        }
+        $content = str_replace( $matches[0], '', $content );
+    }
+
+    $matches = array();
+    if ( preg_match( '/\{input_after\}(.*)\{\/input_after\}/imU', $content, $matches ) ) {
+        if ( ! empty( $matches[1] ) ) {
+            $input_after = $matches[1];
+        }
+        $content = str_replace( $matches[0], '', $content );
+    }
+
 	$field = new CF7BS_Form_Field( cf7bs_apply_field_args_filter( array(
 		'name'				=> $tag_obj->name,
 		'id'				=> $tag_obj->get_option( 'id', 'id', true ),
@@ -76,7 +109,7 @@ function cf7bs_number_shortcode_handler( $tag ) {
 		'type'				=> wpcf7_support_html5() ? $tag_obj->basetype : 'text',
 		'value'				=> $value,
 		'placeholder'		=> $placeholder,
-		'label'				=> $tag_obj->content,
+		'label'				=> $content,
 		'options'			=> array(
 			'min'				=> $tag_obj->get_option( 'min', 'signed_int', true ),
 			'max'				=> $tag_obj->get_option( 'max', 'signed_int', true ),
@@ -94,6 +127,8 @@ function cf7bs_number_shortcode_handler( $tag ) {
 		'tabindex'			=> $tag_obj->get_option( 'tabindex', 'int', true ),
 		'wrapper_class'		=> $tag_obj->name,
 		'label_class'       => $tag_obj->get_option( 'label_class', 'class', true ),
+        'input_before'		=> $input_before,
+        'input_after'		=> $input_after,
 	), $tag_obj->basetype, $tag_obj->name ) );
 
 	$html = $field->display( false );
