@@ -1,5 +1,8 @@
 == Changelog ==
 
+= 1.4.9 =
+* Added: support for conditional loading of styles and scripts
+
 = 1.4.8 =
 * Added: support for input groups for number and range tags
 

@@ -8,8 +8,8 @@ Contributors:      flixos90, gidomanders
 Donate link:       https://leaves-and-love.net/wordpress-plugins/
 Requires at least: 3.6
 Tested up to:      4.9
-Stable tag:        1.4.8
-Version:           1.4.8
+Stable tag:        1.4.9
+Version:           1.4.9
 License:           GNU General Public License v3
 License URI:       http://www.gnu.org/licenses/gpl-3.0.html
 Tags:              contact form 7, wpcf7, bootstrap, bootstrap 3, bootstrap framework, addon, contact form 7 addon, contact form, cf7bs
@@ -110,6 +110,9 @@ You can also contribute to the plugin by translating it. Simply visit [translate
 3. A warning alert as displayed by Bootstrap for Contact Form 7
 
 == Changelog ==
+
+= 1.4.9 =
+* Added: support for conditional loading of styles and scripts
 
 = 1.4.8 =
 * Added: support for input groups for number and range tags
