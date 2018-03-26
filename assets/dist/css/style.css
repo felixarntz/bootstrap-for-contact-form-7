@@ -1,0 +1,91 @@
+/*!
+ * Bootstrap for Contact Form 7 (https://wordpress.org/plugins/bootstrap-for-contact-form-7/)
+ * By Felix Arntz (https://leaves-and-love.net)
+ * Licensed under GNU General Public License v3 (http://www.gnu.org/licenses/gpl-3.0.html)
+ */
+div.wpcf7 .screen-reader-response
+{
+    position: absolute;
+
+    overflow: hidden;
+    clip: rect(1px, 1px, 1px, 1px);
+
+    width: 1px;
+    height: 1px;
+    margin: 0;
+    padding: 0;
+
+    border: 0;
+}
+
+div.wpcf7 .form-inline img.ajax-loader
+{
+    display: inline;
+}
+
+div.wpcf7 .form-inline .form-group
+{
+    max-width: 250px;
+}
+
+div.wpcf7 .ajax-loader
+{
+    display: inline-block;
+    visibility: hidden;
+
+    width: 16px;
+    height: 16px;
+    margin: 0 0 0 4px;
+    padding: 0;
+
+    vertical-align: middle; 
+
+    border: none;
+}
+div.wpcf7 .ajax-loader.is-active
+{
+    visibility: visible;
+}
+
+div.wpcf7 div.ajax-error
+{
+    display: none;
+}
+
+div.wpcf7 .wpcf7-display-none
+{
+    display: none;
+}
+
+div.wpcf7 .placeheld
+{
+    color: #888;
+}
+
+div.wpcf7 .wpcf7-recaptcha iframe
+{
+    margin-bottom: 0;
+}
+
+div.wpcf7 input[type='file']
+{
+    cursor: pointer;
+}
+div.wpcf7 input[type='file']:disabled
+{
+    cursor: default;
+}
+
+div.wpcf7 .input-group-addon img
+{
+    width: auto;
+    max-width: none !important;
+    height: 100%;
+
+    border-radius: 5px;
+}
+
+div.wpcf7 .input-group-addon.input-group-has-image
+{
+    padding: 0;
+}
