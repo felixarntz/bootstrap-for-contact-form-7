@@ -69,7 +69,7 @@ function cf7bs_acceptance_shortcode_handler( $tag ) {
 		'mode'				=> $mode,
 		'status'			=> $status,
 		'tabindex'			=> $tag_obj->get_option( 'tabindex', 'int', true ),
-		'wrapper_class'		=> $tag_obj->get_class_option( $class ),
+		'wrapper_class'		=> $tag_obj->get_class_option( $class . ' ' . $tag_obj->name ),
 		'label_class'       => $tag_obj->get_option( 'label_class', 'class', true ),
 	), $tag_obj->basetype, $tag_obj->name ) );
 
