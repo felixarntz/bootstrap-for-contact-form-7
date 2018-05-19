@@ -1,5 +1,8 @@
 == Changelog ==
 
+= 1.4.10 =
+* Fixed: Acceptance validation not showing message
+
 = 1.4.9 =
 * Added: support for conditional loading of styles and scripts
 
