@@ -323,7 +323,6 @@ class CF7BS_Form_Field extends CF7BS_Component {
 					$output .= '<input' . ( ! empty( $id ) ? ' id="' . esc_attr( $id ) . '"' : '' ) . ' name="' . esc_attr( $name ) . '" type="hidden" value="' . esc_attr( $value ) . '">';
 					break;
 				case 'number':
-				case 'range':
                     $input_class = $this->filter_input_class( $input_class, $input_before, $input_after );
 
                     $min = '';
@@ -343,6 +342,7 @@ class CF7BS_Form_Field extends CF7BS_Component {
                     $output .= '<input' . $input_class . ( ! empty( $id ) ? ' id="' . esc_attr( $id ) . '"' : '' ) . ' name="' . esc_attr( $name ) . '" type="' . esc_attr( $type ) . '" value="' . esc_attr( $value ) . '"' . $placeholder . $min . $max . $step . $readonly . $tabindex . $append . '>';
                     $output .= $this->get_input_after_markup( $input_before, $input_after, $input_after_class );
                     break;
+				case 'range':
 				case 'date':
 				case 'datetime':
 				case 'datetime-local':

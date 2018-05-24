@@ -112,7 +112,7 @@ You can also contribute to the plugin by translating it. Simply visit [translate
 == Changelog ==
 
 = 1.4.8 =
-* Added: support for input groups for number and range tags
+* Added: support for input groups for number tags
 * Added: support for conditional loading of styles and scripts
 * Fixed: Acceptance validation not showing message
 
