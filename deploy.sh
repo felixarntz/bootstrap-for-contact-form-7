@@ -84,6 +84,12 @@ fi
 
 cd $SVNPATH/trunk/
 
+printf "Removing unnecessary source and test files..."
+rm LICENSE.md
+rm README.md
+rm -rf assets/src
+echo "Done."
+
 printf "Ignoring GitHub specific files and deployment script..."
 svn propset --quiet svn:ignore ".bowerrc
 .codeclimate.yml
