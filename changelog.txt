@@ -1,13 +1,9 @@
 == Changelog ==
 
-= 1.4.10 =
-* Fixed: Acceptance validation not showing message
-
-= 1.4.9 =
-* Added: support for conditional loading of styles and scripts
-
 = 1.4.8 =
 * Added: support for input groups for number and range tags
+* Added: support for conditional loading of styles and scripts
+* Fixed: Acceptance validation not showing message
 
 = 1.4.7 =
 * Fixed: plugin compatibility with Contact Form 7 version 5.0 acceptance checkbox triggering submit button
