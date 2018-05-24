@@ -94,9 +94,9 @@ add_action( 'wpcf7_enqueue_scripts', 'cf7bs_enqueue_scripts' );
 function cf7bs_enqueue_styles() {
 	wp_dequeue_style( 'contact-form-7' );
 
-	if (version_compare(CF7BS_VERSION, '1.4.9', '>=')) {
+	if ( version_compare( CF7BS_VERSION, '1.4.8', '>=' ) ) {
 		$min = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
-		wp_enqueue_style('contact-form-7-bootstrap-style', CF7BS_URL . '/assets/dist/css/style' . $min . '.css');
+		wp_enqueue_style( 'contact-form-7-bootstrap-style', CF7BS_URL . '/assets/dist/css/style' . $min . '.css' );
 	}
 }
 add_action( 'wpcf7_enqueue_styles', 'cf7bs_enqueue_styles' );
