@@ -3,6 +3,7 @@
 = 1.4.8 =
 * Added: support for input groups for number tags
 * Added: support for conditional loading of styles and scripts
+* Enhanced: Labels now allow basic inline HTML markup
 * Fixed: Acceptance validation not showing message
 
 = 1.4.7 =
