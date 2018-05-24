@@ -13,8 +13,8 @@
  * Version:     1.4.8
  * Author:      Felix Arntz
  * Author URI:  https://leaves-and-love.net
- * License:     GNU General Public License v3
- * License URI: http://www.gnu.org/licenses/gpl-3.0.html
+ * License:     GNU General Public License v2 (or later)
+ * License URI: http://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain: bootstrap-for-contact-form-7
  * Tags:        contact form 7, wpcf7, bootstrap, bootstrap 3, bootstrap framework, addon, contact form 7 addon, contact form, cf7bs
  */

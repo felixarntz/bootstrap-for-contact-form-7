@@ -10,8 +10,8 @@ Requires at least: 3.6
 Tested up to:      4.9
 Stable tag:        1.4.8
 Version:           1.4.8
-License:           GNU General Public License v3
-License URI:       http://www.gnu.org/licenses/gpl-3.0.html
+License:           GNU General Public License v2 (or later)
+License URI:       http://www.gnu.org/licenses/gpl-2.0.html
 Tags:              contact form 7, wpcf7, bootstrap, bootstrap 3, bootstrap framework, addon, contact form 7 addon, contact form, cf7bs
 
 This plugin modifies the output of the popular Contact Form 7 plugin to be styled in compliance with themes using the Bootstrap CSS framework.
