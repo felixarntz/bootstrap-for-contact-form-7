@@ -324,22 +324,7 @@ class CF7BS_Form_Field extends CF7BS_Component {
 					break;
 				case 'number':
 				case 'range':
-                    if ( ! empty( $input_before ) || ! empty( $input_after ) ) {
-                        $input_group_class = 'input-group';
-                        if ( false !== strpos( $input_class, ' input-lg') ) {
-                            $input_class = str_replace( ' input-lg', '', $input_class );
-                            $input_group_class .= ' input-group-lg';
-                        } elseif ( false !== strpos( $input_class, ' input-sm') ) {
-                            $input_class = str_replace( ' input-sm', '', $input_class );
-                            $input_group_class .= ' input-group-sm';
-                        }
-                        $output .= '<div class="' . $input_group_class . '">';
-                        if ( ! empty( $input_before ) ) {
-                            $output .= '<span class="' . esc_attr( $input_before_class ) . '">';
-                            $output .= $input_before;
-                            $output .= '</span>';
-                        }
-                    }
+                    $input_class = $this->filter_input_class( $input_class, $input_before, $input_after );
 
                     $min = '';
                     if ( isset( $options['min'] ) ) {
@@ -353,16 +338,10 @@ class CF7BS_Form_Field extends CF7BS_Component {
                     if ( isset( $options['step'] ) ) {
                         $step = ' step="' . esc_attr( $options['step'] ) . '"';
                     }
-                    $output .= '<input' . $input_class . ( ! empty( $id ) ? ' id="' . esc_attr( $id ) . '"' : '' ) . ' name="' . esc_attr( $name ) . '" type="' . esc_attr( $type ) . '" value="' . esc_attr( $value ) . '"' . $placeholder . $min . $max . $step . $readonly . $tabindex . $append . '>';
 
-                    if ( ! empty( $input_before ) || ! empty( $input_after ) ) {
-                        if ( ! empty( $input_after ) ) {
-                            $output .= '<span class="' . esc_attr( $input_after_class ) . '">';
-                            $output .= $input_after;
-                            $output .= '</span>';
-                        }
-                        $output .= '</div>';
-                    }
+					$output .= $this->get_input_before_markup( $input_before, $input_after, $input_before_class, $input_class );
+                    $output .= '<input' . $input_class . ( ! empty( $id ) ? ' id="' . esc_attr( $id ) . '"' : '' ) . ' name="' . esc_attr( $name ) . '" type="' . esc_attr( $type ) . '" value="' . esc_attr( $value ) . '"' . $placeholder . $min . $max . $step . $readonly . $tabindex . $append . '>';
+                    $output .= $this->get_input_after_markup( $input_before, $input_after, $input_after_class );
                     break;
 				case 'date':
 				case 'datetime':
@@ -393,33 +372,11 @@ class CF7BS_Form_Field extends CF7BS_Component {
 					if ( 'static' == $mode ) {
 						$output .= '<p class="form-control-static">' . esc_html( $value ) . '</p>';
 					} else {
-						if ( ! empty( $input_before ) || ! empty( $input_after ) ) {
-							$input_group_class = 'input-group';
-							if ( false !== strpos( $input_class, ' input-lg') ) {
-								$input_class = str_replace( ' input-lg', '', $input_class );
-								$input_group_class .= ' input-group-lg';
-							} elseif ( false !== strpos( $input_class, ' input-sm') ) {
-								$input_class = str_replace( ' input-sm', '', $input_class );
-								$input_group_class .= ' input-group-sm';
-							}
-							$output .= '<div class="' . $input_group_class . '">';
-							if ( ! empty( $input_before ) ) {
-								$output .= '<span class="' . esc_attr( $input_before_class ) . '">';
-								$output .= $input_before;
-								$output .= '</span>';
-							}
-						}
+						$input_class = $this->filter_input_class( $input_class, $input_before, $input_after );
 
+						$output .= $this->get_input_before_markup( $input_before, $input_after, $input_before_class, $input_class );
 						$output .= '<input' . $input_class . ( ! empty( $id ) ? ' id="' . esc_attr( $id ) . '"' : '' ) . ' name="' . esc_attr( $name ) . '" type="' . esc_attr( $type ) . '" value="' . esc_attr( $value ) . '"' . $placeholder . $readonly . $minlength . $maxlength . $tabindex . $append . '>';
-
-						if ( ! empty( $input_before ) || ! empty( $input_after ) ) {
-							if ( ! empty( $input_after ) ) {
-								$output .= '<span class="' . esc_attr( $input_after_class ) . '">';
-								$output .= $input_after;
-								$output .= '</span>';
-							}
-							$output .= '</div>';
-						}
+						$output .= $this->get_input_after_markup( $input_before, $input_after, $input_after_class );
 					}
 					break;
 			}
@@ -442,6 +399,58 @@ class CF7BS_Form_Field extends CF7BS_Component {
 			echo $output;
 		}
 		return $output;
+	}
+
+	protected function filter_input_class( $input_class, $input_before, $input_after ) {
+		if ( empty( $input_before ) && empty( $input_after ) ) {
+			return $input_class;
+		}
+
+		if ( false !== strpos( $input_class, ' input-lg' ) ) {
+			$input_class = str_replace( ' input-lg', '', $input_class );
+		} elseif ( false !== strpos( $input_class, ' input-sm' ) ) {
+			$input_class = str_replace( ' input-sm', '', $input_class );
+		}
+
+		return $input_class;
+	}
+
+	protected function get_input_before_markup( $input_before, $input_after, $input_before_class, $input_class ) {
+		if ( empty( $input_before ) && empty( $input_after ) ) {
+			return '';
+		}
+
+		$input_group_class = 'input-group';
+		if ( false !== strpos( $input_class, ' input-lg') ) {
+			$input_group_class .= ' input-group-lg';
+		} elseif ( false !== strpos( $input_class, ' input-sm') ) {
+			$input_group_class .= ' input-group-sm';
+		}
+
+		$markup = '<div class="' . $input_group_class . '">';
+		if ( ! empty( $input_before ) ) {
+			$markup .= '<span class="' . esc_attr( $input_before_class ) . '">';
+			$markup .= $input_before;
+			$markup .= '</span>';
+		}
+
+		return $markup;
+	}
+
+	protected function get_input_after_markup( $input_before, $input_after, $input_after_class ) {
+		if ( empty( $input_before ) && empty( $input_after ) ) {
+			return '';
+		}
+
+		$markup = '';
+		if ( ! empty( $input_after ) ) {
+			$markup .= '<span class="' . esc_attr( $input_after_class ) . '">';
+			$markup .= $input_after;
+			$markup .= '</span>';
+		}
+		$markup .= '</div>';
+
+		return $markup;
 	}
 
 	protected function validate_args( $args, $exclude = array() ) {
