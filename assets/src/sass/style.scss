@@ -1,73 +1,73 @@
 div.wpcf7 {
-  .screen-reader-response {
-    position: absolute;
-    overflow: hidden;
-    clip: rect(1px, 1px, 1px, 1px);
-    height: 1px;
-    width: 1px;
-    margin: 0;
-    padding: 0;
-    border: 0;
-  }
+	.screen-reader-response {
+		position: absolute;
+		overflow: hidden;
+		clip: rect(1px, 1px, 1px, 1px);
+		height: 1px;
+		width: 1px;
+		margin: 0;
+		padding: 0;
+		border: 0;
+	}
 
-  .form-inline {
-    img.ajax-loader {
-      display: inline;
-    }
-    .form-group {
-      max-width: 250px;
-    }
-  }
+	.form-inline {
+		img.ajax-loader {
+		  display: inline;
+		}
+		.form-group {
+		  max-width: 250px;
+		}
+	}
 
-  .ajax-loader {
-    visibility: hidden;
-    display: inline-block;
-    width: 16px;
-    height: 16px;
-    border: none;
-    padding: 0;
-    margin: 0 0 0 4px;
-    vertical-align: middle;
+	.ajax-loader {
+		visibility: hidden;
+		display: inline-block;
+		width: 16px;
+		height: 16px;
+		border: none;
+		padding: 0;
+		margin: 0 0 0 4px;
+		vertical-align: middle;
 
-    &.is-active {
-      visibility: visible;
-    }
-  }
+		&.is-active {
+		  visibility: visible;
+		}
+	}
 
-  div.ajax-error {
-    display: none;
-  }
+	div.ajax-error {
+		display: none;
+	}
 
-  .wpcf7-display-none {
-    display: none;
-  }
+	.wpcf7-display-none {
+		display: none;
+	}
 
-  .placeheld {
-    color: #888;
-  }
+	.placeheld {
+		color: #888;
+	}
 
-  .wpcf7-recaptcha iframe {
-    margin-bottom: 0;
-  }
+	.wpcf7-recaptcha iframe {
+		margin-bottom: 0;
+	}
 
-  input[type="file"] {
-    cursor: pointer;
+	input[type="file"] {
+		cursor: pointer;
 
-    &:disabled {
-      cursor: default;
-    }
-  }
+		&:disabled {
+		  cursor: default;
+		}
+	}
 
-  .input-group-addon {
-    img {
-      height: 100%;
-      width: auto;
-      max-width: none !important;
-      border-radius: 5px;
-    }
+	.input-group-addon {
+		img {
+		  height: 100%;
+		  width: auto;
+		  max-width: none !important;
+		  border-radius: 5px;
+		}
 
-    &.input-group-has-image {
-      padding: 0;
-    }
-  }
+		&.input-group-has-image {
+		  padding: 0;
+		}
+	}
 }

@@ -323,25 +323,25 @@ class CF7BS_Form_Field extends CF7BS_Component {
 					$output .= '<input' . ( ! empty( $id ) ? ' id="' . esc_attr( $id ) . '"' : '' ) . ' name="' . esc_attr( $name ) . '" type="hidden" value="' . esc_attr( $value ) . '">';
 					break;
 				case 'number':
-                    $input_class = $this->filter_input_class( $input_class, $input_before, $input_after );
+					$input_class = $this->filter_input_class( $input_class, $input_before, $input_after );
 
-                    $min = '';
-                    if ( isset( $options['min'] ) ) {
-                        $min = ' min="' . esc_attr( $options['min'] ) . '"';
-                    }
-                    $max = '';
-                    if ( isset( $options['max'] ) ) {
-                        $max = ' max="' . esc_attr( $options['max'] ) . '"';
-                    }
-                    $step = '';
-                    if ( isset( $options['step'] ) ) {
-                        $step = ' step="' . esc_attr( $options['step'] ) . '"';
-                    }
+					$min = '';
+					if ( isset( $options['min'] ) ) {
+						$min = ' min="' . esc_attr( $options['min'] ) . '"';
+					}
+					$max = '';
+					if ( isset( $options['max'] ) ) {
+						$max = ' max="' . esc_attr( $options['max'] ) . '"';
+					}
+					$step = '';
+					if ( isset( $options['step'] ) ) {
+						$step = ' step="' . esc_attr( $options['step'] ) . '"';
+					}
 
 					$output .= $this->get_input_before_markup( $input_before, $input_after, $input_before_class, $input_class );
-                    $output .= '<input' . $input_class . ( ! empty( $id ) ? ' id="' . esc_attr( $id ) . '"' : '' ) . ' name="' . esc_attr( $name ) . '" type="' . esc_attr( $type ) . '" value="' . esc_attr( $value ) . '"' . $placeholder . $min . $max . $step . $readonly . $tabindex . $append . '>';
-                    $output .= $this->get_input_after_markup( $input_before, $input_after, $input_after_class );
-                    break;
+					$output .= '<input' . $input_class . ( ! empty( $id ) ? ' id="' . esc_attr( $id ) . '"' : '' ) . ' name="' . esc_attr( $name ) . '" type="' . esc_attr( $type ) . '" value="' . esc_attr( $value ) . '"' . $placeholder . $min . $max . $step . $readonly . $tabindex . $append . '>';
+					$output .= $this->get_input_after_markup( $input_before, $input_after, $input_after_class );
+					break;
 				case 'range':
 				case 'date':
 				case 'datetime':
