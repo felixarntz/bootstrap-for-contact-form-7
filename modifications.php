@@ -250,14 +250,14 @@ function cf7bs_validation_error( $output, $name, $form_obj ) {
 add_filter( 'wpcf7_validation_error', 'cf7bs_validation_error', 10, 3 );
 
 function cf7bs_ajax_json_echo( $items, $result ) {
-	if ( isset( $items['invalids'] ) ) {
-		foreach ( $items['invalids'] as &$invalid ) {
+	if ( isset( $items['invalid_fields'] ) ) {
+		foreach ( $items['invalid_fields'] as &$invalid ) {
 			$invalid['into'] = str_replace( 'span.wpcf7-form-control-wrap', 'div.form-group', $invalid['into'] );
 		}
 	}
 	return $items;
 }
-add_filter( 'wpcf7_ajax_json_echo', 'cf7bs_ajax_json_echo', 10, 2 );
+add_filter( 'wpcf7_feedback_response', 'cf7bs_ajax_json_echo', 10, 2 );
 
 function cf7bs_default_template( $template, $prop = 'form' ) {
 	if ( 'form' == $prop ) {
@@ -353,4 +353,4 @@ function cf7bs_adjust_rest_feedback_response( $response, $result ) {
 
 	return $response;
 }
-add_filter( 'wpcf7_ajax_json_echo', 'cf7bs_adjust_rest_feedback_response', 10, 2 );
+add_filter( 'wpcf7_feedback_response', 'cf7bs_adjust_rest_feedback_response', 10, 2 );
