@@ -58,18 +58,21 @@
 
 	// add Bootstrap Alert classes to response output
 	$( function() {
-		$( 'div.wpcf7' ).on( 'invalid.wpcf7', function() {
-			$( this ).find( 'div.wpcf7-response-output' ).addClass( 'alert-warning' );
-		});
-		$( 'div.wpcf7' ).on( 'spam.wpcf7', function() {
-			$( this ).find( 'div.wpcf7-response-output' ).addClass( 'alert-warning' );
-		});
-		$( 'div.wpcf7' ).on( 'mailsent.wpcf7', function() {
-			$( this ).find( 'div.wpcf7-response-output' ).addClass( 'alert-success' );
-		});
-		$( 'div.wpcf7' ).on( 'mailfailed.wpcf7', function() {
-			$( this ).find( 'div.wpcf7-response-output' ).addClass( 'alert-danger' );
-		});
+		var wpcf7Elm = document.querySelector( '.wpcf7' );
+		for (var i = 0; i < wpcf7Elm.length; i++) {
+			wpcf7Elm[i].addEventListener( 'wpcf7invalid', function() {
+				$( this ).find( 'div.wpcf7-response-output' ).addClass( 'alert-warning' );
+			}, false );
+			wpcf7Elm[i].addEventListener( 'wpcf7spam', function() {
+				$( this ).find( 'div.wpcf7-response-output' ).addClass( 'alert-warning' );
+			}, false );
+			wpcf7Elm[i].addEventListener( 'wpcf7mailsent', function() {
+				$( this ).find( 'div.wpcf7-response-output' ).addClass( 'alert-success' );
+			}, false );
+			wpcf7Elm[i].addEventListener( 'wpcf7mailfailed', function() {
+				$( this ).find( 'div.wpcf7-response-output' ).addClass( 'alert-danger' );
+			}, false );
+		}
 
 		$( 'div.wpcf7' ).on( 'click', 'div.wpcf7-response-output .close', function( e ) {
 			$( this ).parent().hide();
